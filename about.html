@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lohi Wean</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: monospace;
+      background-color: #1b1b1b; /* Reverted body background color */
+      color: #e6ff8c; /* Reverted body text color */
+    }
+    nav {
+      position: fixed;
+      top: 1rem;
+      right: 2rem;
+      z-index: 100;
+    }
+    nav a {
+      margin-left: 1rem;
+      color: #e6ff8c; /* Reverted navigation link color */
+      text-decoration: none;
+    }
+    .ascii-logo {
+      text-align: center;
+      font-size: 0.75rem;
+      color: #aaffcc; /* Reverted ASCII logo text color */
+      margin-top: 3rem;
+      white-space: pre;
+      line-height: .9; /* Adjusted line spacing for better legibility */
+    }
+    .ascii-title {
+      color: #aaffcc; /* Reverted ASCII header text color to original */
+    }
+    .portrait {
+        position: absolute;
+        left: 50%;
+        top: 50%; /* Default position to avoid overlap */
+        width: 200px; /* Fixed width to prevent scaling */
+        height: auto; /* Maintains aspect ratio */
+        transform: translate(-50%, -50%);
+        transition: none; /* Disable transitions initially */
+        z-index: 10;
+    }
+    .about-text {
+        max-width: 700px;
+        margin: 40px auto 4rem auto; /* Increased top margin to move the text body slightly down */
+        padding: 0 1rem;
+        font-size: 0.9rem; /* Reduced font size slightly */
+        line-height: 1.6;
+        text-align: center;
+        color: #e6ff8c; /* Reverted about text color */
+    }
+    .filtered-image {
+        /* Removed the filter rule */
+    }
+  </style>
+</head>
+<body>
+  <nav style="position: fixed; top: 1rem; right: 2rem; font-size: 1rem;">
+    <a href="about.html" style="margin-left: 1rem; color: #e6ff8c; text-decoration: none;">About</a>
+    <a href="index.html" style="margin-left: 1rem; color: #e6ff8c; text-decoration: none;">Works</a>
+    <a href="contact.html" style="margin-left: 1rem; color: #e6ff8c; text-decoration: none;">Contact</a>
+  </nav>
+
+  <div class="ascii-logo">
+.____          .__    .__   __      __                      <br/>
+|    |    ____ |  |__ |__| /  \    /  \ ____ _____    ____  <br/>
+|    |   /  _ \|  |  \|  | \   \/\/   // __ \\__  \  /    \ <br/>
+|    |__(  <_> )   Y  \  |  \        /\  ___/ / __ \|   |  <br/>
+|_______ \____/|___|  /__|   \__/\  /  \___  >____  /___|  /<br/>
+        \/          \/            \/       \/     \/     \/ <br/>
+  </div>
+
+  <img class="portrait" id="portrait" src="spiked_portrait_fewer_wider.png" alt="Portrait of Lohi Wean" />
+
+  <div class="about-text" id="aboutText">
+    I make drawings and paintings that usually start with a feeling or an image I can’t stop thinking about—sometimes something funny, sometimes uncomfortable, often both. I work mostly with graphite, colored pencil, oil, pastel, acrylic, whatever’s around. The process is pretty intuitive—either I fall into a rabbit hole of research or I just start drawing and see where it goes. I like slow, repetitive work—crosshatching, shading, patterns, wearing my pencils down to nothing. I’m a queer trans man with Hasidic Jewish and Hawaiian roots, and that background definitely shapes how I see and what I make, even if it’s not always front and center. My politics are always in the room too—I come from DIY scenes and organizing spaces, and I carry that sense of care, critique, and collaboration into my art. Humor plays a big role in my work—it’s how I hold space for contradiction and complexity, how I talk about serious things without being didactic. I’m influenced by cartoons and comics I grew up on—Futurama, The Last Unicorn, The Far Side, Calvin and Hobbes—and by artists who let their work be strange, emotional, awkward, unapologetically personal. I don’t try to make things perfect or polished. I’m more interested in the stuff that slips through the cracks, the feeling that hits before the meaning does.
+  </div>
+
+  <script>
+    const portrait = document.getElementById("portrait");
+    const about = document.getElementById("aboutText");
+    const imgWidth = 220;
+    const imgHeight = 220;
+
+    function isOverText(x, y) {
+      const bounds = about.getBoundingClientRect();
+      const scrollY = window.scrollY;
+      const scrollX = window.scrollX;
+      const buffer = 40;
+      return (
+        x + imgWidth > bounds.left + scrollX - buffer &&
+        x < bounds.right + scrollX + buffer &&
+        y + imgHeight > bounds.top + scrollY - buffer &&
+        y < bounds.bottom + scrollY + buffer
+      );
+    }
+
+    window.addEventListener("load", () => {
+        const portrait = document.getElementById("portrait");
+        const asciiLogo = document.querySelector(".ascii-logo");
+        const aboutText = document.getElementById("aboutText");
+
+        if (asciiLogo && aboutText) {
+            const logoRect = asciiLogo.getBoundingClientRect();
+            const aboutRect = aboutText.getBoundingClientRect();
+
+            // Add a buffer to avoid overlap with the ASCII logo and the about paragraph
+            const buffer = 30; // Adjusted buffer for better spacing
+
+            // Position the portrait between the ASCII logo and the about paragraph
+            const newTop = window.scrollY + logoRect.bottom + buffer + (aboutRect.top - logoRect.bottom - 2 * buffer) / 2;
+            portrait.style.top = `${newTop}px`;
+            portrait.style.left = "50%"; // Ensure it is horizontally centered
+            portrait.style.transform = "translate(-50%, -50%)"; // Adjust transform to center properly
+
+            // Set the original position to the calculated starting position
+            portrait.dataset.originalTop = `${newTop}px`;
+            portrait.dataset.originalLeft = "50%";
+        }
+    });
+
+    portrait.addEventListener("mouseenter", () => {
+        let tries = 0;
+        let x, y;
+        const minDistance = 150;
+        let angle, distance;
+
+        do {
+            angle = Math.random() * 2 * Math.PI;
+            distance = minDistance + Math.random() * 300;
+            x = window.innerWidth / 2 + distance * Math.cos(angle);
+            y = parseFloat(portrait.dataset.originalTop) + distance * Math.sin(angle);
+            tries++;
+        } while (isOverText(x, y) && tries < 30);
+
+        // Apply smooth transitions for the floating action
+        portrait.style.transition = "top 1.5s ease-in-out, left 1.5s ease-in-out";
+        portrait.style.left = `${x}px`;
+        portrait.style.top = `${y}px`;
+
+        setTimeout(() => {
+            portrait.style.left = portrait.dataset.originalLeft;
+            portrait.style.top = portrait.dataset.originalTop;
+        }, 3000);
+    });
+  </script>
+  <script src="randomImage.js"></script>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Works in Progress</title>
+  
+<style>
+  body {
+    background-color: #1a1a1a;
+    color: #e6ff8c;
+    font-family: monospace;
+    margin: 0;
+    padding: 0;
+  }
+  nav {
+    position: fixed;
+    top: 1rem;
+    right: 2rem;
+    font-size: 1rem;
+    z-index: 100;
+  }
+  nav a {
+    margin-left: 1rem;
+    color: #e6ff8c;
+    text-decoration: none;
+  }
+  .ascii-title {
+      text-align: center;
+      color: #aaffcc;
+      font-size: 0.9rem;
+      white-space: pre-wrap;
+      margin-bottom: 1rem; /* Adjusted margin to match index.html */
+    }
+  .subtitle {
+    text-align: center;
+    color: #ccffcc;
+    font-size: 0.9rem;
+    margin-bottom: 3.5rem;
+  }
+  .carousel-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: 1000px;
+    margin: 0 auto 2.5rem;
+    padding: 0 1rem;
+    overflow: visible;
+  }
+  .carousel {
+    width: 100%;
+    overflow: visible;
+  }
+  .carousel-images {
+    display: flex;
+    transition: transform 0.5s ease;
+    overflow: visible;
+  }
+  .carousel-images img {
+    max-height: 65vh;
+    height: auto;
+    width: auto;
+    object-fit: contain;
+    margin: 0 auto;
+    border-radius: 6px;
+    border: none;
+    box-shadow: none;
+    transform: rotate(var(--rotate));
+  }
+  .carousel-controls {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 1.3rem;
+    color: #e6ff8c;
+    user-select: none;
+    cursor: pointer;
+    margin-top: 1rem;
+  }
+  .caption {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+  .caption h2 {
+    margin: 0.3rem;
+    font-size: 1.3rem;
+  }
+  .caption p {
+    font-size: 1rem;
+    color: #ccff99;
+  }
+</style>
+
+</head>
+<body>
+
+  <nav>
+    <a href="about.html">About</a>
+    <a href="index.html">Works</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <pre class="ascii-title">
+.___         __________                                                   
+|   | ____   \______   \_______  ____   ___________   ____   ______ ______
+|   |/    \   |     ___/\_  __ \/  _ \ / ___\_  __ \_/ __ \ /  ___//  ___/
+|   |   |  \  |    |     |  | \(  <_> ) /_/  >  | \/\  ___/ \___ \ \___ \ 
+|___|___|  /  |____|     |__|   \____/\___  /|__|    \___  >____  >____  >
+         \/                          /_____/             \/     \/     \/  
+  </pre>
+  <div class="subtitle">updated April 2025</div>
+
+  <div class="carousel-wrapper">
+    <div class="carousel">
+      <div class="carousel-images" id="carouselTrack1">
+<img src="wip1.png" alt="wip1.png" style="--rotate: 4deg;">
+<img src="wip2.png" alt="wip2.png" style="--rotate: -2deg;">
+<img src="process 1.jpg" alt="process 1.jpg" style="--rotate: 6deg;">
+<img src="process 2.jpg" alt="process 2.jpg" style="--rotate: -8deg;">
+<img src="process 3.jpg" alt="process 3.jpg" style="--rotate: 6deg;">
+<img src="process 4.jpg" alt="process 4.jpg" style="--rotate: 2deg;">
+<img src="process 5.jpg" alt="process 5.jpg" style="--rotate: 7deg;">
+<img src="process 6.jpg" alt="process 6.jpg" style="--rotate: 5deg;">
+<img src="process 7.jpg" alt="process 7.jpg" style="--rotate: -8deg;">
+
+      </div>
+    </div>
+    <div class="carousel-controls">
+      <span onclick="moveSlide(-1, 1)">&lt;==</span>
+      <span onclick="moveSlide(1, 1)">==&gt;</span>
+    </div>
+  </div>
+  <div class="caption">
+    <h2>Getting to the Root of the Problem</h2>
+    <p>Oil on linen, 2025 – Progress with digital sketch</p>
+  </div>
+
+
+<div class="carousel-wrapper">
+  <div class="carousel">
+    <div class="carousel-images" id="carouselTrack2">
+<img src="progress 1.jpg" alt="progress 1.jpg" style="--rotate: 2deg;">
+<img src="progress 2.jpg" alt="progress 2.jpg" style="--rotate: 7deg;">
+<img src="progress 3.jpg" alt="progress 3.jpg" style="--rotate: -7deg;">
+<img src="progress 5.jpg" alt="progress 5.jpg" style="--rotate: 5deg;">
+<img src="progress 6.jpg" alt="progress 6.jpg" style="--rotate: 2deg;">
+<img src="progress 7.jpg" alt="progress 7.jpg" style="--rotate: 2deg;">
+
+    </div>
+  </div>
+  <div class="carousel-controls">
+    <span onclick="moveSlide(-1, 2)">&lt;==</span>
+    <span onclick="moveSlide(1, 2)">==&gt;</span>
+  </div>
+</div>
+
+
+  <div class="carousel-wrapper">
+    <div class="carousel">
+      <div class="carousel-images" id="carouselTrack2">
+        <!-- More images coming soon -->
+      </div>
+    </div>
+    
+  </div>
+  <div class="caption">
+    <h2>Untitled Father</h2>
+    <p>2025, Acrylic on canvas</p>
+  </div>
+
+  <script>
+    function moveSlide(direction, carouselNum) {
+      const track = document.getElementById('carouselTrack' + carouselNum);
+      const slides = track.children;
+      const total = slides.length;
+      let index = parseInt(track.getAttribute('data-index') || 0);
+      index = (index + direction + total) % total;
+      track.setAttribute('data-index', index);
+      track.style.transform = 'translateX(' + (-index * 100) + '%)';
+    }
+
+    window.addEventListener('load', () => {
+      document.querySelectorAll('.carousel-images').forEach(track => {
+        for (let slide of track.children) {
+          slide.style.minWidth = '100%';
+          slide.style.flexShrink = '0';
+        }
+        track.setAttribute('data-index', 0);
+      });
+    });
+  </script>
+  <script src="randomImage.js"></script>
+
+</body>
+</html>

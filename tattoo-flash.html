@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tattoo Flash</title>
+  <style>
+    body {
+      background-color: #1e1e1b;
+      color: #d9d9c2;
+      font-family: monospace;
+      padding: 40px;
+      text-align: center;
+    }
+    .ascii-title {
+      white-space: pre-wrap;
+      font-size: 0.9rem;
+      color: #aaffcc;
+      margin-bottom: 1rem; /* Adjusted margin to match index.html */
+      text-align: center;
+    }
+    .subtitle {
+      font-size: 16px;
+      color: #a4d4ae;
+      margin-bottom: 30px;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .gallery img {
+      height: auto;
+      max-height: 200px;
+      width: auto;
+      transform: rotate(calc(var(--angle, 0deg)));
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+    .gallery img:hover {
+      transform: scale(1.05) rotate(calc(var(--angle, 0deg)));
+    }
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      display: none;
+    }
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+    }
+  </style>
+</head>
+<body>
+<nav style="position: fixed; top: 1rem; right: 2rem; font-size: 1rem;">
+    <a href="about.html" style="margin-left: 1rem; color: #e6ff8c; text-decoration: none;">About</a>
+    <a href="index.html" style="margin-left: 1rem; color: #e6ff8c; text-decoration: none;">Works</a>
+    <a href="contact.html" style="margin-left: 1rem; color: #e6ff8c; text-decoration: none;">Contact</a>
+  </nav>
+
+
+  
+
+  <div class="ascii-title">
+___________       __    __                  ___________.__                .__     
+\__    ___/____ _/  |__/  |_  ____   ____   \_   _____/|  | _____    _____|  |__  
+  |    |  \__  \\   __\   __\/  _ \ /  _ \   |    __)  |  | \__  \  /  ___/  |  \ 
+  |    |   / __ \|  |  |  | (  <_> |  <_> )  |     \   |  |__/ __ \_\___ \|   Y  \
+  |____|  (____  /__|  |__|  \____/ \____/   \___  /   |____(____  /____  >___|  /
+               \/                                \/              \/     \/     \/  
+</div>
+  <div class="subtitle">Assorted tattoo flash, 2021–2024</div>
+  <div class="gallery">
+    <img src="e3298660-792d-40e3-a90e-9aae63974ca8_rw_1200.jpeg" style="--angle: 5deg" onclick="openLightbox(this.src)">
+    <img src="2f0668de-a405-4e78-9471-727425239c32_rw_1200.jpg" style="--angle: 2deg" onclick="openLightbox(this.src)">
+    <img src="7fba1ae1-e2b2-4044-a16b-f2f3bc1914d3_rw_1920.png" style="--angle: -5deg" onclick="openLightbox(this.src)">
+    <img src="69fdb432-4132-4323-a90a-7433a455965e_rw_1200.jpg" style="--angle: -3deg" onclick="openLightbox(this.src)">
+    <img src="727f43d3-aacf-4fb5-b4be-ece6978aa8a2_rw_1200.png" style="--angle: -3deg" onclick="openLightbox(this.src)">
+    <img src="42fba193-5e5b-4884-9c2f-cf4299054271_rw_1200 (1).jpeg" style="--angle: 5deg" onclick="openLightbox(this.src)">
+    <img src="fe0f19e1-37f7-43a9-9b72-85f2d45bb000_rw_1920.jpeg" style="--angle: -2deg" onclick="openLightbox(this.src)">
+    <img src="a441bfbd-6743-420a-bd14-9192ccca88d2_rw_1920.jpeg" style="--angle: 2deg" onclick="openLightbox(this.src)">
+    <img src="a17f3d97-768f-4133-b19d-54cf72a95207_rw_1920.jpeg" style="--angle: 4deg" onclick="openLightbox(this.src)">
+    <img src="d099d15a-e3fb-4ecf-9a69-6930552a79a5_rw_1200.png" style="--angle: -2deg" onclick="openLightbox(this.src)">
+    <img src="6fb91ee4-ec24-42cf-94cd-5b31f36396b3_rw_1200.jpeg" style="--angle: 4deg" onclick="openLightbox(this.src)">
+    <img src="e5acf39d-6fc6-48fa-8a7a-a07c0006ef5f_rw_1200.jpeg" style="--angle: 2deg" onclick="openLightbox(this.src)">
+    <img src="c9a78803-b543-4dae-8058-f7a3768630e5_rw_1920.jpeg" style="--angle: -3deg" onclick="openLightbox(this.src)">
+    <img src="19533031-e431-447c-b2cd-85f148c035a7_rw_1920.jpg" style="--angle: -5deg" onclick="openLightbox(this.src)">
+    <img src="96c381fa-7869-4317-b977-b866cc24415b_rw_1920.jpeg" style="--angle: 2deg" onclick="openLightbox(this.src)">
+    <img src="bcbb4235-9302-4026-b267-80090e746415_rw_1200.jpeg" style="--angle: -5deg" onclick="openLightbox(this.src)">
+    <img src="3acfe6fc-7d79-406a-adea-bb5b9c2bc704_rw_1920.jpeg" style="--angle: 5deg" onclick="openLightbox(this.src)">
+    <img src="ece471a2-f078-410a-8394-ce6ba1da5da3_rw_1200.png" style="--angle: 1deg" onclick="openLightbox(this.src)">
+    <img src="7c7a1b13-43dc-441c-906a-67ec95b797c1_rw_1920.jpeg" style="--angle: -5deg" onclick="openLightbox(this.src)">
+    <img src="1d9b38b1-760d-4b7c-b6c1-8d6720b90b00_rw_1200.jpg" style="--angle: -5deg" onclick="openLightbox(this.src)">
+    <img src="e2d72268-f018-4230-8468-4da2c36c02bd_rw_1200.jpeg" style="--angle: -2deg" onclick="openLightbox(this.src)">
+    <img src="da0d2282-e493-4933-b0bc-c3556b43f1be_rw_1200.jpeg" style="--angle: -5deg" onclick="openLightbox(this.src)">
+    <img src="97acc010-6db8-4263-9715-cadca8bc033c_rw_1920.png" style="--angle: 4deg" onclick="openLightbox(this.src)">
+    <img src="d71186c0-c671-4e7f-8f1c-56830646de57_rw_1920.jpeg" style="--angle: -3deg" onclick="openLightbox(this.src)">
+    <img src="59ae8fb5-4a17-4b78-adc5-ca312829ef59_rw_1920.jpeg" style="--angle: 4deg" onclick="openLightbox(this.src)">
+
+  </div>
+  <div class="lightbox" id="lightbox" onclick="this.style.display='none'">
+    <img id="lightbox-img" src="" alt="">
+  </div>
+  <script>
+    function openLightbox(src) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').style.display = 'flex';
+    }
+  </script>
+  <script src="randomImage.js"></script>
+</body>
+</html>
