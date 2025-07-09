@@ -35,26 +35,22 @@
       color: #aaffcc; /* Reverted ASCII header text color to original */
     }
     .portrait {
-        position: absolute;
-        left: 50%;
-        top: 50%; /* Default position to avoid overlap */
-        width: 200px; /* Fixed width to prevent scaling */
-        height: auto; /* Maintains aspect ratio */
-        transform: translate(-50%, -50%);
-        transition: none; /* Disable transitions initially */
-        z-index: 10;
+        position: absolute; /* Restored absolute positioning */
+        left: 50%; /* Centered horizontally */
+        top: 45%; /* Adjusted vertical positioning */
+        transform: translate(-50%, -50%); /* Ensured proper centering */
+        width: 200px; /* Explicitly set the width */
+        height: auto; /* Maintain aspect ratio */
     }
     .about-text {
-        max-width: 700px;
-        margin: 40px auto 4rem auto; /* Increased top margin to move the text body slightly down */
+        max-width: 500px; /* Further reduced width for tighter text */
+        margin: 0 auto; /* Centered the text block */
         padding: 0 1rem;
-        font-size: 0.9rem; /* Reduced font size slightly */
-        line-height: 1.6;
+        font-size: 1.2rem; /* Increased font size for better readability */
+        line-height: 1.5; /* Adjusted line height for tighter spacing */
         text-align: center;
-        color: #e6ff8c; /* Reverted about text color */
-    }
-    .filtered-image {
-        /* Removed the filter rule */
+        color: #e6ff8c; /* Maintained text color */
+        margin-top: 0; /* Removed top margin */
     }
   </style>
 </head>
@@ -77,7 +73,7 @@
   <img class="portrait" id="portrait" src="spiked_portrait_fewer_wider.png" alt="Portrait of Lohi Wean" />
 
   <div class="about-text" id="aboutText">
-    I make drawings and paintings that usually start with a feeling or an image I can’t stop thinking about—sometimes something funny, sometimes uncomfortable, often both. I work mostly with graphite, colored pencil, oil, pastel, acrylic, whatever’s around. The process is pretty intuitive—either I fall into a rabbit hole of research or I just start drawing and see where it goes. I like slow, repetitive work—crosshatching, shading, patterns, wearing my pencils down to nothing. I’m a queer trans man with Hasidic Jewish and Hawaiian roots, and that background definitely shapes how I see and what I make, even if it’s not always front and center. My politics are always in the room too—I come from DIY scenes and organizing spaces, and I carry that sense of care, critique, and collaboration into my art. Humor plays a big role in my work—it’s how I hold space for contradiction and complexity, how I talk about serious things without being didactic. I’m influenced by cartoons and comics I grew up on—Futurama, The Last Unicorn, The Far Side, Calvin and Hobbes—and by artists who let their work be strange, emotional, awkward, unapologetically personal. I don’t try to make things perfect or polished. I’m more interested in the stuff that slips through the cracks, the feeling that hits before the meaning does.
+    Big feelings, Nostalgia, Hyperfixations… Cartoons and Movies and Online Culture - Sex and drugs and gender and politics. These are the things running through my mind. Could you tell? A sense of humor, a tongue in the cheek, a lip dragged between the teeth. Horny, weird, gross, fun - standing on a soapbox in the corner of each drawing screaming at the viewer to both give in and get up. Hedonism and Communalism are not two opposing forces. Desire is good, actually, especially when painful. Can you desire a better world as much as you desire pussy?
   </div>
 
   <script>

@@ -14,52 +14,59 @@
     }
     .ascii-title {
       text-align: center;
-      color: #aaffcc;
-      font-size: 0.9rem;
-      margin-bottom: 1rem;
-      white-space: pre-wrap;
+      color: #aaffcc; /* Adjusted to match index.html */
+      font-size: 0.9rem; /* Adjusted to match index.html */
+      margin-bottom: 1rem; /* Adjusted to match index.html */
+      white-space: pre-wrap; /* Adjusted to match index.html */
     }
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(4, minmax(250px, 1fr)); /* Fixed number of items per row */
       align-items: start;
-      gap: 2.5rem;
-      justify-content: center;
+      gap: 2rem; /* Even spacing between items */
+      justify-content: center; /* Centers all rows */
+      max-width: 1000px; /* Sets a maximum width for the grid container */
+      margin: 0 auto; /* Centers the grid container on the page */
     }
     .gallery-item {
       position: relative;
+      overflow: hidden; /* Ensures the overlay covers the entire image */
       width: auto;
-      max-width: 300px;
+      max-width: 250px; /* Adjusted to fit items */
       text-decoration: none;
       display: inline-block;
-      transform: rotate(var(--rotate, 0deg)) translate(var(--x, 0px), var(--y, 0px));
+      transform: rotate(var(--rotate, 0deg)) translate(var(--x, 0px), var(--y, 0px)); /* Applied topsy-turvy effect */
       transition: transform 0.3s ease;
+    }
+    .gallery-item:hover {
+      transform: scale(1.05); /* Enlarges the entire box on mouse-over */
     }
     .gallery-item img {
       width: 100%;
       height: auto;
       display: block;
       cursor: pointer;
+      transition: transform 0.3s ease, filter 0.3s ease;
     }
-    .gallery-item:hover {
-      transform: scale(1.04) rotate(var(--rotate, 0deg)) translate(var(--x, 0px), var(--y, 0px));
+    .gallery-item:hover img {
+      filter: brightness(60%);
     }
-    .overlay {
+    .gallery-item .overlay {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.4);
+      background-color: rgba(0, 0, 0, 0.5);
       display: flex;
       align-items: center;
-      justify-content: center;
-      color: #99cc66;
-      font-size: 1rem;
+      justify-content: center; /* Centered the text */
+      text-align: center; /* Ensured all text is centered */
+      color: #e6ff8c;
+      font-size: 0.9rem; /* Slightly reduced font size */
       font-weight: bold;
       opacity: 0;
       transition: opacity 0.3s ease;
-      pointer-events: none;
     }
     .gallery-item:hover .overlay {
       opacity: 1;
@@ -85,6 +92,19 @@
       color: #e6ff8c;
       font-size: 1.2rem;
     }
+    .centered-links {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(250px, 1fr)); /* Matches the main gallery layout */
+      gap: 2rem; /* Ensures consistent spacing */
+      justify-content: center; /* Centers the links */
+      margin-top: 2rem;
+    }
+    .caption {
+      text-align: center;
+      color: #e6ff8c;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
   </style>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
 </head>
@@ -103,86 +123,82 @@
        \/                   \/     \/  
   </pre>
 <div class="gallery">
-<a class="gallery-item" href="works-in-progress.html" style="--rotate: 1deg; --x: 9px; --y: -7px;">
+<div class="gallery-item" style="--rotate: 2deg;" onclick="openLightbox('Lifelong Desire.jpg', 'Lifelong Desire//Gluttony', 'June 2025, Graphite/Colored Pencil on Sketch Paper, 9”x12”<br><em>Thumper knows what’s tasty, that’s a fact I’ve known all my life.<br>(Desire, Hunger, Gluttony, Fetishization, Carnality, Nostalgia)</em>')">
+<img alt="Lifelong Desire//Gluttony" src="Lifelong Desire.jpg"/>
+<div class="overlay">Lifelong Desire//Gluttony</div>
+</div>
+<div class="gallery-item" style="--rotate: 3deg;" onclick="openLightbox('Mark of the beast.jpg', 'Mark of the Beast', 'March 2025, Oil pencil/ink/graphite on Mixed Media, 14”x17”<br><em>Depicts from bottom middle, counter-clockwise: Mr. Beast, Joe Rogan, Jeff Bezos, Mark Zuckerberg, Logan Paul, Andrew Tate, Elon Musk<br>The harbingers of the end of the world, the beast with seven heads - referencing the style of the Skibidi Toilet web series (surveillance, conflict, conformity, Resistance)</em>')">
+<img alt="Mark of the Beast" src="Mark of the beast.jpg"/>
+<div class="overlay">Mark of the Beast</div>
+</div>
+<div class="gallery-item" style="--rotate: -2deg;" onclick="openLightbox('Schemers.JPG', 'God’s Favorite Little Schemers', 'April 2024, Graphite/ink on Mixed Media, 7”x10”<br><em>What having a best friend feels like :)</em>')">
+<img alt="God’s Favorite Little Schemers" src="Schemers.JPG"/>
+<div class="overlay">God’s Favorite Little Schemers</div>
+</div>
+<div class="gallery-item" style="--rotate: 1deg;" onclick="openLightbox('equivalent exchange.jpg', 'Equivalent Exchange', 'February 2024, Graphite on Mixed Media, 9”x12”<br><em>I’ll give what I get and I’ll get what I give.<br>(Desire, Gluttony, Grief, Nostalgia - They spread like a rash. Quiet, calm, Communication, ease… where are they?)</em>')">
+<img alt="Equivalent Exchange" src="equivalent exchange.jpg"/>
+<div class="overlay">Equivalent Exchange</div>
+</div>
+<div class="gallery-item" style="--rotate: -4deg;" onclick="openLightbox('aint-that-just-the-way.jpg', 'Ain’t That Just the Way', 'January 2024, Ballpoint Pen on Mixed Media, 14”x17”<br><em>It may still be bleeding, but life goes on.<br>(Grief, Recovery, Regression, Gutted like a fish)</em>')">
+<img alt="Ain’t That Just the Way" src="aint-that-just-the-way.jpg"/>
+<div class="overlay">Ain’t That Just the Way</div>
+</div>
+<div class="gallery-item" style="--rotate: 5deg;" onclick="openLightbox('yeowch!.jpg', 'Yeowch!', 'January 2024, Graphite/Ink on Mixed Media, 14”x17”<br><em>Had you been looking where you were going…<br>(Change, Fear, Extremely Stoppable Force meets Very Painful Object)</em>')">
+<img alt="Yeowch!" src="yeowch!.jpg"/>
+<div class="overlay">Yeowch!</div>
+</div>
+<div class="gallery-item" style="--rotate: -3deg;" onclick="openLightbox('bow wow.jpg', 'Bow Wow', 'September 2023, Graphite/Ink on Mixed Media, 7”x10”<br><em>Don’t you worry, little pup, they’re watching over you in the quiet night. Look at the stars.</em>')">
+<img alt="Bow Wow" src="bow wow.jpg"/>
+<div class="overlay">Bow Wow</div>
+</div>
+<div class="gallery-item" style="--rotate: 2deg;" onclick="openLightbox('smothered.jpg', 'Smothered', 'August 2023, Graphite/Ink on Mixed Media, 5.5”x8.5”<br><em>Do you want it? Or is it killing you?<br>(Desire, Desperation, Obsession)</em>')">
+<img alt="Smothered" src="smothered.jpg"/>
+<div class="overlay">Smothered</div>
+</div>
+<div class="gallery-item" style="--rotate: -1deg;" onclick="openLightbox('call of the ocean.jpg', 'Call of the Ocean', 'August 2023, Graphite on Mixed media, 5.5”x8.5”<br><em>Can’t you hear it? Or is it just me?<br>(Return to the Earth, Return to the old gods, Return to yourself)</em>')">
+<img alt="Call of the Ocean" src="call of the ocean.jpg"/>
+<div class="overlay">Call of the Ocean</div>
+</div>
+<div class="gallery-item" style="--rotate: 4deg;" onclick="openLightbox('pissing contest.jpg', 'Pissing Contest', 'July 2023, Pastel/Colored Pencil/Glitter Mod Podge, 9”x12”<br><em>Will you accept his challenge? ;)<br>(It’s nature’s way, do you have the balls? Do you know your natural state? Have you yet seen what you’re meant to be?)</em>')">
+<img alt="Pissing Contest" src="pissing contest.jpg"/>
+<div class="overlay">Pissing Contest</div>
+</div>
+<div class="gallery-item" style="--rotate: -5deg;" onclick="openLightbox('parched.jpg', 'Parched', 'May 2023, Graphite/Colored Pencil/Ink on Mixed Media, 5.5”x8.5”<br><em>When you’ve waited so long for a sip, what’s a little longer? What could go wrong?<br>(Desire, Longing, Limerance, Desperation)</em>')">
+<img alt="Parched" src="parched.jpg"/>
+<div class="overlay">Parched</div>
+</div>
+<div class="gallery-item" style="--rotate: 3deg;" onclick="openLightbox('big boys cry too.jpg', 'Big Boys Cry Too', 'May 2023, Graphite/Ink on Mixed Media, 5.5”x8.5”<br><em>It’s dark out there. I hope he makes it where he’s going.<br>(Identity, Gender, Grief, Hope, Change, and Transition)</em>')">
+<img alt="Big Boys Cry Too" src="big boys cry too.jpg"/>
+<div class="overlay">Big Boys Cry Too</div>
+</div>
+<div class="gallery-item" style="--rotate: -2deg;" onclick="openLightbox('exponential growth.png', 'Exponential Growth', 'January 2023, Digital Drawing in Procreate<br><em>Sometimes, you have to tie the tooth to the door to grow something new.<br>(Control, Autonomy, Identity, Physicality, Transgenderism)</em>')">
+<img alt="Exponential Growth" src="exponential growth.png"/>
+<div class="overlay">Exponential Growth</div>
+</div>
+<a class="gallery-item" href="works-in-progress.html" style="--rotate: 2deg;">
 <img alt="Works in Progress" src="process 6.jpg"/>
 <div class="overlay">Works in Progress</div>
 </a>
-<div class="gallery-item" onclick="openLightbox('Mark of the beast.jpg', `Mark of the Beast`)" style="--rotate: 3deg; --x: 9px; --y: 8px;">
-<img alt="Mark of the Beast" src="Mark of the beast.jpg"/>
-</div>
-<div class="gallery-item" onclick="openLightbox('Peeping Tom.JPG', `Peeping Tom`)" style="--rotate: -2deg; --x: -4px; --y: 9px;">
-<img alt="Peeping Tom" src="Peeping Tom.JPG"/>
-</div>
-<div class="gallery-item" onclick="openLightbox('yeowch!.jpg', `Yeowch!`)" style="--rotate: -4deg; --x: 2px; --y: 12px;">
-<img alt="Yeowch!" src="yeowch!.jpg"/>
-</div>
-<div class="gallery-item" onclick="openLightbox('aint-that-just-the-way.jpg', `Ain't That Just the Way`)" style="--rotate: -2deg; --x: 1px; --y: -8px;">
-<img alt="aint that just the way" src="aint-that-just-the-way.jpg"/>
-</div>
-<div class="gallery-item" onclick="openLightbox('big boys cry too.jpg', `Big Boys Cry Too`)" style="--rotate: 5deg; --x: -1px; --y: 3px;">
-<img alt="Big Boys Cry Too" src="big boys cry too.jpg"/>
-</div>
-<div class="gallery-item" onclick="openLightbox('smothered.jpg', `Smothered`)" style="--rotate: 1deg; --x: -1px; --y: -10px;">
-<img alt="Smothered" src="smothered.jpg"/>
-</div>
-<div class="gallery-item" onclick="openLightbox('equivalent exchange.jpg', `Equivalent Exchange`)" style="--rotate: -3deg; --x: -3px; --y: -2px;">
-<img alt="Equivalent Exchange" src="equivalent exchange.jpg"/>
-</div>
-<div class="gallery-item" onclick="openLightbox('bow wow.jpg', `Bow Wow`)" style="--rotate: -2deg; --x: 3px; --y: -10px;">
-<img alt="Bow Wow" src="bow wow.jpg"/>
-</div>
-<div class="gallery-item" onclick="openLightbox('Schemers.JPG', `Schemers`)" style="--rotate: -4deg; --x: -4px; --y: 7px;">
-<img alt="Schemers" src="Schemers.JPG"/>
-</div>
-<div class="gallery-item" onclick="openLightbox('parched.jpg', `Parched`)" style="--rotate: 4deg; --x: -7px; --y: -9px;">
-<img alt="Parched" src="parched.jpg"/>
-</div>
-<div class="gallery-item" onclick="openLightbox('call of the ocean.jpg', `Call of the Ocean`)" style="--rotate: -5deg; --x: 4px; --y: -5px;">
-<img alt="Call of the Ocean" src="call of the ocean.jpg"/>
-</div>
-<div class="gallery-item" onclick="openLightbox('pissing contest.jpg', `Pissing Contest`)" style="--rotate: -6deg; --x: -10px; --y: -4px;">
-<img alt="Pissing Contest" src="pissing contest.jpg"/>
-</div>
-<div class="gallery-item" onclick="openLightbox('In a wife way.jpeg', `In a Wife Way`)" style="--rotate: 0deg; --x: 7px; --y: -11px;">
-<img alt="In a Wife Way" src="In a wife way.jpeg"/>
-</div>
-<div class="gallery-item" onclick="openLightbox('exponential growth.png', `Exponential Growth`)" style="--rotate: -8deg; --x: -5px; --y: -3px;">
-<img alt="Exponential Growth" src="exponential growth.png"/>
-</div>
-<a class="gallery-item" href="works-on-skin.html" style="--rotate: -6deg; --x: 3px; --y: -12px;">
+<a class="gallery-item" href="works-on-skin.html" style="--rotate: -3deg;">
 <img alt="Works on Skin" src="e5fdf3a2-7f98-4108-9ef1-9dac2e18b817_rw_1200.png"/>
 <div class="overlay">Works on Skin</div>
 </a>
-<a class="gallery-item" href="tattoo-flash.html" style="--rotate: -4deg; --x: -6px; --y: 9px;">
+<a class="gallery-item" href="tattoo-flash.html" style="--rotate: 1deg;">
 <img alt="Collected Tattoo Flash" src="a17f3d97-768f-4133-b19d-54cf72a95207_rw_1920.jpeg"/>
 <div class="overlay">Collected Tattoo Flash</div>
 </a>
 </div>
 <div id="lightbox" onclick="closeLightbox()">
 <img alt="" id="lightbox-img" src=""/>
-<span id="lightbox-caption"></span>
+<span id="lightbox-caption" style="text-align: center; color: #e6ff8c; font-size: 1rem; margin-top: 1rem;"></span>
 </div>
 <script>
-// Debugging log to check the state of lightbox
-if (typeof lightbox !== "undefined") {
-  console.log("Lightbox is defined.");
-  if (typeof lightbox.option === "function") {
-    console.log("lightbox.option is a function.");
-  } else {
-    console.error("lightbox.option is not a function.");
-  }
-} else {
-  console.error("Lightbox is not defined.");
-}
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
-<script>
-    function openLightbox(src, title) {
+    function openLightbox(src, title, caption) {
       const box = document.getElementById('lightbox');
       const img = document.getElementById('lightbox-img');
-      const caption = document.getElementById('lightbox-caption');
+      const captionElement = document.getElementById('lightbox-caption');
       img.src = src;
-      caption.textContent = title;
+      captionElement.innerHTML = `<strong>${title}</strong><br>${caption}`;
       box.style.display = 'flex';
     }
     function closeLightbox() {
@@ -192,6 +208,13 @@ if (typeof lightbox !== "undefined") {
       if (e.key === "Escape") closeLightbox();
     });
   </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+<script>
+lightbox.option({
+  'resizeDuration': 200,
+  'wrapAround': true
+})
+</script>
 <script src="randomImage.js"></script>
 </body>
 </html>
