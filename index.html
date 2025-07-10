@@ -1,10 +1,14 @@
-<!DOCTYPE html>
+<a!DOCTYPE html>
 
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
 <title>Works</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <style>
+    html, body {
+      overflow-x: hidden; /* Prevent horizontal scrolling */
+    }
     body {
       background-color: #1a1a1a;
       color: #e6ff8c;
@@ -35,11 +39,11 @@
       max-width: 250px; /* Adjusted to fit items */
       text-decoration: none;
       display: inline-block;
-      transform: rotate(var(--rotate, 0deg)) translate(var(--x, 0px), var(--y, 0px)); /* Applied topsy-turvy effect */
+      transform: rotate(var(--rotate, 0deg)) scale(1.1); /* Slightly enlarged for playful overlap */
       transition: transform 0.3s ease;
     }
     .gallery-item:hover {
-      transform: scale(1.05); /* Enlarges the entire box on mouse-over */
+      transform: scale(1.2); /* Adjusted hover effect to match new size */
     }
     .gallery-item img {
       width: 100%;
@@ -49,7 +53,7 @@
       transition: transform 0.3s ease, filter 0.3s ease;
     }
     .gallery-item:hover img {
-      filter: brightness(60%);
+      filter: brightness(50%); /* Adjusted lowlight effect */
     }
     .gallery-item .overlay {
       position: absolute;
@@ -105,6 +109,9 @@
       font-size: 0.9rem;
       margin-top: 0.5rem;
     }
+    nav a {
+      font-size: 1.2rem; /* Increased font size for playful overlap */
+    }
   </style>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
 </head>
@@ -139,15 +146,15 @@
 <img alt="Equivalent Exchange" src="equivalent exchange.jpg"/>
 <div class="overlay">Equivalent Exchange</div>
 </div>
-<div class="gallery-item" style="--rotate: -4deg;" onclick="openLightbox('aint-that-just-the-way.jpg', 'Ain’t That Just the Way', 'January 2024, Ballpoint Pen on Mixed Media, 14”x17”<br><em>It may still be bleeding, but life goes on.<br>(Grief, Recovery, Regression, Gutted like a fish)</em>')">
+<div class="gallery-item" style="--rotate: -4deg; position: relative; top: -25px;" onclick="openLightbox('aint-that-just-the-way.jpg', 'Ain’t That Just the Way', 'January 2024, Ballpoint Pen on Mixed Media, 14”x17”<br><em>It may still be bleeding, but life goes on.<br>(Grief, Recovery, Regression, Gutted like a fish)</em>')">
 <img alt="Ain’t That Just the Way" src="aint-that-just-the-way.jpg"/>
 <div class="overlay">Ain’t That Just the Way</div>
 </div>
-<div class="gallery-item" style="--rotate: 5deg;" onclick="openLightbox('yeowch!.jpg', 'Yeowch!', 'January 2024, Graphite/Ink on Mixed Media, 14”x17”<br><em>Had you been looking where you were going…<br>(Change, Fear, Extremely Stoppable Force meets Very Painful Object)</em>')">
+<div class="gallery-item" style="--rotate: 5deg; position: relative; top: -50px;" onclick="openLightbox('yeowch!.jpg', 'Yeowch!', 'January 2024, Graphite/Ink on Mixed Media, 14”x17”<br><em>Had you been looking where you were going…<br>(Change, Fear, Extremely Stoppable Force meets Very Painful Object)</em>')">
 <img alt="Yeowch!" src="yeowch!.jpg"/>
 <div class="overlay">Yeowch!</div>
 </div>
-<div class="gallery-item" style="--rotate: -3deg;" onclick="openLightbox('bow wow.jpg', 'Bow Wow', 'September 2023, Graphite/Ink on Mixed Media, 7”x10”<br><em>Don’t you worry, little pup, they’re watching over you in the quiet night. Look at the stars.</em>')">
+<div class="gallery-item" style="--rotate: -3deg; position: relative; top: -50px;" onclick="openLightbox('bow wow.jpg', 'Bow Wow', 'September 2023, Graphite/Ink on Mixed Media, 7”x10”<br><em>Don’t you worry, little pup, they’re watching over you in the quiet night. Look at the stars.</em>')">
 <img alt="Bow Wow" src="bow wow.jpg"/>
 <div class="overlay">Bow Wow</div>
 </div>
@@ -155,37 +162,41 @@
 <img alt="Smothered" src="smothered.jpg"/>
 <div class="overlay">Smothered</div>
 </div>
-<div class="gallery-item" style="--rotate: -1deg;" onclick="openLightbox('call of the ocean.jpg', 'Call of the Ocean', 'August 2023, Graphite on Mixed media, 5.5”x8.5”<br><em>Can’t you hear it? Or is it just me?<br>(Return to the Earth, Return to the old gods, Return to yourself)</em>')">
+<div class="gallery-item" style="--rotate: -1deg; position: relative; top: -80px;" onclick="openLightbox('call of the ocean.jpg', 'Call of the Ocean', 'August 2023, Graphite on Mixed media, 5.5”x8.5”<br><em>Can’t you hear it? Or is it just me?<br>(Return to the Earth, Return to the old gods, Return to yourself)</em>')">
 <img alt="Call of the Ocean" src="call of the ocean.jpg"/>
 <div class="overlay">Call of the Ocean</div>
 </div>
-<div class="gallery-item" style="--rotate: 4deg;" onclick="openLightbox('pissing contest.jpg', 'Pissing Contest', 'July 2023, Pastel/Colored Pencil/Glitter Mod Podge, 9”x12”<br><em>Will you accept his challenge? ;)<br>(It’s nature’s way, do you have the balls? Do you know your natural state? Have you yet seen what you’re meant to be?)</em>')">
+<div class="gallery-item" style="--rotate: 4deg; position: relative; top: -130px;" onclick="openLightbox('pissing contest.jpg', 'Pissing Contest', 'July 2023, Pastel/Colored Pencil/Glitter Mod Podge, 9”x12”<br><em>Will you accept his challenge? ;)<br>(It’s nature’s way, do you have the balls? Do you know your natural state? Have you yet seen what you’re meant to be?)</em>')">
 <img alt="Pissing Contest" src="pissing contest.jpg"/>
 <div class="overlay">Pissing Contest</div>
 </div>
-<div class="gallery-item" style="--rotate: -5deg;" onclick="openLightbox('parched.jpg', 'Parched', 'May 2023, Graphite/Colored Pencil/Ink on Mixed Media, 5.5”x8.5”<br><em>When you’ve waited so long for a sip, what’s a little longer? What could go wrong?<br>(Desire, Longing, Limerance, Desperation)</em>')">
+<div class="gallery-item" style="--rotate: -5deg; position: relative; top: -50px;" onclick="openLightbox('parched.jpg', 'Parched', 'May 2023, Graphite/Colored Pencil/Ink on Mixed Media, 5.5”x8.5”<br><em>When you’ve waited so long for a sip, what’s a little longer? What could go wrong?<br>(Desire, Longing, Limerance, Desperation)</em>')">
 <img alt="Parched" src="parched.jpg"/>
 <div class="overlay">Parched</div>
 </div>
-<div class="gallery-item" style="--rotate: 3deg;" onclick="openLightbox('big boys cry too.jpg', 'Big Boys Cry Too', 'May 2023, Graphite/Ink on Mixed Media, 5.5”x8.5”<br><em>It’s dark out there. I hope he makes it where he’s going.<br>(Identity, Gender, Grief, Hope, Change, and Transition)</em>')">
+<div class="gallery-item" style="--rotate: 3deg; position: relative; top: -50px;" onclick="openLightbox('big boys cry too.jpg', 'Big Boys Cry Too', 'May 2023, Graphite/Ink on Mixed Media, 5.5”x8.5”<br><em>It’s dark out there. I hope he makes it where he’s going.<br>(Identity, Gender, Grief, Hope, Change, and Transition)</em>')">
 <img alt="Big Boys Cry Too" src="big boys cry too.jpg"/>
 <div class="overlay">Big Boys Cry Too</div>
 </div>
-<div class="gallery-item" style="--rotate: -2deg;" onclick="openLightbox('exponential growth.png', 'Exponential Growth', 'January 2023, Digital Drawing in Procreate<br><em>Sometimes, you have to tie the tooth to the door to grow something new.<br>(Control, Autonomy, Identity, Physicality, Transgenderism)</em>')">
-<img alt="Exponential Growth" src="exponential growth.png"/>
-<div class="overlay">Exponential Growth</div>
-</div>
-<a class="gallery-item" href="works-in-progress.html" style="--rotate: 2deg;">
+<a class="gallery-item" href="works-in-progress.html" style="--rotate: 2deg; position: relative; top: -90px;">
 <img alt="Works in Progress" src="process 6.jpg"/>
 <div class="overlay">Works in Progress</div>
 </a>
-<a class="gallery-item" href="works-on-skin.html" style="--rotate: -3deg;">
+<div class="gallery-item" style="--rotate: -2deg; position: relative; top: -170px;" onclick="openLightbox('exponential growth.png', 'Exponential Growth', 'January 2023, Digital Drawing in Procreate<br><em>Sometimes, you have to tie the tooth to the door to grow something new.<br>(Control, Autonomy, Identity, Physicality, Transgenderism)</em>')">
+<img alt="Exponential Growth" src="exponential growth.png"/>
+<div class="overlay">Exponential Growth</div>
+</div>
+<a class="gallery-item" href="works-on-skin.html" style="--rotate: -3deg; position: relative; top: -50px;">
 <img alt="Works on Skin" src="e5fdf3a2-7f98-4108-9ef1-9dac2e18b817_rw_1200.png"/>
 <div class="overlay">Works on Skin</div>
 </a>
-<a class="gallery-item" href="tattoo-flash.html" style="--rotate: 1deg;">
+<a class="gallery-item" href="tattoo-flash.html" style="--rotate: 1deg; position: relative; top: -270px;">
 <img alt="Collected Tattoo Flash" src="a17f3d97-768f-4133-b19d-54cf72a95207_rw_1920.jpeg"/>
 <div class="overlay">Collected Tattoo Flash</div>
+</a>
+<a class="gallery-item" href="bits.html" style="--rotate: 3deg; position: relative; top: -320px; left: 275px;">
+<img alt="Bits and Bobs" src="bits11.jpg"/>
+<div class="overlay">Bits and Bobs</div>
 </a>
 </div>
 <div id="lightbox" onclick="closeLightbox()">

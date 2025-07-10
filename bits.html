@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bits</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      overflow-x: hidden; /* Prevent horizontal scrolling */
+    }
+    body {
+      background-color: #1e1e1b;
+      color: #d9d9c2;
+      font-family: monospace;
+      padding: 40px;
+      text-align: center;
+    }
+    .ascii-title {
+      white-space: pre-wrap;
+      font-size: 0.9rem;
+      color: #aaffcc;
+      margin-bottom: 1rem; /* Adjusted margin to match index.html */
+      text-align: center;
+    }
+    .subtitle {
+      font-size: 16px;
+      color: #a4d4ae;
+      margin-bottom: 30px;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 20px;
+      margin: 0 auto;
+      max-width: 80%;
+    }
+    .gallery img {
+      height: auto;
+      max-height: 200px;
+      width: auto;
+      transform: rotate(calc(var(--angle, 0deg)));
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+    .gallery img:hover {
+      transform: scale(1.05) rotate(calc(var(--angle, 0deg)));
+    }
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      display: none;
+    }
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+    }
+  </style>
+</head>
+<body>
+<nav style="position: fixed; top: 1rem; right: 2rem; font-size: 1rem;">
+    <a href="about.html" style="margin-left: 1rem; color: #e6ff8c; text-decoration: none;">About</a>
+    <a href="index.html" style="margin-left: 1rem; color: #e6ff8c; text-decoration: none;">Works</a>
+    <a href="contact.html" style="margin-left: 1rem; color: #e6ff8c; text-decoration: none;">Contact</a>
+  </nav>
+
+
+
+  <div class="ascii-title">
+      ________.__  __                              .___ __________      ___.           
+     \______   \__|/  |_  ______ _____    ____    __| _/ \______   \ ____\_ |__   ______
+      |    |  _/  \   __\/  ___/ \__  \  /    \  / __ |   |    |  _//  _ \| __ \ /  ___/
+      |    |   \  ||  |  \___ \   / __ \|   |  \/ /_/ |   |    |   (  <_> ) \_\ \\___ \ 
+      |______  /__||__| /____  > (____  /___|  /\____ |   |______  /\____/|___  /____  >
+  </div>
+  <div class="subtitle">Unfinished, Untitled, Random Abandoned</div>
+  <div class="gallery" style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 20px; margin: 0 auto; max-width: 80%;">
+    <!-- First row of 7 images -->
+    <img src="bits1.jpeg" style="--angle: 5deg" onclick="openLightbox(this.src)">
+    <img src="bits2.JPG" style="--angle: -3deg" onclick="openLightbox(this.src)">
+    <img src="bits3.jpeg" style="--angle: 2deg" onclick="openLightbox(this.src)">
+    <img src="bits4.jpeg" style="--angle: -5deg" onclick="openLightbox(this.src)">
+    <img src="bits5.jpeg" style="--angle: 4deg" onclick="openLightbox(this.src)">
+    <img src="bits6.jpeg" style="--angle: -2deg" onclick="openLightbox(this.src)">
+    <img src="bits7.JPG" style="--angle: 3deg" onclick="openLightbox(this.src)" />
+
+    <!-- Second row of 7 images -->
+    <img src="bits8.JPG" style="--angle: -4deg" onclick="openLightbox(this.src)">
+    <img src="bits9.JPG" style="--angle: 5deg" onclick="openLightbox(this.src)">
+    <img src="bits10.JPG" style="--angle: -3deg" onclick="openLightbox(this.src)">
+    <img src="bits11.JPG" style="--angle: 2deg" onclick="openLightbox(this.src)">
+    <img src="bits12.JPG" style="--angle: -5deg" onclick="openLightbox(this.src)">
+    <img src="bits13.JPG" style="--angle: 4deg" onclick="openLightbox(this.src)">
+    <img src="bits14.JPG" style="--angle: -2deg" onclick="openLightbox(this.src)" />
+
+    <!-- Third row of 5 images -->
+    <div style="grid-column: span 5; display: flex; justify-content: center; gap: 20px;">
+      <img src="bits22.JPG" style="--angle: -2deg" onclick="openLightbox(this.src)">
+      <img src="bits23.JPG" style="--angle: 3deg" onclick="openLightbox(this.src)">
+      <img src="bits24.JPG" style="--angle: -4deg" onclick="openLightbox(this.src)">
+      <img src="bits25..JPG" style="--angle: 5deg" onclick="openLightbox(this.src)">
+      <img src="bits26.JPG" style="--angle: -3deg" onclick="openLightbox(this.src)">
+    </div>
+  </div>
+  <div class="lightbox" id="lightbox" onclick="this.style.display='none'">
+    <img id="lightbox-img" src="" alt="">
+  </div>
+  <script>
+    function openLightbox(src) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').style.display = 'flex';
+    }
+  </script>
+</body>
+</html>
