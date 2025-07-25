@@ -1,4 +1,4 @@
-<a!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="en">
 <head>
@@ -10,16 +10,16 @@
       overflow-x: hidden; /* Prevent horizontal scrolling */
     }
     body {
-      background-color: #1a1a1a;
-      color: #e6ff8c;
+      background-color: #1b1b1b; /* Unified background color across all pages */
+      color: #d9d9c2;
       font-family: monospace;
-      margin: 0;
-      padding: 2rem;
+      padding: 40px;
+      text-align: center;
     }
     .ascii-title {
       text-align: center;
       color: #aaffcc; /* Adjusted to match index.html */
-      font-size: 0.9rem; /* Adjusted to match index.html */
+      font-size: 0.9rem; /* Standardized font size across all pages */
       margin-bottom: 1rem; /* Adjusted to match index.html */
       white-space: pre-wrap; /* Adjusted to match index.html */
     }
@@ -46,7 +46,7 @@
       transform: scale(1.2); /* Adjusted hover effect to match new size */
     }
     .gallery-item img {
-      width: 100%;
+      max-width: 250px; /* Limit image width */
       height: auto;
       display: block;
       cursor: pointer;
@@ -75,27 +75,6 @@
     .gallery-item:hover .overlay {
       opacity: 1;
     }
-    #lightbox {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.9);
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      z-index: 10;
-    }
-    #lightbox img {
-      max-width: 90%;
-      max-height: 80vh;
-    }
-    #lightbox span {
-      margin-top: 1rem;
-      color: #e6ff8c;
-      font-size: 1.2rem;
-    }
     .centered-links {
       display: grid;
       grid-template-columns: repeat(4, minmax(250px, 1fr)); /* Matches the main gallery layout */
@@ -110,10 +89,58 @@
       margin-top: 0.5rem;
     }
     nav a {
-      font-size: 1.2rem; /* Increased font size for playful overlap */
+      font-size: 1rem; /* Standardized font size across all pages */
+    }
+
+    /* Add custom Lightbox styles */
+    #lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      z-index: 10;
+    }
+    #lightbox-img {
+      max-width: 90%;
+      max-height: 80vh;
+    }
+    #lightbox-caption {
+      margin-top: 1rem;
+      color: #e6ff8c;
+      font-size: 1.2rem;
+    }
+    #prev, #next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.7);
+      color: #e6ff8c;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+    }
+    #prev {
+      left: 10px;
+    }
+    #next {
+      right: 10px;
     }
   </style>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
+
+<!-- Add Lightbox CSS -->
+<link href="lightbox.min.css" rel="stylesheet">
+
+<!-- Add Lightbox JS -->
+<script src="lightbox.min.js"></script>
+
+<!-- Add randomImage.js script -->
+<script src="randomImage.js"></script>
 </head>
 <body>
 <nav style="position: fixed; top: 1rem; right: 2rem; font-size: 1rem;">
@@ -134,76 +161,89 @@
 <img alt="Lifelong Desire//Gluttony" src="Lifelong Desire.jpg"/>
 <div class="overlay">Lifelong Desire//Gluttony</div>
 </div>
-<div class="gallery-item" style="--rotate: 3deg;" onclick="openLightbox('Mark of the beast.jpg', 'Mark of the Beast', 'March 2025, Oil pencil/ink/graphite on Mixed Media, 14”x17”<br><em>Depicts from bottom middle, counter-clockwise: Mr. Beast, Joe Rogan, Jeff Bezos, Mark Zuckerberg, Logan Paul, Andrew Tate, Elon Musk<br>The harbingers of the end of the world, the beast with seven heads - referencing the style of the Skibidi Toilet web series (surveillance, conflict, conformity, Resistance)</em>')">
+<div class="gallery-item" style="--rotate: 3deg;" onclick="openLightbox('Mark of the beast.jpg', 'Mark of the Beast', 'Description for Mark of the Beast')">
 <img alt="Mark of the Beast" src="Mark of the beast.jpg"/>
 <div class="overlay">Mark of the Beast</div>
 </div>
-<div class="gallery-item" style="--rotate: -2deg;" onclick="openLightbox('Schemers.JPG', 'God’s Favorite Little Schemers', 'April 2024, Graphite/ink on Mixed Media, 7”x10”<br><em>What having a best friend feels like :)</em>')">
+<div class="gallery-item" style="--rotate: -2deg;" onclick="openLightbox('Schemers.JPG', 'God’s Favorite Little Schemers', 'Description for God’s Favorite Little Schemers')">
 <img alt="God’s Favorite Little Schemers" src="Schemers.JPG"/>
 <div class="overlay">God’s Favorite Little Schemers</div>
 </div>
-<div class="gallery-item" style="--rotate: 1deg;" onclick="openLightbox('equivalent exchange.jpg', 'Equivalent Exchange', 'February 2024, Graphite on Mixed Media, 9”x12”<br><em>I’ll give what I get and I’ll get what I give.<br>(Desire, Gluttony, Grief, Nostalgia - They spread like a rash. Quiet, calm, Communication, ease… where are they?)</em>')">
+<div class="gallery-item" style="--rotate: 1deg;" onclick="openLightbox('equivalent exchange.jpg', 'Equivalent Exchange', 'Description for Equivalent Exchange')">
 <img alt="Equivalent Exchange" src="equivalent exchange.jpg"/>
 <div class="overlay">Equivalent Exchange</div>
 </div>
-<div class="gallery-item" style="--rotate: -4deg; position: relative; top: -25px;" onclick="openLightbox('aint-that-just-the-way.jpg', 'Ain’t That Just the Way', 'January 2024, Ballpoint Pen on Mixed Media, 14”x17”<br><em>It may still be bleeding, but life goes on.<br>(Grief, Recovery, Regression, Gutted like a fish)</em>')">
+<div class="gallery-item" style="--rotate: -4deg; position: relative; top: -25px;" onclick="openLightbox('aint-that-just-the-way.jpg', 'Ain’t That Just the Way', 'Description for Ain’t That Just the Way')">
 <img alt="Ain’t That Just the Way" src="aint-that-just-the-way.jpg"/>
 <div class="overlay">Ain’t That Just the Way</div>
 </div>
-<div class="gallery-item" style="--rotate: 5deg; position: relative; top: -50px;" onclick="openLightbox('yeowch!.jpg', 'Yeowch!', 'January 2024, Graphite/Ink on Mixed Media, 14”x17”<br><em>Had you been looking where you were going…<br>(Change, Fear, Extremely Stoppable Force meets Very Painful Object)</em>')">
+<div class="gallery-item" style="--rotate: 5deg; position: relative; top: -50px;" onclick="openLightbox('yeowch!.jpg', 'Yeowch!', 'Description for Yeowch!')">
 <img alt="Yeowch!" src="yeowch!.jpg"/>
 <div class="overlay">Yeowch!</div>
 </div>
-<div class="gallery-item" style="--rotate: -3deg; position: relative; top: -50px;" onclick="openLightbox('bow wow.jpg', 'Bow Wow', 'September 2023, Graphite/Ink on Mixed Media, 7”x10”<br><em>Don’t you worry, little pup, they’re watching over you in the quiet night. Look at the stars.</em>')">
+<div class="gallery-item" style="--rotate: -3deg; position: relative; top: -50px;" onclick="openLightbox('bow wow.jpg', 'Bow Wow', 'Description for Bow Wow')">
 <img alt="Bow Wow" src="bow wow.jpg"/>
 <div class="overlay">Bow Wow</div>
 </div>
-<div class="gallery-item" style="--rotate: 2deg;" onclick="openLightbox('smothered.jpg', 'Smothered', 'August 2023, Graphite/Ink on Mixed Media, 5.5”x8.5”<br><em>Do you want it? Or is it killing you?<br>(Desire, Desperation, Obsession)</em>')">
+<div class="gallery-item" style="--rotate: 2deg;" onclick="openLightbox('smothered.jpg', 'Smothered', 'Description for Smothered')">
 <img alt="Smothered" src="smothered.jpg"/>
 <div class="overlay">Smothered</div>
 </div>
-<div class="gallery-item" style="--rotate: -1deg; position: relative; top: -80px;" onclick="openLightbox('call of the ocean.jpg', 'Call of the Ocean', 'August 2023, Graphite on Mixed media, 5.5”x8.5”<br><em>Can’t you hear it? Or is it just me?<br>(Return to the Earth, Return to the old gods, Return to yourself)</em>')">
+<div class="gallery-item" style="--rotate: -1deg; position: relative; top: -80px;" onclick="openLightbox('call of the ocean.jpg', 'Call of the Ocean', 'Description for Call of the Ocean')">
 <img alt="Call of the Ocean" src="call of the ocean.jpg"/>
 <div class="overlay">Call of the Ocean</div>
 </div>
-<div class="gallery-item" style="--rotate: 4deg; position: relative; top: -130px;" onclick="openLightbox('pissing contest.jpg', 'Pissing Contest', 'July 2023, Pastel/Colored Pencil/Glitter Mod Podge, 9”x12”<br><em>Will you accept his challenge? ;)<br>(It’s nature’s way, do you have the balls? Do you know your natural state? Have you yet seen what you’re meant to be?)</em>')">
+<div class="gallery-item" style="--rotate: 4deg; position: relative; top: -130px;" onclick="openLightbox('pissing contest.jpg', 'Pissing Contest', 'Description for Pissing Contest')">
 <img alt="Pissing Contest" src="pissing contest.jpg"/>
 <div class="overlay">Pissing Contest</div>
 </div>
-<div class="gallery-item" style="--rotate: -5deg; position: relative; top: -50px;" onclick="openLightbox('parched.jpg', 'Parched', 'May 2023, Graphite/Colored Pencil/Ink on Mixed Media, 5.5”x8.5”<br><em>When you’ve waited so long for a sip, what’s a little longer? What could go wrong?<br>(Desire, Longing, Limerance, Desperation)</em>')">
+<div class="gallery-item" style="--rotate: -5deg; position: relative; top: -50px;" onclick="openLightbox('parched.jpg', 'Parched', 'Description for Parched')">
 <img alt="Parched" src="parched.jpg"/>
 <div class="overlay">Parched</div>
 </div>
-<div class="gallery-item" style="--rotate: 3deg; position: relative; top: -50px;" onclick="openLightbox('big boys cry too.jpg', 'Big Boys Cry Too', 'May 2023, Graphite/Ink on Mixed Media, 5.5”x8.5”<br><em>It’s dark out there. I hope he makes it where he’s going.<br>(Identity, Gender, Grief, Hope, Change, and Transition)</em>')">
+<div class="gallery-item" style="--rotate: 3deg; position: relative; top: -50px;" onclick="openLightbox('big boys cry too.jpg', 'Big Boys Cry Too', 'Description for Big Boys Cry Too')">
 <img alt="Big Boys Cry Too" src="big boys cry too.jpg"/>
 <div class="overlay">Big Boys Cry Too</div>
 </div>
-<a class="gallery-item" href="works-in-progress.html" style="--rotate: 2deg; position: relative; top: -90px;">
-<img alt="Works in Progress" src="process 6.jpg"/>
+<div class="gallery-item" style="--rotate: 2deg; position: relative; top: -90px;">
+<a href="works-in-progress.html">
+<img alt="Works in Progress" src="process 6.jpg" data-caption="Works in Progress">
 <div class="overlay">Works in Progress</div>
 </a>
-<div class="gallery-item" style="--rotate: -2deg; position: relative; top: -170px;" onclick="openLightbox('exponential growth.png', 'Exponential Growth', 'January 2023, Digital Drawing in Procreate<br><em>Sometimes, you have to tie the tooth to the door to grow something new.<br>(Control, Autonomy, Identity, Physicality, Transgenderism)</em>')">
+</div>
+<div class="gallery-item" style="--rotate: -2deg; position: relative; top: -170px;" onclick="openLightbox('exponential growth.png', 'Exponential Growth', 'Description for Exponential Growth')">
 <img alt="Exponential Growth" src="exponential growth.png"/>
 <div class="overlay">Exponential Growth</div>
 </div>
-<a class="gallery-item" href="works-on-skin.html" style="--rotate: -3deg; position: relative; top: -50px;">
-<img alt="Works on Skin" src="e5fdf3a2-7f98-4108-9ef1-9dac2e18b817_rw_1200.png"/>
+<div class="gallery-item" style="--rotate: -3deg; position: relative; top: -50px;">
+<a href="works-on-skin.html">
+<img alt="Works on Skin" src="e5fdf3a2-7f98-4108-9ef1-9dac2e18b817_rw_1200.png" data-caption="Works on Skin">
 <div class="overlay">Works on Skin</div>
 </a>
-<a class="gallery-item" href="tattoo-flash.html" style="--rotate: 1deg; position: relative; top: -270px;">
-<img alt="Collected Tattoo Flash" src="a17f3d97-768f-4133-b19d-54cf72a95207_rw_1920.jpeg"/>
+</div>
+<div class="gallery-item" style="--rotate: 1deg; position: relative; top: -270px;">
+<a href="tattoo-flash.html">
+<img alt="Collected Tattoo Flash" src="a17f3d97-768f-4133-b19d-54cf72a95207_rw_1920.jpeg" data-caption="Collected Tattoo Flash">
 <div class="overlay">Collected Tattoo Flash</div>
 </a>
-<a class="gallery-item" href="bits.html" style="--rotate: 3deg; position: relative; top: -320px; left: 275px;">
-<img alt="Bits and Bobs" src="bits11.jpg"/>
+</div>
+<div class="gallery-item" style="--rotate: 3deg; position: relative; top: -320px; left: 275px;">
+<a href="bits.html">
+<img alt="Bits and Bobs" src="bits11.JPG" data-caption="Bits and Bobs">
 <div class="overlay">Bits and Bobs</div>
 </a>
 </div>
-<div id="lightbox" onclick="closeLightbox()">
-<img alt="" id="lightbox-img" src=""/>
-<span id="lightbox-caption" style="text-align: center; color: #e6ff8c; font-size: 1rem; margin-top: 1rem;"></span>
 </div>
+
+<!-- Add custom Lightbox functionality -->
 <script>
+    // Restore lightbox functionality
+    let currentIndex = 0;
+    const galleryItems = document.querySelectorAll('.gallery-item img');
+    galleryItems.forEach((item, index) => {
+      item.dataset.caption = item.alt; // Use the alt attribute as the caption
+    });
+
     function openLightbox(src, title, caption) {
       const box = document.getElementById('lightbox');
       const img = document.getElementById('lightbox-img');
@@ -211,21 +251,78 @@
       img.src = src;
       captionElement.innerHTML = `<strong>${title}</strong><br>${caption}`;
       box.style.display = 'flex';
+      currentIndex = Array.from(galleryItems).findIndex(item => item.src.includes(src));
     }
     function closeLightbox() {
       document.getElementById('lightbox').style.display = 'none';
     }
-    document.addEventListener('keydown', function(e) {
-      if (e.key === "Escape") closeLightbox();
+    function showPrev() {
+      currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+      const prevItem = galleryItems[currentIndex];
+      openLightbox(prevItem.src, prevItem.alt, prevItem.dataset.caption);
+    }
+    function showNext() {
+      currentIndex = (currentIndex + 1) % galleryItems.length;
+      const nextItem = galleryItems[currentIndex];
+      openLightbox(nextItem.src, nextItem.alt, nextItem.dataset.caption);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const prevButton = document.getElementById('prev');
+      const nextButton = document.getElementById('next');
+
+      if (prevButton && nextButton) {
+        prevButton.addEventListener('click', showPrev);
+        nextButton.addEventListener('click', showNext);
+        console.log('Event listeners attached to prev and next buttons');
+      } else {
+        console.error('Prev or Next button not found in the DOM');
+      }
+
+      const lightbox = document.getElementById('lightbox');
+      if (lightbox) {
+        lightbox.addEventListener('click', function(event) {
+          if (event.target === lightbox) {
+            closeLightbox();
+          }
+        });
+        console.log('Lightbox click-to-close functionality attached');
+      } else {
+        console.error('Lightbox element not found in the DOM');
+      }
+
+      // Restore keyboard arrow control for lightbox carousel
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowLeft') {
+          showPrev();
+        } else if (e.key === 'ArrowRight') {
+          showNext();
+        } else if (e.key === 'Escape') {
+          closeLightbox();
+        }
+      });
+      console.log('Keyboard arrow control restored for lightbox carousel');
+
+      // Ensure links navigate without triggering the lightbox
+      const excludedLinks = ['works-in-progress.html', 'works-on-skin.html', 'tattoo-flash.html', 'bits.html'];
+      const galleryItems = document.querySelectorAll('.gallery-item');
+
+      galleryItems.forEach((item) => {
+        const link = item.querySelector('a');
+        if (link && excludedLinks.includes(link.getAttribute('href'))) {
+          item.removeAttribute('onclick'); // Remove lightbox functionality
+          console.log(`Removed onclick for ${link.getAttribute('href')}`);
+        }
+      });
     });
-  </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
-<script>
-lightbox.option({
-  'resizeDuration': 200,
-  'wrapAround': true
-})
 </script>
-<script src="randomImage.js"></script>
+
+<!-- Add Lightbox modal structure -->
+<div id="lightbox" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.9); align-items: center; justify-content: center; flex-direction: column; z-index: 10;">
+  <img id="lightbox-img" style="max-width: 90%; max-height: 80vh;" />
+  <span id="lightbox-caption" style="margin-top: 1rem; color: #e6ff8c; font-size: 1.2rem;"></span>
+  <button id="prev" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); background: rgba(0, 0, 0, 0.7); color: #e6ff8c; border: none; padding: 10px; cursor: pointer;">&#10094;</button>
+  <button id="next" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); background: rgba(0, 0, 0, 0.7); color: #e6ff8c; border: none; padding: 10px; cursor: pointer;">&#10095;</button>
+</div>
 </body>
 </html>

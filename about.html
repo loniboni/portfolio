@@ -9,8 +9,9 @@
       margin: 0;
       padding: 0;
       font-family: monospace;
-      background-color: #1b1b1b; /* Reverted body background color */
-      color: #e6ff8c; /* Reverted body text color */
+      background-color: #1b1b1b; /* Reverted background color */
+      color: #d9d9c2;
+      overflow-x: hidden; /* Prevent horizontal scrolling */
     }
     nav {
       position: fixed;
@@ -22,6 +23,7 @@
       margin-left: 1rem;
       color: #e6ff8c; /* Reverted navigation link color */
       text-decoration: none;
+      font-size: 1rem; /* Standardized font size across all pages */
     }
     .ascii-logo {
       text-align: center;
@@ -33,14 +35,7 @@
     }
     .ascii-title {
       color: #aaffcc; /* Reverted ASCII header text color to original */
-    }
-    .portrait {
-        position: absolute; /* Restored absolute positioning */
-        left: 50%; /* Centered horizontally */
-        top: 45%; /* Adjusted vertical positioning */
-        transform: translate(-50%, -50%); /* Ensured proper centering */
-        width: 200px; /* Explicitly set the width */
-        height: auto; /* Maintain aspect ratio */
+      font-size: 0.9rem; /* Standardized font size across all pages */
     }
     .about-text {
         max-width: 500px; /* Further reduced width for tighter text */
@@ -49,8 +44,29 @@
         font-size: 1.2rem; /* Increased font size for better readability */
         line-height: 1.5; /* Adjusted line height for tighter spacing */
         text-align: center;
-        color: #e6ff8c; /* Maintained text color */
+        color: #a4d4ae; /* Maintained text color */
         margin-top: 0; /* Removed top margin */
+    }
+    .sub-text {
+      font-size: 1rem;
+      font-weight: normal;
+      color: #e6ff8c;
+      margin-top: 20px;
+      text-align: center;
+    }
+    .sub-text ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    .sub-text ul li {
+      margin: 5px 0;
+    }
+    .sub-text ul li a {
+      color: #a4d4ae;
+      text-decoration: none;
+    }
+    .sub-text ul li a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -62,88 +78,39 @@
   </nav>
 
   <div class="ascii-logo">
-.____          .__    .__   __      __                      <br/>
-|    |    ____ |  |__ |__| /  \    /  \ ____ _____    ____  <br/>
-|    |   /  _ \|  |  \|  | \   \/\/   // __ \\__  \  /    \ <br/>
-|    |__(  <_> )   Y  \  |  \        /\  ___/ / __ \|   |  <br/>
+    .____          .__    .__   __      __                      <br/>                      
+|    |    ____ |  |__ |__| /  \    /  \ ____ _____    ____  <br/>  
+|    |   /  _ \|  |  \|  | \   \/\/   // __ \\__  \  /    \ <br/> 
+|    |__(  <_> )   Y  \  |  \        /\  ___/ / __ \|   |  <br/>  
 |_______ \____/|___|  /__|   \__/\  /  \___  >____  /___|  /<br/>
         \/          \/            \/       \/     \/     \/ <br/>
   </div>
 
-  <img class="portrait" id="portrait" src="spiked_portrait_fewer_wider.png" alt="Portrait of Lohi Wean" />
+  <div style="display: flex; align-items: center; justify-content: center; margin: 0 auto; max-width: 800px; position: relative;">
+    <div id="threejs-container" style="width: 500px; height: 500px; background-color: transparent;"></div>
+    <div class="about-text" id="aboutText" style="max-width: 500px; text-align: left; color: #a4d4ae; margin-left: 0;">
+      Big feelings, Nostalgia, Hyperfixations… Cartoons movies and Online Culture - Sex and drugs and gender and politics. A sense of humor, a tongue in the cheek, a lip dragged between the teeth. Horny, weird, standing on a soapbox in the corner of each drawing screaming at the viewer to both give in and get up. Hedonism and Communalism are not two opposing forces. Desire is good, actually, served with blood, sweat, and tears. Can you desire a better world as much as you desire pussy?
 
-  <div class="about-text" id="aboutText">
-    Big feelings, Nostalgia, Hyperfixations… Cartoons and Movies and Online Culture - Sex and drugs and gender and politics. These are the things running through my mind. Could you tell? A sense of humor, a tongue in the cheek, a lip dragged between the teeth. Horny, weird, gross, fun - standing on a soapbox in the corner of each drawing screaming at the viewer to both give in and get up. Hedonism and Communalism are not two opposing forces. Desire is good, actually, especially when painful. Can you desire a better world as much as you desire pussy?
+      <div class="sub-text" id="favorites" style="max-width: 500px; margin: 20px auto; text-align: left; color: #e6ff8c;">
+        Favorites: The Last Unicorn (1982), The Far Side, Footrot Flats, Futurama, Adventure Time, House of Wax (2005), The Faggots & Their Friends Between Revolutions, Sarah Squirm, Garfield, My Favorite Thing is Monsters, Calvin and Hobbes, Clive Barker, Jim Henson, What’s Your Number (2011), Living rooms, Otherkin, Fanfiction, Youtube video essays, Trips to the beach, Antique stores, Dive bars, Testosterone, Surgery :)
+      </div>
+
+      <div class="sub-text" id="friends" style="max-width: 500px; margin: 20px auto; text-align: left;">
+        I’m a friend lover, here are my friends:
+        <div style="display: flex; flex-wrap: nowrap; justify-content: flex-start; gap: 10px; white-space: nowrap;">
+          <a href="https://rpeale.tumblr.com" target="_blank" style="color: #a4d4ae; text-decoration: underline;">Ren,</a>
+          <a href="https://www.instagram.com/horse.corset/" target="_blank" style="color: #a4d4ae; text-decoration: underline;">Mal,</a>
+          <a href="https://andrewlackland.wixsite.com/website?fbclid=PAZXh0bgNhZW0CMTEAAaceGthowcVEzjo9CzxE_e23IhDzQcLY9wsePfmE4aA82RAzjns-YmDMJMCMRA_aem_BpGvreWHaj7zO8qij1Gcbg" target="_blank" style="color: #a4d4ae; text-decoration: underline;">Andy,</a>
+          <a href="https://www.instagram.com/sloinhole/" target="_blank" style="color: #a4d4ae; text-decoration: underline;">Gus,</a>
+          <a href="https://janebuffo.com/?fbclid=PAZXh0bgNhZW0CMTEAAadGaK78DHZlR-8f8VqXYTh3JZkZt-YCvtzKNrSXDXDrLWHHBtlT145Sqcp0uw_aem_BFPpZ1vZgw00wdvEd3B33Q" target="_blank" style="color: #a4d4ae; text-decoration: underline;">Jane,</a>
+          <a href="https://www.purgatorycomicspress.com" target="_blank" style="color: #a4d4ae; text-decoration: underline;">Purgatory Press,</a>
+          <a href="https://www.instagram.com/octagonthecomic/" target="_blank" style="color: #a4d4ae; text-decoration: underline;">Clay,</a>
+          <a href="https://www.kaylamadesomething.com/?fbclid=PAZXh0bgNhZW0CMTEAAaf3LAjlCHNFPERuopwx84t4jIwcaffkx_NOaeXp6YO7100I82EkSnPr_zGV6Q_aem_DR_BftwgA_bXY_iDafl8oQ" target="_blank" style="color: #a4d4ae; text-decoration: underline;">Kayla</a>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <script>
-    const portrait = document.getElementById("portrait");
-    const about = document.getElementById("aboutText");
-    const imgWidth = 220;
-    const imgHeight = 220;
-
-    function isOverText(x, y) {
-      const bounds = about.getBoundingClientRect();
-      const scrollY = window.scrollY;
-      const scrollX = window.scrollX;
-      const buffer = 40;
-      return (
-        x + imgWidth > bounds.left + scrollX - buffer &&
-        x < bounds.right + scrollX + buffer &&
-        y + imgHeight > bounds.top + scrollY - buffer &&
-        y < bounds.bottom + scrollY + buffer
-      );
-    }
-
-    window.addEventListener("load", () => {
-        const portrait = document.getElementById("portrait");
-        const asciiLogo = document.querySelector(".ascii-logo");
-        const aboutText = document.getElementById("aboutText");
-
-        if (asciiLogo && aboutText) {
-            const logoRect = asciiLogo.getBoundingClientRect();
-            const aboutRect = aboutText.getBoundingClientRect();
-
-            // Add a buffer to avoid overlap with the ASCII logo and the about paragraph
-            const buffer = 30; // Adjusted buffer for better spacing
-
-            // Position the portrait between the ASCII logo and the about paragraph
-            const newTop = window.scrollY + logoRect.bottom + buffer + (aboutRect.top - logoRect.bottom - 2 * buffer) / 2;
-            portrait.style.top = `${newTop}px`;
-            portrait.style.left = "50%"; // Ensure it is horizontally centered
-            portrait.style.transform = "translate(-50%, -50%)"; // Adjust transform to center properly
-
-            // Set the original position to the calculated starting position
-            portrait.dataset.originalTop = `${newTop}px`;
-            portrait.dataset.originalLeft = "50%";
-        }
-    });
-
-    portrait.addEventListener("mouseenter", () => {
-        let tries = 0;
-        let x, y;
-        const minDistance = 150;
-        let angle, distance;
-
-        do {
-            angle = Math.random() * 2 * Math.PI;
-            distance = minDistance + Math.random() * 300;
-            x = window.innerWidth / 2 + distance * Math.cos(angle);
-            y = parseFloat(portrait.dataset.originalTop) + distance * Math.sin(angle);
-            tries++;
-        } while (isOverText(x, y) && tries < 30);
-
-        // Apply smooth transitions for the floating action
-        portrait.style.transition = "top 1.5s ease-in-out, left 1.5s ease-in-out";
-        portrait.style.left = `${x}px`;
-        portrait.style.top = `${y}px`;
-
-        setTimeout(() => {
-            portrait.style.left = portrait.dataset.originalLeft;
-            portrait.style.top = portrait.dataset.originalTop;
-        }, 3000);
-    });
-  </script>
   <script src="randomImage.js"></script>
 </body>
 </html>

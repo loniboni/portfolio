@@ -12,7 +12,7 @@
       overflow-x: hidden; /* Prevent horizontal scrolling */
     }
     body {
-      background-color: #1e1e1b;
+      background-color: #1b1b1b; /* Unified background color across all pages */
       color: #d9d9c2;
       font-family: monospace;
       padding: 40px;
@@ -28,42 +28,25 @@
     .subtitle {
       font-size: 16px;
       color: #a4d4ae;
-      margin-bottom: 30px;
+      margin-bottom: 10px; /* Increased buffer between subtitle and grid */
     }
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-    .gallery img {
-      height: auto;
-      max-height: 200px;
-      width: auto;
-      transform: rotate(calc(var(--angle, 0deg)));
-      transition: transform 0.3s;
-      cursor: pointer;
-    }
-    .gallery img:hover {
-      transform: scale(1.05) rotate(calc(var(--angle, 0deg)));
-    }
-    .lightbox {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.9);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      display: none;
-    }
-    .lightbox img {
-      max-width: 90vw;
-      max-height: 90vh;
+    #threejs-container {
+      width: 90%; /* Reduced left and right margins */
+      height: 120vh; /* Increased height to allow the model to be larger */
+      margin: 0 auto; /* Center horizontally */
+      max-width: 1400px; /* Slightly increased max width */
+      background-color: transparent; /* Transparent background */
     }
   </style>
+  <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@v0.163.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@v0.163.0/examples/jsm/"
+      }
+    }
+  </script>
 </head>
 <body>
 <nav style="position: fixed; top: 1rem; right: 2rem; font-size: 1rem;">
@@ -72,62 +55,24 @@
 <a href="contact.html" style="margin-left: 1rem; color: #e6ff8c; text-decoration: none;">Contact</a>
 </nav>
 
-
-  
-
-  <div class="ascii-title">
+<div class="ascii-title">
  __      __             __                               ___________   .__        
 /  \    /  \___________|  | __  ______   ____   ____    /   _____/  | _|__| ____  
 \   \/\/   /  _ \_  __ \  |/ / /  ___/  /  _ \ /    \   \_____  \|  |/ /  |/    \ 
- \        (  <_> )  | \/    <  \___ \  (  <_> )   |  \  /        \    <|  |   |  \
+ \        (  <_> )  | \/    <  \___ \  (  <_> )   |  \  /        \    <|  |   |  \  
   \__/\  / \____/|__|  |__|_ \/____  >  \____/|___|  / /_______  /__|_ \__|___|  /
        \/                   \/     \/              \/          \/     \/     \/ 
 </div>
-  <div class="subtitle">tattoos done between 2021 and 2024</div>
-  <div class="gallery">
-    <img src="36a15866-2ebf-4fb5-9e71-f300bb41f6cd_rw_1920.jpeg" style="--angle: -5deg" onclick="openLightbox(this.src)">
-    <img src="21016ee4-7714-48f4-bba4-6e2e2efd1e90_rw_1920.png" style="--angle: -3deg" onclick="openLightbox(this.src)">
-    <img src="09f1ed5a-d088-4bb2-8d17-9da1a1e076d4_rw_1200.png" style="--angle: 5deg" onclick="openLightbox(this.src)">
-    <img src="28426997-1bf6-497f-bcf8-0dad3cd52880_rw_1920.png" style="--angle: -3deg" onclick="openLightbox(this.src)">
-    <img src="9d46d0d2-fa72-4785-bf65-84e67bc2894b_rw_1200.png" style="--angle: 5deg" onclick="openLightbox(this.src)">
-    <img src="028b5fd8-8478-4d81-b723-02d151047d4f_rw_1920.png" style="--angle: -2deg" onclick="openLightbox(this.src)">
-    <img src="0f058931-efeb-490b-8f5f-f36b84880c11_rw_1200.png" style="--angle: 1deg" onclick="openLightbox(this.src)">
-    <img src="42af464e-21f1-42ed-8a3c-8f75abcbebca_rw_1200.png" style="--angle: -2deg" onclick="openLightbox(this.src)">
-    <img src="f69fbcf8-d193-475d-be38-47eb9cf8ebd3_rw_1920.png" style="--angle: 4deg" onclick="openLightbox(this.src)">
-    <img src="d71186c0-c671-4e7f-8f1c-56830646de57_rw_1920.png" style="--angle: 5deg" onclick="openLightbox(this.src)">
-    <img src="193c5fc4-80b3-481c-8859-8722d1b763d5_rw_1200.png" style="--angle: -3deg" onclick="openLightbox(this.src)">
-    <img src="e5fdf3a2-7f98-4108-9ef1-9dac2e18b817_rw_1200.png" style="--angle: 5deg" onclick="openLightbox(this.src)">
-    <img src="cdf4386c-b29a-40d9-9b4a-417bca79dce2_rw_1200.png" style="--angle: -2deg" onclick="openLightbox(this.src)">
-    <img src="0e78d010-cff9-447c-9ca6-92f61836d0e3_rw_1200.png" style="--angle: 1deg" onclick="openLightbox(this.src)">
-    <img src="d5426c42-9bfc-4a2c-b8c2-e4ecd754f2e9_rw_1200.png" style="--angle: 4deg" onclick="openLightbox(this.src)">
-    <img src="b4621673-2cd9-4a98-8298-f8bc03629277_rw_1920.png" style="--angle: 4deg" onclick="openLightbox(this.src)">
-    <img src="5a3d1a65-ed24-452f-b73d-17ac5e0d7c48_rw_1200.png" style="--angle: 1deg" onclick="openLightbox(this.src)">
-    <img src="90163132-6a38-42a3-a251-230aae6477d9_rw_1200.png" style="--angle: 4deg" onclick="openLightbox(this.src)">
-    <img src="075de97d-77d2-4337-968d-abadbfcbe106_rw_1920.png" style="--angle: -2deg" onclick="openLightbox(this.src)">
-    <img src="4f263800-cec6-497e-89e6-fe80ac086c31_rw_1920.png" style="--angle: 1deg" onclick="openLightbox(this.src)">
-    <img src="f4680046-5ee4-4a45-9735-4cd8956b0192_rw_1920.png" style="--angle: 2deg" onclick="openLightbox(this.src)">
-    <img src="eb54822d-6028-40a7-b734-f4525d1b7c87_rw_1200.png" style="--angle: 5deg" onclick="openLightbox(this.src)">
-    <img src="29e5c6b0-ca99-43d3-acb9-21aa10fdc162_rw_1920.png" style="--angle: 2deg" onclick="openLightbox(this.src)">
-    <img src="09383b2f-dfa6-41ab-a3af-c5b85970f2bd_rw_1920.png" style="--angle: -3deg" onclick="openLightbox(this.src)">
-    <img src="138126bc-dc7c-4794-8947-d5c79917080a_rw_1920.png" style="--angle: 5deg" onclick="openLightbox(this.src)">
-    <img src="1edc9401-a057-4064-bb57-0dd16b34af3e_rw_1920.png" style="--angle: 1deg" onclick="openLightbox(this.src)">
-    <img src="e8a61e58-011e-4984-a1ad-466fa93180c2_rw_1200.png" style="--angle: 5deg" onclick="openLightbox(this.src)">
-    <img src="98c61380-5449-46e9-b633-9b867869e64d_rw_1200.png" style="--angle: -3deg" onclick="openLightbox(this.src)">
-    <img src="e0e6a36c-df1d-4cd5-951f-efa935c879d3_rw_1920.png" style="--angle: -2deg" onclick="openLightbox(this.src)">
-    <img src="4c159bed-1373-4956-963f-b565452ce365_rw_1920.jpeg" style="--angle: 5deg" onclick="openLightbox(this.src)">
-    <img src="e287fc93-418a-4800-8429-7dce08c62615_rw_1920.png" style="--angle: -3deg" onclick="openLightbox(this.src)">
-    <img src="53f53dc3-65e2-4c26-bbd5-cf31c8058778_rw_1200.png" style="--angle: 4deg" onclick="openLightbox(this.src)">
+<div class="subtitle">tattoos done between 2021 and 2024</div>
 
-  </div>
-  <div class="lightbox" id="lightbox" onclick="this.style.display='none'">
-    <img id="lightbox-img" src="" alt="">
-  </div>
-  <script>
-    function openLightbox(src) {
-      document.getElementById('lightbox-img').src = src;
-      document.getElementById('lightbox').style.display = 'flex';
-    }
-  </script>
-  <script src="randomImage.js"></script>
+<div id="threejs-container"></div>
+<script src="randomImage.js"></script>
+<script type="module" src="./main.js"></script>
+<!-- Re-added randomImage.js script -->
+<script>
+  window.addEventListener('load', () => {
+    window.scrollTo(0, 0); // Ensure the page loads at the top of the scroll
+  });
+</script>
 </body>
 </html>
