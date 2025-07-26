@@ -28,7 +28,7 @@
       imageRow.style.display = "flex";
       imageRow.style.justifyContent = "space-between";
       imageRow.style.alignItems = "center";
-      imageRow.style.margin = "20px 0 60px 0"; // Add spacing below the row
+      imageRow.style.margin = "100px 0 200px 0"; // Add spacing below the row
       imageRow.style.overflow = "hidden";
       imageRow.style.width = "calc(100% + 200px)"; // Extend slightly beyond the viewport
       imageRow.style.position = "relative";
@@ -44,7 +44,7 @@
         imgElement.src = shuffledImages[randomIndex]; // Select a random image
         imgElement.alt = "Random Image";
         imgElement.style.height = "auto"; // Maintain aspect ratio
-        imgElement.style.maxHeight = "150px"; // Set a maximum height for consistency
+        imgElement.style.maxHeight = "450px"; // Set a maximum height for consistency
         imgElement.style.margin = "0 10px";
         imgElement.classList.add("filtered-image"); // Add a class to dynamically generated images
         imageRow.appendChild(imgElement);
@@ -57,4 +57,10 @@
 
   // Call the function on page load
   document.addEventListener("DOMContentLoaded", createImageRow);
+
+  // Ensure the container has proper margins to avoid overlap
+  const randomImageContainer = document.getElementById('random-image-container');
+  if (randomImageContainer) {
+    randomImageContainer.style.marginBottom = "3rem"; // Add spacing below the container
+  }
 })();

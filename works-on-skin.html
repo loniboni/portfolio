@@ -20,23 +20,30 @@
     }
     .ascii-title {
       white-space: pre-wrap;
-      font-size: 0.9rem;
+      font-size: 3rem; /* Increased font size for main ASCII title */
       color: #aaffcc;
       margin-bottom: 1rem; /* Adjusted margin to match index.html */
+      margin-top: 4rem; /* Added margin above the ASCII title */
       text-align: center;
     }
     .subtitle {
-      font-size: 16px;
+      font-size:60px;
       color: #a4d4ae;
-      margin-bottom: 10px; /* Increased buffer between subtitle and grid */
+      margin-bottom: 6rem;
+      margin-top: .5rem;
+       /* Increased buffer between subtitle and grid */
     }
     #threejs-container {
       width: 90%; /* Reduced left and right margins */
       height: 120vh; /* Increased height to allow the model to be larger */
       margin: 0 auto; /* Center horizontally */
-      max-width: 1400px; /* Slightly increased max width */
+      max-width: 5000px; /* Slightly increased max width */
       background-color: transparent; /* Transparent background */
     }
+    nav a {
+        font-size: 4rem; /* Adjusted font size for menu links */
+    }
+
   </style>
   <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
   <script type="importmap">
@@ -49,19 +56,22 @@
   </script>
 </head>
 <body>
-<nav style="position: fixed; top: 1rem; right: 2rem; font-size: 1rem;">
-<a href="about.html" style="margin-left: 1rem; color: #e6ff8c; text-decoration: none;">About</a>
-<a href="index.html" style="margin-left: 1rem; color: #e6ff8c; text-decoration: none;">Works</a>
-<a href="contact.html" style="margin-left: 1rem; color: #e6ff8c; text-decoration: none;">Contact</a>
-</nav>
+  <nav style="position: fixed; top: 5rem; right: 10rem; font-size: 1rem;">
+    <a href="about.html" style="margin-left: 3rem; color: #e6ff8c; text-decoration: none;">About</a>
+    <a href="index.html" style="margin-left: 3rem; color: #e6ff8c; text-decoration: none;">Works</a>
+    <a href="contact.html" style="margin-left: 3rem; color: #e6ff8c; text-decoration: none;">Contact</a>
+  </nav>
 
 <div class="ascii-title">
- __      __             __                               ___________   .__        
-/  \    /  \___________|  | __  ______   ____   ____    /   _____/  | _|__| ____  
-\   \/\/   /  _ \_  __ \  |/ / /  ___/  /  _ \ /    \   \_____  \|  |/ /  |/    \ 
- \        (  <_> )  | \/    <  \___ \  (  <_> )   |  \  /        \    <|  |   |  \  
-  \__/\  / \____/|__|  |__|_ \/____  >  \____/|___|  / /_______  /__|_ \__|___|  /
-       \/                   \/     \/              \/          \/     \/     \/ 
+                                 
+  *   )        )   )             
+` )  /(   ) ( /(( /(             
+ ( )(_)| /( )\())\())(    (  (   
+(_(_()))(_)|_))(_))/ )\   )\ )\  
+|_   _((_)_| |_| |_ ((_) ((_|(_) 
+  | | / _` |  _|  _/ _ \/ _ (_-< 
+  |_| \__,_|\__|\__\___/\___/__/ 
+                                 
 </div>
 <div class="subtitle">tattoos done between 2021 and 2024</div>
 

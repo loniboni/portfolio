@@ -6,6 +6,9 @@
 <title>Works</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <style>
+    html {
+        font-size: 18px; /* Base font size for consistent scaling */
+    }
     html, body {
       overflow-x: hidden; /* Prevent horizontal scrolling */
     }
@@ -17,26 +20,28 @@
       text-align: center;
     }
     .ascii-title {
+      white-space: pre-wrap;
+      font-size: 3rem; /* Increased font size for main ASCII title */
+      color: #aaffcc;
+      margin-bottom: 1rem; /* Adjusted margin to match index.html */
+      margin-top: 4rem; /* Added margin above the ASCII title */
       text-align: center;
-      color: #aaffcc; /* Adjusted to match index.html */
-      font-size: 0.9rem; /* Standardized font size across all pages */
-      margin-bottom: 1rem; /* Adjusted to match index.html */
-      white-space: pre-wrap; /* Adjusted to match index.html */
     }
     .gallery {
       display: grid;
-      grid-template-columns: repeat(4, minmax(250px, 1fr)); /* Fixed number of items per row */
+      grid-template-columns: repeat(4, minmax(1000px, 1fr)); /* Fixed number of items per row */
       align-items: start;
       gap: 2rem; /* Even spacing between items */
       justify-content: center; /* Centers all rows */
       max-width: 1000px; /* Sets a maximum width for the grid container */
-      margin: 0 auto; /* Centers the grid container on the page */
+      margin: 0 auto;
+      margin-top: 500px; /* Centers the grid container on the page */
     }
     .gallery-item {
       position: relative;
       overflow: hidden; /* Ensures the overlay covers the entire image */
       width: auto;
-      max-width: 250px; /* Adjusted to fit items */
+      max-width: 1000px; /* Adjusted to fit items */
       text-decoration: none;
       display: inline-block;
       transform: rotate(var(--rotate, 0deg)) scale(1.1); /* Slightly enlarged for playful overlap */
@@ -46,7 +51,7 @@
       transform: scale(1.2); /* Adjusted hover effect to match new size */
     }
     .gallery-item img {
-      max-width: 250px; /* Limit image width */
+      max-width: 1000px; /* Limit image width */
       height: auto;
       display: block;
       cursor: pointer;
@@ -89,7 +94,7 @@
       margin-top: 0.5rem;
     }
     nav a {
-      font-size: 1rem; /* Standardized font size across all pages */
+      font-size: 4rem; /* Adjusted font size for menu links */
     }
 
     /* Add custom Lightbox styles */
@@ -143,19 +148,34 @@
 <script src="randomImage.js"></script>
 </head>
 <body>
-<nav style="position: fixed; top: 1rem; right: 2rem; font-size: 1rem;">
-<a href="about.html" style="margin-left: 1rem; color: #e6ff8c; text-decoration: none;">About</a>
-<a href="index.html" style="margin-left: 1rem; color: #e6ff8c; text-decoration: none;">Works</a>
-<a href="contact.html" style="margin-left: 1rem; color: #e6ff8c; text-decoration: none;">Contact</a>
-</nav>
+  <nav style="position: fixed; top: 5rem; right: 10rem; font-size: 1rem;">
+    <a href="about.html" style="margin-left: 3rem; color: #e6ff8c; text-decoration: none;">About</a>
+    <a href="index.html" style="margin-left: 3rem; color: #e6ff8c; text-decoration: none;">Works</a>
+    <a href="contact.html" style="margin-left: 3rem; color: #e6ff8c; text-decoration: none;">Contact</a>
+  </nav>
 <pre class="ascii-title">
- __      __             __            
-/  \    /  \___________|  | __  ______
-\   \/\/   /  _ \_  __ \  |/ / /  ___/
- \        (  &lt;_&gt; )  | \/    &lt;  \___ \ 
-  \__/\  / \____/|__|  |__|_ \/____  &gt;
-       \/                   \/     \/  
-  </pre>
+                                                                      
+     ***** *    **   ***                             *                
+  ******  *  *****    ***                          **                 
+ **   *  *     *****   ***                         **                 
+*    *  **     * **      **                        **                 
+    *  ***     *         **    ****   ***  ****    **         ****    
+   **   **     *         **   * ***  * **** **** * **  ***   * **** * 
+   **   **     *         **  *   ****   **   ****  ** * *** **  ****  
+   **   **     *         ** **    **    **         ***   * ****       
+   **   **     *         ** **    **    **         **   *    ***      
+   **   **     *         ** **    **    **         **  *       ***    
+    **  **     *         ** **    **    **         ** **         ***  
+     ** *      *         *  **    **    **         ******   ****  **  
+      ***      ***      *    ******     ***        **  *** * **** *   
+       ******** ********      ****       ***       **   *** * ****    
+         ****     ****                              **   ***          
+                                                                      
+                                                                      
+                                                                      
+                                                                      
+                                                                      
+ </pre>
 <div class="gallery">
 <div class="gallery-item" style="--rotate: 2deg;" onclick="openLightbox('Lifelong Desire.jpg', 'Lifelong Desire//Gluttony', 'June 2025, Graphite/Colored Pencil on Sketch Paper, 9”x12”<br><em>Thumper knows what’s tasty, that’s a fact I’ve known all my life.<br>(Desire, Hunger, Gluttony, Fetishization, Carnality, Nostalgia)</em>')">
 <img alt="Lifelong Desire//Gluttony" src="Lifelong Desire.jpg"/>
@@ -221,13 +241,13 @@
 <div class="overlay">Works on Skin</div>
 </a>
 </div>
-<div class="gallery-item" style="--rotate: 1deg; position: relative; top: -270px;">
+<div class="gallery-item" style="--rotate: 1deg; position: relative; top: -830px;">
 <a href="tattoo-flash.html">
 <img alt="Collected Tattoo Flash" src="a17f3d97-768f-4133-b19d-54cf72a95207_rw_1920.jpeg" data-caption="Collected Tattoo Flash">
 <div class="overlay">Collected Tattoo Flash</div>
 </a>
 </div>
-<div class="gallery-item" style="--rotate: 3deg; position: relative; top: -320px; left: 275px;">
+<div class="gallery-item" style="--rotate: 3deg; position: relative; top: -730px; left: 1010px;">
 <a href="bits.html">
 <img alt="Bits and Bobs" src="bits11.JPG" data-caption="Bits and Bobs">
 <div class="overlay">Bits and Bobs</div>

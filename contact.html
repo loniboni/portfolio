@@ -5,6 +5,9 @@
   <title>Contact - Lohi Wean</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <style>
+    html {
+        font-size: 18px; /* Base font size for consistent scaling */
+    }
     html, body {
       margin: 0;
       padding: 0;
@@ -25,64 +28,90 @@
       font-size: 1rem;
     }
     nav a {
-      margin-left: 1rem;
-      color: #e6ff8c;
-      text-decoration: none;
-      font-size: 1rem; /* Standardized font size across all pages */
+        font-size: 4rem; /* Adjusted font size for menu links */
     }
     .ascii-title {
-      font-family: monospace;
+      white-space: pre-wrap;
+      font-size: 3rem; /* Increased font size for main ASCII title */
       color: #aaffcc;
-      font-size: 0.9rem; /* Standardized font size across all pages */
-      white-space: pre;
-      margin-bottom: 1rem; /* Adjusted margin to match other pages */
-      line-height: .8; /* Retained line spacing for legibility */
+      margin-bottom: 1rem; /* Adjusted margin to match index.html */
+      margin-top: 4rem; /* Added margin above the ASCII title */
+      text-align: center;
     }
     form {
-      max-width: 500px;
+      max-width: 1000px;
       margin: auto;
       display: flex;
       flex-direction: column;
+      font-size: 1rem; /* Reverted font size for form inputs and labels */
     }
     input, textarea {
       background: #222;
       color: #e6ff8c;
       border: 1px solid #444;
-      padding: 0.75rem;
+      height: 10em;
+      padding: 0.75rem; /* Reverted padding for inputs */
       margin: 0.5rem 0;
       font-family: monospace;
+      font-size: 2rem; /* Reverted font size for better readability */
     }
     button {
       background: #aaffcc;
       color: #001f00;
-      padding: 0.75rem;
+      padding: 0.75rem 2rem; /* Reverted padding for the button */
       border: none;
       margin-top: 1rem;
       cursor: pointer;
+      height: 3em;
+      font-size: 2rem; /* Reverted font size for the button */
     }
     .thank-you {
       display: none;
-      margin-top: 2rem;
+      margin-top: .5rem;
+      font-size: 5rem;            
       white-space: pre;
       color: #aaffcc;
     }
+    .social-links a {
+      font-size: 1rem; /* Reverted font size for social links */
+    }
+
+    .social-links-container {
+        display: flex;
+        justify-content: center;
+        gap: 2rem; /* Adjusted spacing between icons */
+        margin-top: 5rem; /* Ensure sufficient spacing from the randomImage.js container */
+    }
+
+    #random-image-container {
+        margin-top: 2rem; /* Ensures spacing below the ASCII title */
+    }
+
+    .social-links-container img {
+        width: 500px; /* Increased size for better visibility */
+        height: auto; /* Maintain aspect ratio */
+        cursor: pointer; /* Indicate interactivity */
+
+      }
   </style>
 </head>
 <body>
-<nav style="position: fixed; top: 1rem; right: 2rem; font-size: 1rem;">
-<a href="about.html" style="margin-left: 1rem; color: #e6ff8c; text-decoration: none;">About</a>
-<a href="index.html" style="margin-left: 1rem; color: #e6ff8c; text-decoration: none;">Works</a>
-<a href="contact.html" style="margin-left: 1rem; color: #e6ff8c; text-decoration: none;">Contact</a>
-</nav>
+  <nav style="position: fixed; top: 5rem; right: 10rem; font-size: 1rem;">
+    <a href="about.html" style="margin-left: 3rem; color: #e6ff8c; text-decoration: none;">About</a>
+    <a href="index.html" style="margin-left: 3rem; color: #e6ff8c; text-decoration: none;">Works</a>
+    <a href="contact.html" style="margin-left: 3rem; color: #e6ff8c; text-decoration: none;">Contact</a>
+  </nav>
+
   
 
   <div class="ascii-title">
-  _______                __                 __   <br/>
- /   ___ \  ____   _____/  |______    _____/  |_ <br/>
-/    \  \/ /  _ \ /    \   __\__  \ _/ ___\   __<br/>
-\     \___(  <_> )   |  \  |  / __ \\  \___|  |  <br/>
- \______  /\____/|___|  /__| (____  /\___  >__|  <br/>
-        \/            \/          \/     \/       <br/>
+   ____   U  ___ u  _   _     _____     _       ____  _____   
+U /"___|   \/"_ \/ | \ |"|   |_ " _|U  /"\  uU /"___||_ " _|  
+\| | u     | | | |<|  \| |>    | |   \/ _ \/ \| | u    | |    
+ | |/__.-,_| |_| |U| |\  |u   /| |\  / ___ \  | |/__  /| |\   
+  \____|\_)-\___/  |_| \_|   u |_|U /_/   \_\  \____|u |_|U   
+ _// \\      \\    ||   \\,-._// \\_ \\    >> _// \\ _// \\_  
+(__)(__)    (__)   (_")  (_/(__) (__|__)  (__|__)(__|__) (__) 
   </div>
 
   <form id="contactForm" onsubmit="handleSubmit(event)">
@@ -103,69 +132,16 @@
     <br/><br/>Thank you!
   </div>
 
-  <div class="social-links" style="margin-top: 2rem; display: flex; justify-content: center; gap: 1rem;">
+  <div class="social-links-container" style="margin-top: 10rem; display: flex; justify-content: center; gap: 1rem;">
   <a href="http://instagram.com/keal0hi/" target="_blank" style="color: #e6ff8c; text-decoration: none;">
-    <pre style="font-family: monospace; color: #e6ff8c; font-size: 0.3rem;">
-                      ###################                      
-                  ###########################                  
-                ##########           ##########                
-               ####                         ####               
-              ####                      ##   ####              
-              ####           #####     ####  ####              
-              ###         ###########   ##   ####              
-              ###       ####### #######       ###              
-              ###      ####        #####      ###              
-              ###      ####         ####      ###              
-              ###      ###          ####      ###              
-              ###      ####         ####      ###              
-              ###       #####     #####       ###              
-              ###        #############       ####              
-              ####         ########          ####              
-              ####                           ####              
-               #####                       #####               
-                ###############################                
-                  ###########################                  
-                      ###################                      
-    </pre>
+    <img src="/insta.png" alt="Instagram" />
   </a>
   <a href="https://www.linkedin.com/in/kealohi-wean-5842b7138/" target="_blank" style="color: #e6ff8c; text-decoration: none;">
-    <pre style="font-family: monospace; color: #e6ff8c; font-size: 0.2rem;">
-           #########################################           
-        ###############################################        
-       #################################################       
-      ###################################################      
-      ###################################################      
-      ##########      ###################################      
-      #########        ##################################      
-      #########        ##################################      
-      #########       ###################################      
-      ############..#####################################      
-      ###################################################      
-      #########        ####       #           ###########      
-      #########        ####                    ##########      
-      #########        ####                     #########      
-      #########        ####        #####        #########      
-      #########        ####       #######        ########      
-      #########        ####       #######        ########      
-      #########        ####       #######        ########      
-      #########        ####       #######        ########      
-      #########        ####       #######        ########      
-      #########        ####       #######        ########      
-      #########        ####       #######        ########      
-      #########        ####       #######        ########      
-      #########        ####       #######        ########      
-      #########        ####       #######        ########      
-      #########        ####       #######        ########      
-      #########        ####       #######        ########      
-      #########        ####       #######        ########      
-      ###################################################      
-      ###################################################      
-       #################################################       
-        ###############################################        
-           #########################################           
-    </pre>
+    <img src="/linkedin.png" alt="LinkedIn" />
   </a>
 </div>
+
+<div id="random-image-container" style="margin-top: 5rem;"></div>
 
   <script>
     function handleSubmit(e) {
@@ -173,6 +149,13 @@
       document.getElementById('contactForm').style.display = 'none';
       document.getElementById('thankYouAscii').style.display = 'block';
     }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const randomImageContainer = document.getElementById("random-image-container");
+      if (!randomImageContainer) {
+        console.error("Random image container not found.");
+      }
+    });
   </script>
 <script src="randomImage.js"></script>
 </body>

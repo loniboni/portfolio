@@ -5,11 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tattoo Flash</title>
   <style>
+     * { box-sizing: border-box; }
+
     html, body {
       margin: 0;
       padding: 0;
       width: 100%;
       overflow-x: hidden; /* Prevent horizontal scrolling */
+    }
+    html {
+        font-size: 18px; /* Base font size for consistent scaling */
     }
     body {
       background-color: #1b1b1b; /* Unified background color across all pages */
@@ -20,31 +25,266 @@
     }
     .ascii-title {
       white-space: pre-wrap;
-      font-size: 0.9rem;
+      font-size: 3rem; /* Increased font size for main ASCII title */
       color: #aaffcc;
       margin-bottom: 1rem; /* Adjusted margin to match index.html */
+      margin-top: 4rem; /* Added margin above the ASCII title */
       text-align: center;
     }
+    nav a {
+        font-size: 4rem; /* Adjusted font size for menu links */
+    }
+    .centered-container {
+      position: relative;
+      margin: 0 auto;
+      width: 80%;
+      height: 70%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: url('binder background.png') no-repeat center center;
+      background-size: contain; /* Ensure the image scales appropriately */
+      aspect-ratio: 6048 / 3525; /* Match the aspect ratio of the binder background image */
+      height: auto; /* Allow the height to adjust based on the width */
+      max-height: 80%; /* Ensure it scales proportionally within the page */
+      max-width: 90%; /* Adjust to fit nicely with similar margins */
+    }
+  .flipbook-container {
+    width: 6048px; /* Combined width of two pages */
+    height: 3525px; /* Height of a single page */
+    margin: 0 auto; /* Center the container horizontally */
+    position: relative; /* Ensure child elements are positioned relative to this container */
+    overflow: hidden; /* Prevent any overflow */
+}
+
+.flipbook-container .book {
+    display: flex;
+    margin: auto;
+    width: 300px;
+    pointer-events: none;
+    transform-style: preserve-3d;
+    transition: translate 1s;
+    translate: 0 0;
+    aspect-ratio: 3024 / 3525;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the book within the container */
+    transform: scale(9.45); /* Scale the book to double its size */
+    transform-origin: left center; /* Ensure scaling happens from the center */
+}
+
+.flipbook-container .page {
+    --thickness: 5;
+    flex: none;
+    display: flex;
+    width: 100%;
+    pointer-events: all;
+    user-select: none;
+    transform-style: preserve-3d;
+    border: none;
+    transform-origin: left center;
+    transition:
+        transform 1s,
+        rotate 1s ease-in calc((min(var(--i), var(--c)) - max(var(--i), var(--c))) * 50ms);
+    translate: calc(var(--i) * -100%) 0px 0px;
+    transform: translateZ( calc((var(--c) - var(--i) - 0.5) * calc(var(--thickness) * 1px)));
+    rotate: 0 1 0 calc(clamp(0, var(--c) - var(--i), 1) * -180deg);
+    aspect-ratio: 3024 / 3525;
+}
+
+.flipbook-container .page img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin: 0; /* Ensure no margin around the image */
+}
+
+.flipbook-container .front,
+.flipbook-container .back {
+    flex: none;
+    width: 100%;
+    padding: 0;
+    backface-visibility: hidden;
+    background-color: transparent;
+    background-image: none;
+    translate: 0px;
+}
+
+.flipbook-container .back {
+    translate: -100% 0;
+    rotate: 0 1 0 180deg;
+}
   </style>
 </head>
 <body>
-<nav style="position: fixed; top: 1rem; right: 2rem; font-size: 1rem;">
-    <a href="about.html" style="margin-left: 1rem; color: #e6ff8c; text-decoration: none;">About</a>
-    <a href="index.html" style="margin-left: 1rem; color: #e6ff8c; text-decoration: none;">Works</a>
-    <a href="contact.html" style="margin-left: 1rem; color: #e6ff8c; text-decoration: none;">Contact</a>
+<nav style="position: fixed; top: 5rem; right: 10rem; font-size: 1rem;">
+    <a href="about.html" style="margin-left: 3rem; color: #e6ff8c; text-decoration: none;">About</a>
+    <a href="index.html" style="margin-left: 3rem; color: #e6ff8c; text-decoration: none;">Works</a>
+    <a href="contact.html" style="margin-left: 3rem; color: #e6ff8c; text-decoration: none;">Contact</a>
   </nav>
 
 
   
 
   <div class="ascii-title">
-___________       __    __                  ___________.__                .__     
-\__    ___/____ _/  |__/  |_  ____   ____   \_   _____/|  | _____    _____|  |__  
-  |    |  \__  \\   __\   __\/  _ \ /  _ \   |    __)  |  | \__  \  /  ___/  |  \ 
-  |    |   / __ \|  |  |  | (  <_> |  <_> )  |     \   |  |__/ __ \_\___ \|   Y  \
-  |____|  (____  /__|  |__|  \____/ \____/   \___  /   |____(____  /____  >___|  /
-               \/                                \/              \/     \/     \/  
+
+    dMMMMMP dMP     .aMMMb  .dMMMb  dMP dMP        dMMMMb  .aMMMb  .aMMMb  dMP dMP 
+   dMP     dMP     dMP"dMP dMP" VP dMP dMP        dMP"dMP dMP"dMP dMP"dMP dMP.dMP  
+  dMMMP   dMP     dMMMMMP  VMMMb  dMMMMMP        dMMMMK" dMP dMP dMP dMP dMMMMK"   
+ dMP     dMP     dMP dMP dP .dMP dMP dMP        dMP.aMF dMP.aMP dMP.aMP dMP"AMF    
+dMP     dMMMMMP dMP dMP  VMMMP" dMP dMP        dMMMMP"  VMMMP"  VMMMP" dMP dMP     
+                                                                                   
 </div>
+  <div class="centered-container">
+    <div class="flipbook-container">
+      <body>
+        <div class="book">
+            <div class="page">
+                <div class="front">
+                    <img src="binder imgs/binder front cover.png" alt="Img 1">
+                </div>
+                <div class="back">
+                    <img src="binder imgs/binder 1.png" alt="Img 2">
+                </div>
+            </div>
+    
+            <div class="page">
+                <div class="front">
+                    <img src="binder imgs/binder 2.png" alt="Img 3">
+                </div>
+                <div class="back">
+                    <img src="binder imgs/binder 3.png" alt="Img 4">
+                </div>
+            </div>
+    
+            <div class="page">
+                <div class="front">
+                    <img src="binder imgs/binder 4.png" alt="Img 5">
+                </div>
+                <div class="back">
+                    <img src="binder imgs/binder 5.png" alt="Img 6">
+                </div>
+            </div>
+    
+            <div class="page">
+                <div class="front">
+                    <img src="binder imgs/binder 6.png" alt="Img 7">
+                </div>
+                <div class="back">
+                    <img src="binder imgs/binder 7.png" alt="Img 8">
+                </div>
+            </div>
+    
+            <div class="page">
+                <div class="front">
+                    <img src="binder imgs/binder 8.png" alt="Img 9">
+                </div>
+                <div class="back">
+                    <img src="binder imgs/binder 9.png" alt="Img 10">
+                </div>
+            </div>
+    
+            <div class="page">
+                <div class="front">
+                    <img src="binder imgs/binder 10.png" alt="Img 11">
+                </div>
+                <div class="back">
+                    <img src="binder imgs/binder 11.png" alt="Img 12">
+                </div>
+            </div>
+    
+            <div class="page">
+                <div class="front">
+                    <img src="binder imgs/binder 12.png" alt="Img 13">
+                </div>
+                <div class="back">
+                    <img src="binder imgs/binder 13.png" alt="Img 14">
+                </div>
+            </div>
+    
+            <div class="page">
+                <div class="front">
+                    <img src="binder imgs/binder 14.png" alt="Img 15">
+                </div>
+                <div class="back">
+                    <img src="binder imgs/binder 15.png" alt="Img 16">
+                </div>
+            </div>
+    
+            <div class="page">
+                <div class="front">
+                    <img src="binder imgs/binder 16.png" alt="Img 17">
+                </div>
+                <div class="back">
+                    <img src="binder imgs/binder 17.png" alt="Img 18">
+                </div>
+            </div>
+    
+            <div class="page">
+                <div class="front">
+                    <img src="binder imgs/binder 18.png" alt="Img 19">
+                </div>
+                <div class="back">
+                    <img src="binder imgs/binder 19.png" alt="Img 20">
+                </div>
+            </div>
+    
+            <div class="page">
+                <div class="front">
+                    <img src="binder imgs/binder 20.png" alt="Img 21">
+                </div>
+                <div class="back">
+                    <img src="binder imgs/binder 21.png" alt="Img 22">
+                </div>
+            </div>
+    
+            <div class="page">
+                <div class="front">
+                    <img src="binder imgs/binder 22.png" alt="Img 23">
+                </div>
+                <div class="back">
+                    <img src="binder imgs/binder 23.png" alt="Img 24">
+                </div>
+            </div>
+    
+            <div class="page">
+                <div class="front">
+                    <img src="binder imgs/binder 24.png" alt="Img 25">
+                </div>
+                <div class="back">
+                    <img src="binder imgs/binder back cover.png" alt="Img 26">
+                </div>
+            </div>
+    
+            
+            </div>
+        </div>
+      </div>
+</div>
+    </div>
   <script src="randomImage.js"></script>
+  <script src="flipbook.js"></script>
+  <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const imagePaths = [
+                { front: 'binder imgs/binder front cover.png', back: 'binder imgs/binder 1.png' },
+                { front: 'binder imgs/binder 2.png', back: 'binder imgs/binder 3.png' },
+                { front: 'binder imgs/binder 4.png', back: 'binder imgs/binder 5.png' },
+                { front: 'binder imgs/binder 6.png', back: 'binder imgs/binder 7.png' },
+                { front: 'binder imgs/binder 8.png', back: 'binder imgs/binder 9.png' },
+                { front: 'binder imgs/binder 10.png', back: 'binder imgs/binder 11.png' },
+                { front: 'binder imgs/binder 12.png', back: 'binder imgs/binder 13.png' },
+                { front: 'binder imgs/binder 14.png', back: 'binder imgs/binder 15.png' },
+                { front: 'binder imgs/binder 16.png', back: 'binder imgs/binder 17.png' },
+                { front: 'binder imgs/binder 18.png', back: 'binder imgs/binder 19.png' },
+                { front: 'binder imgs/binder 20.png', back: 'binder imgs/binder 21.png' },
+                { front: 'binder imgs/binder 22.png', back: 'binder imgs/binder 23.png' },
+                { front: 'binder imgs/binder 24.png', back: 'binder imgs/binder back cover.png' }
+            ];
+
+            initializeFlipbook('centered-container', imagePaths);
+        });
+    </script>
 </body>
 </htmtl>

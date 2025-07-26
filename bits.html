@@ -21,200 +21,60 @@
     }
     .ascii-title {
       white-space: pre-wrap;
-      font-size: 0.9rem;
+      font-size: 3rem; /* Increased font size for main ASCII title */
       color: #aaffcc;
- d     margin-bottom: 1rem;
+      margin-bottom: 1rem; /* Adjusted margin to match index.html */
+      margin-top: 4rem; /* Added margin above the ASCII title */
       text-align: center;
     }
     .subtitle {
-      font-size: 16px;
- Understand this error     color: #a4d4ae;
-      margin-bottom: 50px;
-      text-align: center;
+      font-size:60px;
+      color: #a4d4ae;
+      margin-bottom: 6rem;
+      margin-top: .5rem;
+       /* Increased buffer between subtitle and grid */
     }
-    .gallery {
-      position: relative; /* Enable absolute positioning for child elements */
-      width: 80%; /* Maintain proportional width */
-      margin: 0 auto; /* Center the gallery */
-      padding-top: 5%; /* Adjust space proportionally */
-      min-height: 100vh; /* Allow infinite scroll */
+    
+   
+
+    nav {
+        top: 5rem;
+        right: 10rem;
     }
-    .gallery img {
-      position: absolute; /* Allow free movement within the gallery */
-      width: calc(20vw); /* Adjust size proportionally based on viewport width */
-      height: auto; /* Maintain aspect ratio */
-      object-fit: cover;
-      transform: rotate(calc(var(--angle, 0deg))); /* Maintain rotation */
-      transition: transform 0.3s;
-      cursor: pointer;
-    }
-    @media (max-width: 768px) {
-      body {
-        padding: 5%; /* Increase padding for smaller screens */
-      }
-      .gallery {
-        width: 90%; /* Adjust width for smaller screens */
-        padding-top: 10%; /* Increase space proportionally */
-      }
-      .gallery img {
-        width: calc(30vw); /* Adjust size for smaller screens */
-      }
+
+    nav a {
+        margin-left: 3rem;
+        font-size: 4rem;
+        color: #e6ff8c;
+        text-decoration: none;
     }
   </style>
 </head>
 <body>
-<nav style="position: fixed; top: 1rem; right: 2rem; font-size: 1rem;">
-    <a href="about.html" style="margin-left: 1rem; color: #e6ff8c; text-decoration: none;">About</a>
-    <a href="index.html" style="margin-left: 1rem; color: #e6ff8c; text-decoration: none;">Works</a>
-    <a href="contact.html" style="margin-left: 1rem; color: #e6ff8c; text-decoration: none;">Contact</a>
+  <nav style="position: fixed; top: 5rem; right: 10rem; font-size: 1rem;">
+    <a href="about.html" style="margin-left: 3rem; color: #e6ff8c; text-decoration: none;">About</a>
+    <a href="index.html" style="margin-left: 3rem; color: #e6ff8c; text-decoration: none;">Works</a>
+    <a href="contact.html" style="margin-left: 3rem; color: #e6ff8c; text-decoration: none;">Contact</a>
   </nav>
 
 
 
   <div class="ascii-title">
-      ________.__  __                              .___ __________      ___.           
-     \______   \__|/  |_  ______ _____    ____    __| _/ \______   \ ____\_ |__   ______
-      |    |  _/  \   __\/  ___/ \__  \  /    \  / __ |   |    |  _//  _ \| __ \ /  ___/
-      |    |   \  ||  |  \___ \   / __ \|   |  \/ /_/ |   |    |   (  <_> ) \_\ \\___ \ 
-      |______  /__||__| /____  > (____  /___|  /\____ |   |______  /\____/|___  /____  >
+    _     _(`-')            (`-')  _     (`-').->(`-')  _ <-. (`-')_ _(`-')    (`-').->          
+   (_)   ( (OO ).->   <-.   ( OO).-/     (OO )__ (OO ).-/    \( OO) | (OO ).-> ( OO)_            
+   ,-(`-')\    .'_  ,--. ) (,------.    ,--. ,'-'/ ,---.  ,--./ ,--/ \    .'_ (_)--\_)           
+   | ( OO)'`'-..__) |  (`-')|  .---'    |  | |  || \ /`.\ |   \ |  | '`'-..__)/    _ /           
+   |  |  )|  |  ' | |  |OO ||  '--.     |  `-'  |'-'|_.' ||  . '|  |)|  |  ' |\_..`--.           
+  (|  |_/ |  |  / :(|  '__ ||  .--'     |  .-.  (|  .-.  ||  |\    | |  |  / :.-._)   \          
+   |  |'->|  '-'  / |     |'|  `---.    |  | |  ||  | |  ||  | \   | |  '-'  /\       /,-.,-.,-. 
+   `--'   `------'  `-----' `------'    `--' `--'`--' `--'`--'  `--' `------'  `-----' '-''-''-' 
   </div>
 
   <div id="random-ascii"></div>
   <script src="randomImage.js"></script>
 
   <div class="subtitle">Unfinished, Untitled, Random Abandoned</div>
-    <div class="gallery">
-      <!-- First two rows of 7 items -->
-      <img src="bits1.JPG" style="--angle: 5deg" data-title="Title 1" data-date="Date 1" data-materials="Materials 1" data-size="Size 1" data-subtitle="Subtitle 1" data-additionalSubtitle="Additional Subtitle 1">
-      <img src="bits2.JPG" style="--angle: -3deg" data-title="Title 2" data-date="Date 2" data-materials="Materials 2" data-size="Size 2" data-subtitle="Subtitle 2" data-additionalSubtitle="Additional Subtitle 2">
-      <img src="bits3.JPG" style="--angle: 2deg" data-title="Title 3" data-date="Date 3" data-materials="Materials 3" data-size="Size 3" data-subtitle="Subtitle 3" data-additionalSubtitle="Additional Subtitle 3">
-      <img src="bits4.JPG" style="--angle: -5deg" data-title="Title 4" data-date="Date 4" data-materials="Materials 4" data-size="Size 4" data-subtitle="Subtitle 4" data-additionalSubtitle="Additional Subtitle 4">
-      <img src="bits5.JPG" style="--angle: 4deg" data-title="Title 5" data-date="Date 5" data-materials="Materials 5" data-size="Size 5" data-subtitle="Subtitle 5" data-additionalSubtitle="Additional Subtitle 5">
-      <img src="bits6.JPG" style="--angle: -2deg" data-title="Title 6" data-date="Date 6" data-materials="Materials 6" data-size="Size 6" data-subtitle="Subtitle 6" data-additionalSubtitle="Additional Subtitle 6">
-      <img src="bits7.JPG" style="--angle: 3deg" data-title="Title 7" data-date="Date 7" data-materials="Materials 7" data-size="Size 7" data-subtitle="Subtitle 7" data-additionalSubtitle="Additional Subtitle 7">
 
-      <img src="bits8.JPG" style="--angle: -4deg" data-title="Title 8" data-date="Date 8" data-materials="Materials 8" data-size="Size 8" data-subtitle="Subtitle 8" data-additionalSubtitle="Additional Subtitle 8">
-      <img src="bits9.JPG" style="--angle: 5deg" data-title="Title 9" data-date="Date 9" data-materials="Materials 9" data-size="Size 9" data-subtitle="Subtitle 9" data-additionalSubtitle="Additional Subtitle 9">
-      <img src="bits10.JPG" style="--angle: -3deg" data-title="Title 10" data-date="Date 10" data-materials="Materials 10" data-size="Size 10" data-subtitle="Subtitle 10" data-additionalSubtitle="Additional Subtitle 10">
-      <img src="bits11.JPG" style="--angle: 2deg" data-title="Title 11" data-date="Date 11" data-materials="Materials 11" data-size="Size 11" data-subtitle="Subtitle 11" data-additionalSubtitle="Additional Subtitle 11">
-      <img src="bits12.JPG" style="--angle: -5deg" data-title="Title 12" data-date="Date 12" data-materials="Materials 12" data-size="Size 12" data-subtitle="Subtitle 12" data-additionalSubtitle="Additional Subtitle 12">
-      <img src="bits13.JPG" style="--angle: 4deg" data-title="Title 13" data-date="Date 13" data-materials="Materials 13" data-size="Size 13" data-subtitle="Subtitle 13" data-additionalSubtitle="Additional Subtitle 13">
-      <img src="bits14.JPG" style="--angle: -2deg" data-title="Title 14" data-date="Date 14" data-materials="Materials 14" data-size="Size 14" data-subtitle="Subtitle 14" data-additionalSubtitle="Additional Subtitle 14">
-
-      <!-- Third row of 6 items -->
-      <img src="bits15.JPG" style="--angle: 5deg" data-title="Title 15" data-date="Date 15" data-materials="Materials 15" data-size="Size 15" data-subtitle="Subtitle 15" data-additionalSubtitle="Additional Subtitle 15">
-      <img src="bits16.JPG" style="--angle: -3deg" data-title="Title 16" data-date="Date 16" data-materials="Materials 16" data-size="Size 16" data-subtitle="Subtitle 16" data-additionalSubtitle="Additional Subtitle 16">
-      <img src="bits17.JPG" style="--angle: 2deg" data-title="Title 17" data-date="Date 17" data-materials="Materials 17" data-size="Size 17" data-subtitle="Subtitle 17" data-additionalSubtitle="Additional Subtitle 17">
-      <img src="bits18.JPG" style="--angle: -5deg" data-title="Title 18" data-date="Date 18" data-materials="Materials 18" data-size="Size 18" data-subtitle="Subtitle 18" data-additionalSubtitle="Additional Subtitle 18">
-      <img src="bits19.JPG" style="--angle: 4deg" data-title="Title 19" data-date="Date 19" data-materials="Materials 19" data-size="Size 19" data-subtitle="Subtitle 19" data-additionalSubtitle="Additional Subtitle 19">
-      <img src="bits20.JPG" style="--angle: -2deg" data-title="Title 20" data-date="Date 20" data-materials="Materials 20" data-size="Size 20" data-subtitle="Subtitle 20" data-additionalSubtitle="Additional Subtitle 20">
-
-      <!-- Fourth row of 6 items -->
-      <img src="bits21.JPG" style="--angle: 3deg" data-title="Title 21" data-date="Date 21" data-materials="Materials 21" data-size="Size 21" data-subtitle="Subtitle 21" data-additionalSubtitle="Additional Subtitle 21">
-      <img src="bits22.JPG" style="--angle: -4deg" data-title="Title 22" data-date="Date 22" data-materials="Materials 22" data-size="Size 22" data-subtitle="Subtitle 22" data-additionalSubtitle="Additional Subtitle 22">
-      <img src="bits23.JPG" style="--angle: 5deg" data-title="Title 23" data-date="Date 23" data-materials="Materials 23" data-size="Size 23" data-subtitle="Subtitle 23" data-additionalSubtitle="Additional Subtitle 23">
-      <img src="bits24.JPG" style="--angle: -3deg" data-title="Title 24" data-date="Date 24" data-materials="Materials 24" data-size="Size 24" data-subtitle="Subtitle 24" data-additionalSubtitle="Additional Subtitle 24">
-      <img src="bits25.JPG" style="--angle: 2deg" data-title="Title 25" data-date="Date 25" data-materials="Materials 25" data-size="Size 25" data-subtitle="Subtitle 25" data-additionalSubtitle="Additional Subtitle 25">
-      <img src="bits26.JPG" style="--angle: -5deg" data-title="Title 26" data-date="Date 26" data-materials="Materials 26" data-size="Size 26" data-subtitle="Subtitle 26" data-additionalSubtitle="Additional Subtitle 26">
-    </div>
-
-    <!-- Lightbox HTML -->
-    <div id="lightbox" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.9); align-items: center; justify-content: center; flex-direction: column; z-index: 10;">
-      <img id="lightbox-img" style="max-width: 90%; max-height: 80vh;" />
-      <span id="lightbox-caption" style="margin-top: 1rem; color: #e6ff8c; font-size: 1.2rem;"></span>
-      <button id="prev" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); background: rgba(0, 0, 0, 0.7); color: #e6ff8c; border: none; padding: 10px; cursor: pointer;">&#10094;</button>
-      <button id="next" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); background: rgba(0, 0, 0, 0.7); color: #e6ff8c; border: none; padding: 10px; cursor: pointer;">&#10095;</button>
-    </div>
-
-    <script>
-      // Lightbox functionality
-      let currentIndex = 0;
-      let images = [];
-
-      function openLightbox(index) {
-        currentIndex = index;
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightbox-img');
-        const lightboxCaption = document.getElementById('lightbox-caption');
-
-        lightboxImg.src = images[currentIndex].src;
-        lightboxCaption.textContent = images[currentIndex].alt;
-        lightbox.style.display = 'flex';
-      }
-
-      function closeLightbox() {
-        document.getElementById('lightbox').style.display = 'none';
-      }
-
-      function showNext() {
-        currentIndex = (currentIndex + 1) % images.length;
-        openLightbox(currentIndex);
-      }
-
-      function showPrev() {
-        currentIndex = (currentIndex - 1 + images.length) % images.length;
-        openLightbox(currentIndex);
-      }
-
-      document.addEventListener('keydown', function(event) {
-        if (event.key === 'ArrowRight') {
-          showNext();
-        } else if (event.key === 'ArrowLeft') {
-          showPrev();
-        } else if (event.key === 'Escape') {
-          closeLightbox();
-        }
-      });
-
-      // Update the lightbox initialization to include dynamically added images
-      function initializeLightbox() {
-        images = Array.from(document.querySelectorAll('.gallery img, .filtered-image'));
-
-        images.forEach((img, index) => {
-          img.addEventListener('click', () => openLightbox(index));
-        });
-      }
-
-      document.addEventListener('DOMContentLoaded', initializeLightbox);
-
-      document.getElementById('prev').addEventListener('click', showPrev);
-      document.getElementById('next').addEventListener('click', showNext);
-      document.getElementById('lightbox').addEventListener('click', function(event) {
-        if (event.target.id === 'lightbox') {
-          closeLightbox();
-        }
-      });
-
-      // Reset gallery to grid layout
-      document.addEventListener('DOMContentLoaded', () => {
-        const gallery = document.querySelector('.gallery');
-        const images = gallery.querySelectorAll('img');
-
-        images.forEach((img) => {
-          img.style.position = "static"; // Reset positioning
-          img.style.left = "";
-          img.style.top = "";
-          img.style.width = "";
-          img.style.height = "";
-        });
-      });
-
-      // Remove grid layout and enable free movement within defined boundaries
-      document.addEventListener('DOMContentLoaded', () => {
-        const gallery = document.querySelector('.gallery');
-        const images = gallery.querySelectorAll('img');
-
-        let currentY = 0; // Start positioning from the top
-
-        images.forEach((img) => {
-          const randomX = Math.random() * (gallery.offsetWidth - img.offsetWidth);
-
-          img.style.left = `${randomX}px`;
-          img.style.top = `${currentY}px`;
-
-          currentY += img.offsetHeight + 20; // Add spacing between images
-        });
-      });
     </script>
   </body>
 </html>

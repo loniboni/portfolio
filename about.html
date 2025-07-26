@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lohi Wean</title>
   <style>
+    html {
+        font-size: 18px; /* Base font size for consistent scaling */
+    }
+
     body {
       margin: 0;
       padding: 0;
@@ -15,40 +19,36 @@
     }
     nav {
       position: fixed;
-      top: 1rem;
-      right: 2rem;
+      top: 5rem;
+      right: 10rem;
       z-index: 100;
     }
     nav a {
-      margin-left: 1rem;
+      margin-left: 3rem;
       color: #e6ff8c; /* Reverted navigation link color */
       text-decoration: none;
-      font-size: 1rem; /* Standardized font size across all pages */
+      font-size: 4rem; /* Adjusted font size for menu links */
     }
-    .ascii-logo {
+          .ascii-title {
+      white-space: pre-wrap;
+      font-size: 3rem; /* Increased font size for main ASCII title */
+      color: #aaffcc;
+      margin-bottom: 1rem; /* Adjusted margin to match index.html */
+      margin-top: 4rem; /* Added margin above the ASCII title */
       text-align: center;
-      font-size: 0.75rem;
-      color: #aaffcc; /* Reverted ASCII logo text color */
-      margin-top: 3rem;
-      white-space: pre;
-      line-height: .9; /* Adjusted line spacing for better legibility */
-    }
-    .ascii-title {
-      color: #aaffcc; /* Reverted ASCII header text color to original */
-      font-size: 0.9rem; /* Standardized font size across all pages */
     }
     .about-text {
         max-width: 500px; /* Further reduced width for tighter text */
         margin: 0 auto; /* Centered the text block */
         padding: 0 1rem;
-        font-size: 1.2rem; /* Increased font size for better readability */
+        font-size: 4rem; /* Increased font size for better readability */
         line-height: 1.5; /* Adjusted line height for tighter spacing */
         text-align: center;
         color: #a4d4ae; /* Maintained text color */
         margin-top: 0; /* Removed top margin */
     }
     .sub-text {
-      font-size: 1rem;
+      font-size: 4rem;
       font-weight: normal;
       color: #e6ff8c;
       margin-top: 20px;
@@ -71,31 +71,30 @@
   </style>
 </head>
 <body>
-  <nav style="position: fixed; top: 1rem; right: 2rem; font-size: 1rem;">
-    <a href="about.html" style="margin-left: 1rem; color: #e6ff8c; text-decoration: none;">About</a>
-    <a href="index.html" style="margin-left: 1rem; color: #e6ff8c; text-decoration: none;">Works</a>
-    <a href="contact.html" style="margin-left: 1rem; color: #e6ff8c; text-decoration: none;">Contact</a>
+  <nav style="position: fixed; top: 5rem; right: 10rem; font-size: 1rem;">
+    <a href="about.html" style="margin-left: 3rem; color: #e6ff8c; text-decoration: none;">About</a>
+    <a href="index.html" style="margin-left: 3rem; color: #e6ff8c; text-decoration: none;">Works</a>
+    <a href="contact.html" style="margin-left: 3rem; color: #e6ff8c; text-decoration: none;">Contact</a>
   </nav>
 
-  <div class="ascii-logo">
-    .____          .__    .__   __      __                      <br/>                      
-|    |    ____ |  |__ |__| /  \    /  \ ____ _____    ____  <br/>  
-|    |   /  _ \|  |  \|  | \   \/\/   // __ \\__  \  /    \ <br/> 
-|    |__(  <_> )   Y  \  |  \        /\  ___/ / __ \|   |  <br/>  
-|_______ \____/|___|  /__|   \__/\  /  \___  >____  /___|  /<br/>
-        \/          \/            \/       \/     \/     \/ <br/>
-  </div>
+  <div class="ascii-title">
+   _              _         _            __      __                       
+  | |      ___   | |_      (_)      o O O\ \    / / ___    __ _    _ _    
+  | |__   / _ \  | ' \     | |     o      \ \/\/ / / -_)  / _` |  | ' \   
+  |____|  \___/  |_||_|   _|_|_   TS__[O]  \_/\_/  \___|  \__,_|  |_||_|  
+_|"""""|_|"""""|_|"""""|_|"""""| {======|_|"""""|_|"""""|_|"""""|_|"""""| 
+"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'./o--000'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-' 
+</div>
 
-  <div style="display: flex; align-items: center; justify-content: center; margin: 0 auto; max-width: 800px; position: relative;">
-    <div id="threejs-container" style="width: 500px; height: 500px; background-color: transparent;"></div>
-    <div class="about-text" id="aboutText" style="max-width: 500px; text-align: left; color: #a4d4ae; margin-left: 0;">
+  <div style="display: flex; align-items: center; justify-content: center; margin: 0 auto; max-width: 2000px; position: relative;">
+    <div class="about-text" id="aboutText" style="max-width: 2000px; text-align: left; color: #a4d4ae; margin-left: 0;">
       Big feelings, Nostalgia, Hyperfixations… Cartoons movies and Online Culture - Sex and drugs and gender and politics. A sense of humor, a tongue in the cheek, a lip dragged between the teeth. Horny, weird, standing on a soapbox in the corner of each drawing screaming at the viewer to both give in and get up. Hedonism and Communalism are not two opposing forces. Desire is good, actually, served with blood, sweat, and tears. Can you desire a better world as much as you desire pussy?
 
-      <div class="sub-text" id="favorites" style="max-width: 500px; margin: 20px auto; text-align: left; color: #e6ff8c;">
+      <div class="sub-text" id="favorites" style="max-width: 2000px; margin: 20px auto; text-align: left; color: #e6ff8c;">
         Favorites: The Last Unicorn (1982), The Far Side, Footrot Flats, Futurama, Adventure Time, House of Wax (2005), The Faggots & Their Friends Between Revolutions, Sarah Squirm, Garfield, My Favorite Thing is Monsters, Calvin and Hobbes, Clive Barker, Jim Henson, What’s Your Number (2011), Living rooms, Otherkin, Fanfiction, Youtube video essays, Trips to the beach, Antique stores, Dive bars, Testosterone, Surgery :)
       </div>
 
-      <div class="sub-text" id="friends" style="max-width: 500px; margin: 20px auto; text-align: left;">
+      <div class="sub-text" id="friends" style="max-width: 2000px; margin: 20px auto; text-align: left;">
         I’m a friend lover, here are my friends:
         <div style="display: flex; flex-wrap: nowrap; justify-content: flex-start; gap: 10px; white-space: nowrap;">
           <a href="https://rpeale.tumblr.com" target="_blank" style="color: #a4d4ae; text-decoration: underline;">Ren,</a>
