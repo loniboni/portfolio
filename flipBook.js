@@ -54,3 +54,5 @@ function initializeFlipbook(containerId, imagePaths) {
     container.appendChild(book);
     flipBook(book);
 }
+
+window.initializeFlipbook = initializeFlipbook;
