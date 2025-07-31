@@ -47,6 +47,145 @@
     margin-bottom: 6rem;
     margin-top: .5rem;
   }
+  .image-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 4rem auto;
+    max-width: 90%;
+    aspect-ratio: 16 / 9; /* Maintain a fixed aspect ratio */
+  }
+
+  .image-container img {
+    width: 85%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: auto; /* Enable interaction with child elements */
+    z-index: 10; /* Ensure overlay is above the main image */
+  }
+
+  .overlay .boobs {
+    position: absolute;
+    top: 30.6%;
+    left: 14.25%;
+    width: 32.5%;
+    height: auto;
+  }
+
+  .overlay .killdozer {
+    position: absolute;
+    top: 20%;
+    left: 43.8%;
+    width: 11%;
+    height: auto;
+  }
+
+  .overlay .egg {
+    position: absolute;
+    top: 39.7%;
+    left: 56.8%;
+    width: 10%;
+    height: auto;
+  }
+
+  /* Add hover effect for overlay images */
+  .overlay img {
+    cursor: pointer;
+    transition: filter 0.3s ease;
+  }
+
+  .overlay img:hover {
+    filter: brightness(1.2); /* Slightly lighter on hover */
+  }
+
+  /* Styles for the lightroom modal */
+  #lightroom {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    cursor: pointer; /* Allow clicking outside the image to close */
+  }
+
+  #lightroom img {
+    max-width: 90%;
+    max-height: 80%;
+    cursor: auto; /* Prevent closing when clicking on the image */
+  }
+
+  #lightroom-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+
+  /* Styles for carousel navigation */
+  #carousel {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+
+  #carousel img {
+    max-width: 90%;
+    max-height: 80%;
+    width: auto; /* Ensure consistent scaling */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Scale smaller images to match larger ones */
+  }
+
+  #carousel-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+
+  .carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 3rem;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .carousel-arrow.left {
+    left: 20px;
+  }
+
+  .carousel-arrow.right {
+    right: 20px;
+  }
 </style>
 
 </head>
@@ -74,7 +213,101 @@
 </pre>
   <div class="subtitle">updated July 2025</div>
 
- 
+  <!-- Updated image container with overlays -->
+  <div class="image-container">
+    <img src="studio static.png" alt="Studio Static">
+    <div class="overlay">
+      <img src="boobs overlay.png" alt="Boobs Overlay" class="boobs">
+      <img src="killdozer overlay.png" alt="Killdozer Overlay" class="killdozer">
+      <img src="egg overlay.png" alt="Egg Overlay" class="egg">
+    </div>
+  </div>
+
+  <!-- Add carousel modal structure -->
+  <div id="carousel">
+    <span id="carousel-close">&times;</span>
+    <span class="carousel-arrow left">&#10094;</span>
+    <img id="carousel-img" src="" alt="Carousel Image">
+    <span class="carousel-arrow right">&#10095;</span>
+  </div>
+
+  <script>
+    // JavaScript for carousel functionality
+    const carousel = document.getElementById('carousel');
+    const carouselImg = document.getElementById('carousel-img');
+    const images = {
+      boobs: [
+        'process 1.jpg', 'process 2.jpg', 'process 3.jpg', 'process 4.jpg', 'process 5.jpg', 'process 6.jpg', 'process 7.jpg'
+      ],
+      killdozer: [
+        'Killdozer Progress 1.jpg', 'Killdozer Progress 2.jpg', 'Killdozer Progress 3.jpg', 'Killdozer Progress 4.jpg', 'Killdozer Progress 5.jpg', 'Killdozer Progress 6.jpg'
+      ],
+      egg: [
+        'progress 1.jpg', 'progress 2.jpg', 'progress 3.jpg', 'progress 6.jpg', 'progress 7.jpg'
+      ]
+    };
+
+    let currentImages = [];
+    let currentIndex = 0;
+
+    function openCarousel(imageSet) {
+      currentImages = images[imageSet];
+      currentIndex = 0;
+      carouselImg.src = currentImages[currentIndex];
+      carousel.style.display = 'flex';
+    }
+
+    function closeCarousel() {
+      carousel.style.display = 'none';
+    }
+
+    function showNextImage() {
+      currentIndex = (currentIndex + 1) % currentImages.length;
+      carouselImg.src = currentImages[currentIndex];
+    }
+
+    function showPrevImage() {
+      currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+      carouselImg.src = currentImages[currentIndex];
+    }
+
+    document.querySelectorAll('.overlay img').forEach(img => {
+      img.addEventListener('click', () => {
+        if (img.classList.contains('boobs')) {
+          openCarousel('boobs');
+        } else if (img.classList.contains('killdozer')) {
+          openCarousel('killdozer');
+        } else if (img.classList.contains('egg')) {
+          openCarousel('egg');
+        }
+      });
+    });
+
+    document.getElementById('carousel-close').addEventListener('click', closeCarousel);
+    document.querySelector('.carousel-arrow.right').addEventListener('click', showNextImage);
+    document.querySelector('.carousel-arrow.left').addEventListener('click', showPrevImage);
+
+    // Close carousel when clicking outside the image
+    carousel.addEventListener('click', (e) => {
+      if (e.target === e.currentTarget) {
+        closeCarousel();
+      }
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (carousel.style.display === 'flex') {
+        if (e.key === 'ArrowRight') {
+          showNextImage();
+        } else if (e.key === 'ArrowLeft') {
+          showPrevImage();
+        } else if (e.key === 'Escape') {
+          closeCarousel();
+        }
+      }
+    });
+  </script>
+
   </script>
   <script src="randomImage.js"></script>
 
