@@ -42,12 +42,11 @@
     }
     nav {
       position: fixed;
-      top: 1rem; /* Adjusted to center closer to the top */
-      left: 50%; /* Center horizontally */
-      transform: translateX(-50%); /* Adjust for centering */
+      top: 1rem; /* Consistent top margin */
+      right: 2rem; /* Position on the top-right corner */
       display: flex;
-      gap: 1rem; /* Consistent spacing between buttons */
-      font-size: 4rem;
+      gap: 2rem; /* Add spacing between menu items */
+      font-size: 4rem; /* Default font size for desktop */
     }
     nav a {
         margin: 0; /* Remove extra margins */
@@ -57,12 +56,22 @@
     }
 
     @media (max-width: 768px) {
+        nav {
+            font-size: 3rem; /* Scale down font size for tablets */
+            gap: 1.5rem; /* Adjust spacing for smaller screens */
+        }
+
         nav a {
             margin-left: 0.5rem; /* Reduce margin for smaller screens */
         }
     }
 
     @media (max-width: 480px) {
+        nav {
+            font-size: 2.5rem; /* Scale down font size for mobile */
+            gap: 1rem; /* Adjust spacing for mobile */
+        }
+
         nav a {
             margin-left: 0.25rem; /* Further reduce margin for very small screens */
         }
@@ -84,9 +93,10 @@
     margin-top: .5rem;
   }
     form {
-      min-width: 30rem;
-      max width: 200rem;
+      width: 200rem; /* Default width for desktop */
       margin: auto;
+      min-width: 30rem;
+      max-width: 200rem;
       display: flex;
       flex-direction: column;
       font-size: 1rem; /* Reverted font size for form inputs and labels */
@@ -171,6 +181,10 @@
         button {
             font-size: 1.2rem; /* Adjust button size */
         }
+
+        form {
+            width: 100rem; /* Adjust width for tablets */
+        }
     }
 
     @media (max-width: 480px) {
@@ -184,6 +198,10 @@
 
         button {
             font-size: 1rem; /* Further adjust button size */
+        }
+
+        form {
+            width: 30rem; /* Adjust width for mobile */
         }
     }
 
@@ -291,8 +309,6 @@
     <a href="index.html" style="color: #e6ff8c; text-decoration: none;">Works</a>
     <a href="contact.html" style="color: #e6ff8c; text-decoration: none;">Contact</a>
   </nav>
-
-  
 
   <div class="ascii-title">
    ____   U  ___ u  _   _     _____     _       ____  _____   
