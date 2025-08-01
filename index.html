@@ -241,41 +241,62 @@
     /* Adjust ASCII title for smaller screens */
      @media (max-width: 480px) {
         .ascii-title {
-            font-size: 1rem; /* Reduce font size for better fit */
-            line-height: 1.2; /* Adjust line spacing to prevent overlap */
-            word-break: break-word; /* Ensure long lines break properly */
+            font-size: 0.7rem; /* Make smaller and less prominent on mobile */
+            line-height: 1.1; 
+            word-break: break-word;
+            margin-top: 2rem; /* Reduce top margin for better proportions */
+            margin-bottom: 0.5rem; /* Reduce bottom margin */
         }
     }
 
     /* Adjust ASCII title for widths below 2240px */
     @media (max-width: 2240px) {
         .ascii-title {
-            font-size: 2rem; /* Reduce font size to prevent squishing */
-            line-height: 1.5; /* Increase line spacing for better readability */
-            word-break: break-word; /* Ensure long lines break properly */
+            font-size: 1.8rem; /* Slightly smaller for better proportions */
+            line-height: 1.5; 
+            word-break: break-word; 
         }
     }
 
     /* Adjust layout for iPad Pro 11-inch (2048px width) */
     @media (max-width: 2048px) {
         .ascii-title {
-            font-size: clamp(1.5rem, 2vw, 2.5rem); /* Scale font size dynamically */
-            line-height: 1.4; /* Adjust line spacing */
+            font-size: 1.4rem; /* More proportional scaling */
+            line-height: 1.4; 
         }
     }
 
     /* Adjust layout for iPhone 13 (1170px width) */
     @media (max-width: 1170px) {
         .ascii-title {
-            font-size: clamp(.5rem, 2vw, 2rem); /* Scale font size dynamically */
-            line-height: 1.3; /* Adjust line spacing */
+            font-size: 1rem; /* Smaller but still legible */
+            line-height: 1.3; 
         }
     }
 
-    /* Adjust navigation menu and subtitle for smaller screens */
+    /* Additional breakpoint for very small mobile screens */
+    @media (max-width: 375px) {
+        .ascii-title {
+            font-size: 0.6rem; /* Very small for narrow screens */
+            line-height: 1.0;
+            margin-top: 1.5rem;
+            margin-bottom: 0.3rem;
+        }
+    }
+
+    @media (max-width: 320px) {
+        .ascii-title {
+            font-size: 0.5rem; /* Tiny for very narrow screens */
+            line-height: 1.0;
+            margin-top: 1rem;
+            margin-bottom: 0.2rem;
+        }
+    }
+
+    /* Adjust navigation menu for smaller screens - this was missing! */
     @media (max-width: 1170px) {
         nav a {
-            font-size: clamp(1.5rem, 2.5vw, 4rem); /* Scale down navigation link size */
+            font-size: clamp(1.5rem, 2.5vw, 4rem) !important; /* Scale down navigation link size */
         }
     }
 
@@ -567,6 +588,13 @@
     // Restore lightbox functionality
     let currentIndex = 0;
     const galleryItems = document.querySelectorAll('.gallery-item img');
+    const excludedLinks = ['works-in-progress.html', 'works-on-skin.html', 'tattoo-flash.html', 'bits.html'];
+
+    function isExcluded(imageElement) {
+        const galleryItem = imageElement.closest('.gallery-item');
+        const link = galleryItem.querySelector('a');
+        return link && excludedLinks.includes(link.getAttribute('href'));
+    }
 
     function openLightbox(imageElement) {
       const box = document.getElementById('lightbox');
@@ -576,79 +604,78 @@
       // Extract attributes directly from the image element
       const src = imageElement.src;
       const title = imageElement.alt;
-      const caption = imageElement.getAttribute('data-caption'); // Explicitly read data-caption
-
-      console.log('Opening lightbox with:', { src, title, caption }); // Debugging log
-      console.log('Image element passed to openLightbox:', imageElement); // Debugging log
-      console.log('data-caption attribute:', imageElement.getAttribute('data-caption')); // Debugging log
+      const caption = imageElement.getAttribute('data-caption');
 
       img.src = src;
       captionElement.innerHTML = `<strong>${title}</strong><br>${caption}`;
       box.style.display = 'flex';
 
-      // Normalize and decode src to compare filenames only (case-insensitive)
+      // Find current index
       const normalizedSrc = decodeURIComponent(src.split('/').pop().toLowerCase());
-      currentIndex = Array.from(galleryItems).findIndex(item => decodeURIComponent(item.src.split('/').pop().toLowerCase()) === normalizedSrc);
-      console.log('Current index set to:', currentIndex); // Debugging log
+      currentIndex = Array.from(galleryItems).findIndex(item => 
+          decodeURIComponent(item.src.split('/').pop().toLowerCase()) === normalizedSrc);
     }
+
     function closeLightbox() {
       document.getElementById('lightbox').style.display = 'none';
     }
+
     function showPrev() {
       do {
         currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
       } while (isExcluded(galleryItems[currentIndex]));
-      const prevItem = galleryItems[currentIndex];
-      openLightbox(prevItem);
-      const link = item.closest('a');
-      return link && excludedLinks.includes(link.getAttribute('href'));
+      
+      openLightbox(galleryItems[currentIndex]);
+    }
+
+    function showNext() {
+      do {
+        currentIndex = (currentIndex + 1) % galleryItems.length;
+      } while (isExcluded(galleryItems[currentIndex]));
+      
+      openLightbox(galleryItems[currentIndex]);
     }
 
     window.addEventListener('DOMContentLoaded', () => {
       const prevButton = document.getElementById('prev');
       const nextButton = document.getElementById('next');
+      const lightbox = document.getElementById('lightbox');
 
+      // Add event listeners for navigation buttons
       if (prevButton && nextButton) {
         prevButton.addEventListener('click', showPrev);
         nextButton.addEventListener('click', showNext);
-        console.log('Event listeners attached to prev and next buttons');
-      } else {
-        console.error('Prev or Next button not found in the DOM');
       }
 
-      const lightbox = document.getElementById('lightbox');
+      // Add click-to-close functionality
       if (lightbox) {
         lightbox.addEventListener('click', function(event) {
           if (event.target === lightbox) {
             closeLightbox();
           }
         });
-        console.log('Lightbox click-to-close functionality attached');
-      } else {
-        console.error('Lightbox element not found in the DOM');
       }
 
-      // Restore keyboard arrow control for lightbox carousel
+      // Add keyboard navigation
       document.addEventListener('keydown', function(e) {
-        if (e.key === 'ArrowLeft') {
-          showPrev();
-        } else if (e.key === 'ArrowRight') {
-          showNext();
-        } else if (e.key === 'Escape') {
-          closeLightbox();
+        const lightboxVisible = document.getElementById('lightbox').style.display === 'flex';
+        if (lightboxVisible) {
+          if (e.key === 'ArrowLeft') {
+            showPrev();
+          } else if (e.key === 'ArrowRight') {
+            showNext();
+          } else if (e.key === 'Escape') {
+            closeLightbox();
+          }
         }
       });
-      console.log('Keyboard arrow control restored for lightbox carousel');
 
-      // Ensure links navigate without triggering the lightbox
-      const excludedLinks = ['works-in-progress.html', 'works-on-skin.html', 'tattoo-flash.html', 'bits.html'];
-      const galleryItems = document.querySelectorAll('.gallery-item');
-
-      galleryItems.forEach((item) => {
+      // Remove onclick from excluded links
+      const galleryItemsElements = document.querySelectorAll('.gallery-item');
+      galleryItemsElements.forEach((item) => {
         const link = item.querySelector('a');
         if (link && excludedLinks.includes(link.getAttribute('href'))) {
-          item.removeAttribute('onclick'); // Remove lightbox functionality
-          console.log(`Removed onclick for ${link.getAttribute('href')}`);
+          item.removeAttribute('onclick');
         }
       });
     });
