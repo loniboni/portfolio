@@ -28,11 +28,11 @@
       imageRow.style.display = "flex";
       imageRow.style.justifyContent = "space-between";
       imageRow.style.alignItems = "center";
-      imageRow.style.margin = "100px 0 75px 0"; // Add spacing below the row
+      imageRow.style.margin = "2rem 0"; // Add consistent spacing
       imageRow.style.overflow = "hidden";
-      imageRow.style.width = "calc(100% + 200px)"; // Extend slightly beyond the viewport
+      imageRow.style.width = "100%"; // Set width to 100% of the parent container
       imageRow.style.position = "relative";
-      imageRow.style.left = "-100px"; // Offset to create the illusion of continuation
+      imageRow.style.left = "0"; // Remove offset for better alignment
 
       // Shuffle the images array to randomize the order
       const shuffledImages = images.sort(() => Math.random() - 0.5);
@@ -43,9 +43,9 @@
         const randomIndex = i % shuffledImages.length; // Cycle through shuffled images
         imgElement.src = shuffledImages[randomIndex]; // Select a random image
         imgElement.alt = "Random Image";
+        imgElement.style.maxWidth = "10vw"; // Scale width relative to viewport
         imgElement.style.height = "auto"; // Maintain aspect ratio
-        imgElement.style.maxHeight = "450px"; // Set a maximum height for consistency
-        imgElement.style.margin = "0 10px";
+        imgElement.style.margin = "0 1vw"; // Add spacing between images
         imgElement.classList.add("filtered-image"); // Add a class to dynamically generated images
         imageRow.appendChild(imgElement);
       }
