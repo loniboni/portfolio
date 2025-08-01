@@ -7,98 +7,365 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <style>
     html {
-        font-size: 18px; /* Base font size for consistent scaling */
-        }
-    
+      font-size: clamp(12px, 1vw, 18px); /* Adjust font size based on viewport width */
+    }
+
     html, body {
       margin: 0;
+      padding: 0;
       width: 100%;
       overflow-x: hidden; /* Prevent horizontal scrolling */
     }
+
     body {
-      background-color: #1b1b1b; /* Unified background color across all pages */
-      color: #d9d9c2;
-      font-family: monospace;
-      text-align: center;
+        background-color: #1b1b1b; /* Unified background color across all pages */
+        color: #d9d9c2;
+        font-family: monospace;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
     }
+
+    nav {
+      position: fixed;
+      top: 1rem; /* Consistent top margin */
+      right: 2rem; /* Position on the top-right corner */
+      display: flex;
+      gap: 2rem; /* Add spacing between menu items */
+      font-size: 4rem; /* Default font size for desktop */
+    }
+    nav a {
+        margin: 0; /* Remove extra margins */
+        text-decoration: none;
+        color: #e6ff8c;
+        margin-left: 1rem; /* Set a smaller default margin */
+    }
+
+    @media (max-width: 768px) {
+        nav {
+            font-size: 3rem; /* Scale down font size for tablets */
+            gap: 1.5rem; /* Adjust spacing for smaller screens */
+        }
+
+        nav a {
+            margin-left: 0.5rem;
+            margin-top: 0.2rem; /* Reduce margin for smaller screens */
+        }
+    }
+
+    @media (max-width: 480px) {
+        nav {
+            font-size: 2.5rem; /* Scale down font size for mobile */
+            gap: .5rem; /* Adjust spacing for mobile */
+        }
+
+        nav a {
+            margin-left: 0.25rem; /* Further reduce margin for very small screens */
+        }
+    }
+
     .ascii-title {
       white-space: pre-wrap;
-      font-size: 3rem; /* Increased font size for main ASCII title */
+      font-size: 2rem; /* Increased font size for main ASCII title */
       color: #aaffcc;
       margin-bottom: 1rem; /* Adjusted margin to match index.html */
       margin-top: 4rem; /* Added margin above the ASCII title */
       text-align: center;
     }
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(1000px, 1fr)); /* Fixed number of items per row */
-      align-items: start;
-      gap: 2rem; /* Even spacing between items */
-      justify-content: center; /* Centers all rows */
-      max-width: 1000px; /* Sets a maximum width for the grid container */
-      margin: 0 auto;
-      margin-top: 300px; /* Centers the grid container on the page */
-    }
-    .gallery-item {
-      position: relative;
-      overflow: hidden; /* Ensures the overlay covers the entire image */
-      width: auto;
-      max-width: 1000px; /* Adjusted to fit items */
-      text-decoration: none;
-      display: inline-block;
-      transform: rotate(var(--rotate, 0deg)) scale(1.1); /* Slightly enlarged for playful overlap */
-      transition: transform 0.3s ease;
-    }
-    .gallery-item:hover {
-      transform: scale(1.2); /* Adjusted hover effect to match new size */
-    }
-    .gallery-item img {
-      max-width: 1000px; /* Limit image width */
-      height: auto;
-      display: block;
-      cursor: pointer;
-      transition: transform 0.3s ease, filter 0.3s ease;
-    }
-    .gallery-item:hover img {
-      filter: brightness(50%); /* Adjusted lowlight effect */
-    }
-    .gallery-item .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      display: flex;
-      align-items: center;
-      justify-content: center; /* Centered the text */
-      text-align: center; /* Ensured all text is centered */
-      color: #e6ff8c;
-      font-size: 3rem; /* Slightly reduced font size */
-      font-weight: bold;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-    .gallery-item:hover .overlay {
-      opacity: 1;
-    }
-    .centered-links {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(250px, 1fr)); /* Matches the main gallery layout */
-      gap: 2rem; /* Ensures consistent spacing */
-      justify-content: center; /* Centers the links */
-      margin-top: 2rem;
-    }
-    .caption {
-      text-align: center;
-      color: #e6ff8c;
-      font-size: 0.9rem;
-      margin-top: 0.5rem;
-    }
-    nav a {
-      font-size: 4rem; /* Adjusted font size for menu links */
+    .gallery-container {
+        width: 100%; 
+        max-width: 4000px; /* Desktop max-width */
+        margin: 0 auto; 
+        padding: 6rem 1rem; 
+        box-sizing: border-box;
+        /* Use transform-origin to scale from center */
+        transform-origin: center top;
     }
 
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(800px, 1fr)); /* Desktop grid */
+        align-items: start;
+        gap: 2rem; 
+        justify-content: center; 
+        width: 100%; 
+        height: auto; 
+        padding: 4rem;
+        /* Transform origin for scaling */
+        transform-origin: center top;
+    }
+    
+    /* True proportional scaling - scale entire gallery as one unit */
+    @media (max-width: 4000px) {
+        .gallery-container {
+            transform: scale(0.9);
+            padding: 5rem 1rem; /* Slightly reduced padding */
+        }
+    }
+    
+    @media (max-width: 3500px) {
+        .gallery-container {
+            transform: scale(0.8);
+            padding: 4.5rem 1rem;
+        }
+    }
+    
+    @media (max-width: 3000px) {
+        .gallery-container {
+            transform: scale(0.7);
+            padding: 4rem 1rem;
+        }
+    }
+    
+    @media (max-width: 2500px) {
+        .gallery-container {
+            transform: scale(0.6);
+            padding: 3.5rem 1rem;
+        }
+    }
+    
+    @media (max-width: 2000px) {
+        .gallery-container {
+            transform: scale(0.5);
+            padding: 3rem 1rem;
+        }
+    }
+    
+    @media (max-width: 1600px) {
+        .gallery-container {
+            transform: scale(0.4);
+            padding: 2.5rem 1rem;
+        }
+    }
+    
+    @media (max-width: 1200px) {
+        .gallery-container {
+            transform: scale(0.3);
+            padding: 2rem 1rem;
+            max-width: 3200px; /* Reduce container width so scaled content fits */
+            margin: 0 auto; /* Center the container */
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .gallery-container {
+            width: 50vw !important;
+            max-width: 50vw !important;
+            padding: 1rem 0.5rem;
+            margin: 0 auto !important;
+            position: relative;
+            left: 0;
+            right: 0;
+        }
+        
+        .gallery {
+            /* Keep original 4-column grid - DON'T change it! */
+            justify-content: center !important; /* Go back to center */
+            transform: scale(0.5);
+            transform-origin: center top !important; /* Go back to center scaling */
+            width: 100%;
+            margin: 0 auto;
+            /* Add negative left margin to shift gallery left */
+            margin-left: -25% !important;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .gallery-container {
+            width: 40vw !important;
+            max-width: 40vw !important;
+            padding: 0.8rem 0.25rem;
+            margin: 0 auto !important;
+            position: relative;
+            left: 0;
+            right: 0;
+        }
+        
+        .gallery {
+            justify-content: center !important;
+            transform: scale(0.4);
+            transform-origin: center top !important;
+            margin: 0 auto;
+            margin-left: -30% !important;
+        }
+    }
+    
+    @media (max-width: 375px) {
+        .gallery-container {
+            width: 35vw !important;
+            max-width: 35vw !important;
+            padding: 0.5rem 0.2rem;
+            margin: 0 auto !important;
+            position: relative;
+            left: 0;
+            right: 0;
+        }
+        
+        .gallery {
+            justify-content: center !important;
+            transform: scale(0.35);
+            transform-origin: center top !important;
+            margin: 0 auto;
+            margin-left: -32.5% !important;
+        }
+    }
+    
+    /* Extra narrow screens (like iPhone SE) */
+    @media (max-width: 320px) {
+        .gallery-container {
+            width: 30vw !important;
+            max-width: 30vw !important;
+            padding: 0.3rem 0.1rem;
+            margin: 0 auto !important;
+            position: relative;
+            left: 0;
+            right: 0;
+        }
+        
+        .gallery {
+            justify-content: center !important;
+            transform: scale(0.3);
+            transform-origin: center top !important;
+            margin: 0 auto;
+            margin-left: -35% !important;
+        }
+    }
+
+    /* Adjust ASCII title for smaller screens */
+     @media (max-width: 480px) {
+        .ascii-title {
+            font-size: 1rem; /* Reduce font size for better fit */
+            line-height: 1.2; /* Adjust line spacing to prevent overlap */
+            word-break: break-word; /* Ensure long lines break properly */
+        }
+    }
+
+    /* Adjust ASCII title for widths below 2240px */
+    @media (max-width: 2240px) {
+        .ascii-title {
+            font-size: 2rem; /* Reduce font size to prevent squishing */
+            line-height: 1.5; /* Increase line spacing for better readability */
+            word-break: break-word; /* Ensure long lines break properly */
+        }
+    }
+
+    /* Adjust layout for iPad Pro 11-inch (2048px width) */
+    @media (max-width: 2048px) {
+        .ascii-title {
+            font-size: clamp(1.5rem, 2vw, 2.5rem); /* Scale font size dynamically */
+            line-height: 1.4; /* Adjust line spacing */
+        }
+    }
+
+    /* Adjust layout for iPhone 13 (1170px width) */
+    @media (max-width: 1170px) {
+        .ascii-title {
+            font-size: clamp(.5rem, 2vw, 2rem); /* Scale font size dynamically */
+            line-height: 1.3; /* Adjust line spacing */
+        }
+    }
+
+    /* Adjust navigation menu and subtitle for smaller screens */
+    @media (max-width: 1170px) {
+        nav a {
+            font-size: clamp(1.5rem, 2.5vw, 4rem); /* Scale down navigation link size */
+        }
+    }
+
+    /* Ensure even margins for all elements on smaller screens */
+    @media (max-width: 1170px) {
+        body {
+            padding: 0 1rem; /* Add even padding to both sides */
+        }
+
+        .ascii-title {
+            margin: 0 auto; /* Center all elements */
+            max-width: 90%; /* Ensure even margins */
+        }
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: visible; /* Allow overlap effects */
+      width: 100%; 
+      height: auto; 
+      text-decoration: none;
+      display: inline-block;
+      transform: rotate(var(--rotate, 0deg)) scale(1.1); /* Restore original scaling */
+      transition: transform 0.3s ease;
+      z-index: 1; /* Base z-index for stacking */
+      cursor: pointer;
+    }
+    
+    /* Restore hover overlay functionality */
+    .gallery-item .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8); /* Dark overlay */
+        color: #e6ff8c;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        font-size: 1.2rem;
+        font-weight: bold;
+        text-align: center;
+        padding: 1rem;
+        box-sizing: border-box;
+        border-radius: 4px;
+    }
+    
+    .gallery-item:hover .overlay {
+        opacity: 1;
+    }
+    
+    /* Create playful overlapping effect with pseudo-random positioning */
+    .gallery-item:nth-child(2n) {
+        transform: rotate(var(--rotate, 2deg)) scale(1.05) translateY(-10px);
+        z-index: 2;
+    }
+    
+    .gallery-item:nth-child(3n) {
+        transform: rotate(var(--rotate, -1deg)) scale(1.08) translateX(8px);
+        z-index: 3;
+    }
+    
+    .gallery-item:nth-child(4n) {
+        transform: rotate(var(--rotate, 1deg)) scale(1.06) translateY(5px) translateX(-5px);
+        z-index: 2;
+    }
+    
+    .gallery-item:nth-child(5n) {
+        transform: rotate(var(--rotate, -2deg)) scale(1.09) translateY(-5px) translateX(10px);
+        z-index: 4;
+    }
+    
+    .gallery-item:hover {
+        transform: rotate(var(--rotate, 0deg)) scale(1.15) !important; /* Enhanced hover effect */
+        z-index: 10; /* Bring to front on hover */
+    }
+    
+    .gallery-item img {
+        transform: rotate(var(--rotate, 0deg)) scale(1); 
+        width: 100%; 
+        height: auto; 
+        object-fit: cover; 
+        border-radius: 4px; /* Subtle rounded corners */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Add depth */
+        transition: transform 0.3s ease;
+    }
+    
     /* Add custom Lightbox styles */
     #lightbox {
       display: none;
@@ -120,12 +387,40 @@
     #lightbox-caption {
       margin-top: 1rem;
       color: #e6ff8c;
-      font-size: 3rem;
+      font-size: 1.5rem;
+      text-align: center;
+      max-width: 90%;
+      padding: 0 1rem;
     }
+    
+    /* Responsive lightbox text sizing */
+    @media (max-width: 768px) {
+        #lightbox-caption {
+            font-size: 1rem;
+            padding: 0 0.5rem;
+        }
+        
+        #lightbox-img {
+            max-height: 70vh;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        #lightbox-caption {
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+            padding: 0 0.5rem;
+        }
+        
+        #lightbox-img {
+            max-height: 65vh;
+        }
+    }
+    
     #prev, #next {
       position: absolute;
       top: 50%;
-      font-size: 3rem;
+      font-size: 2rem;
       transform: translateY(-50%);
       background: rgba(0, 0, 0, 0.7);
       color: #e6ff8c;
@@ -133,6 +428,22 @@
       padding: 10px;
       cursor: pointer;
     }
+    
+    /* Responsive navigation buttons */
+    @media (max-width: 768px) {
+        #prev, #next {
+            font-size: 1.5rem;
+            padding: 8px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        #prev, #next {
+            font-size: 1.2rem;
+            padding: 6px;
+        }
+    }
+    
     #prev {
       left: 10px;
     }
@@ -145,10 +456,10 @@
 <script src="randomImage.js"></script>
 </head>
 <body>
-  <nav style="position: fixed; top: 5rem; right: 10rem; font-size: 1rem;">
-    <a href="about.html" style="margin-left: 3rem; color: #e6ff8c; text-decoration: none;">About</a>
-    <a href="index.html" style="margin-left: 3rem; color: #e6ff8c; text-decoration: none;">Works</a>
-    <a href="contact.html" style="margin-left: 3rem; color: #e6ff8c; text-decoration: none;">Contact</a>
+  <nav>
+    <a href="about.html" style="color: #e6ff8c; text-decoration: none;">About</a>
+    <a href="index.html" style="color: #e6ff8c; text-decoration: none;">Works</a>
+    <a href="contact.html" style="color: #e6ff8c; text-decoration: none;">Contact</a>
   </nav>
 <pre class="ascii-title">
       ***** *    **   ***                             *                
@@ -168,6 +479,7 @@
          ****     ****                              **   ***          
                                                                  
  </pre>
+<div class="gallery-container">
 <div class="gallery">
 <div class="gallery-item" style="--rotate: 2deg;" onclick="openLightbox(this.querySelector('img'))">
 <img alt="Lifelong Desire//Gluttony" src="Lifelong Desire.jpg" data-caption="June 2025, Graphite/Colored Pencil on Sketch Paper, 9”x12”<br>Thumper knows what’s tasty, that’s a fact I’ve known all my life.<br>(Desire, Hunger, Gluttony, Fetishization, Carnality, Nostalgia)" />
@@ -224,10 +536,9 @@
 </a>
 </div>
 <div class="gallery-item" style="--rotate: -2deg; position: relative; top: -170px;" onclick="openLightbox(this.querySelector('img'))">
-<img alt="Exponential Growth" src="exponential growth.png" data-caption="January 2023, Digital Drawing in Procreate<br><em>Sometimes, you have to tie the tooth to the door to grow something new.</em>"/>"
-(Control, Autonomy, Identity, Physicality, Transgenderism)
+<img alt="Exponential Growth" src="exponential growth.png" data-caption="January 2023, Digital Drawing in Procreate<br><em>Sometimes, you have to tie the tooth to the door to grow something new. <br> (Control, Autonomy, Identity, Physicality, Transgenderism)</em>"/>
 
-/>
+
 <div class="overlay">Exponential Growth</div>
 </div>
 <div class="gallery-item" style="--rotate: -3deg; position: relative; top: -50px;">
@@ -247,6 +558,7 @@
 <img alt="Bits and Bobs" src="bits11.png" data-caption="Bits and Bobs">
 <div class="overlay">Bits and Bobs</div>
 </a>
+</div>
 </div>
 </div>
 
@@ -288,18 +600,6 @@
       } while (isExcluded(galleryItems[currentIndex]));
       const prevItem = galleryItems[currentIndex];
       openLightbox(prevItem);
-    }
-
-    function showNext() {
-      do {
-        currentIndex = (currentIndex + 1) % galleryItems.length;
-      } while (isExcluded(galleryItems[currentIndex]));
-      const nextItem = galleryItems[currentIndex];
-      openLightbox(nextItem);
-    }
-
-    function isExcluded(item) {
-      const excludedLinks = ['works-in-progress.html', 'works-on-skin.html', 'tattoo-flash.html', 'bits.html'];
       const link = item.closest('a');
       return link && excludedLinks.includes(link.getAttribute('href'));
     }
@@ -357,7 +657,7 @@
 <!-- Add Lightbox modal structure -->
 <div id="lightbox" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.9); align-items: center; justify-content: center; flex-direction: column; z-index: 10;">
   <img id="lightbox-img" style="max-width: 90%; max-height: 80vh;" />
-  <span id="lightbox-caption" style="margin-top: 1rem; color: #e6ff8c; font-size: 3rem;"></span>
+  <span id="lightbox-caption" style="margin-top: 1rem; color: #e6ff8c;"></span>
   <button id="prev" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); background: rgba(0, 0, 0, 0.7); color: #e6ff8c; border: none; padding: 10px; cursor: pointer;">&#10094;</button>
   <button id="next" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); background: rgba(0, 0, 0, 0.7); color: #e6ff8c; border: none; padding: 10px; cursor: pointer;">&#10095;</button>
 </div>
