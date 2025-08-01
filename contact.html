@@ -37,8 +37,15 @@
       margin-top: 4rem; /* Added margin above the ASCII title */
       text-align: center;
     }
+    .subtitle {
+    text-align: center;
+    color: #ccffcc;
+    font-size: 60px;
+    margin-bottom: 6rem;
+    margin-top: .5rem;
+  }
     form {
-      max-width: 1000px;
+      max-width: 2000px;
       margin: auto;
       display: flex;
       flex-direction: column;
@@ -48,11 +55,17 @@
       background: #222;
       color: #e6ff8c;
       border: 1px solid #444;
-      height: 10em;
       padding: 0.75rem; /* Reverted padding for inputs */
       margin: 0.5rem 0;
       font-family: monospace;
-      font-size: 2rem; /* Reverted font size for better readability */
+      font-size: 3rem; /* Reverted font size for better readability */
+    }
+    input[name="name"], input[name="email"] {
+      height: 3em;
+    }
+
+    textarea[name="message"] {
+      height: 20em;
     }
     button {
       background: #aaffcc;
@@ -112,6 +125,10 @@ U /"___|   \/"_ \/ | \ |"|   |_ " _|U  /"\  uU /"___||_ " _|
  _// \\      \\    ||   \\,-._// \\_ \\    >> _// \\ _// \\_  
 (__)(__)    (__)   (_")  (_/(__) (__|__)  (__|__)(__|__) (__) 
   </div>
+  <div class="subtitle">
+  Reach out, I love to talk! Only bite if the project calls for it.<br> ... <br>
+  <img src="computerlove.png" alt="Computer Love" style="width: 900px; height: auto;"/>
+  </div>
 
   <form id="contactForm" onsubmit="handleSubmit(event)">
     <input type="text" name="name" placeholder="Your name" required />
@@ -133,10 +150,10 @@ U /"___|   \/"_ \/ | \ |"|   |_ " _|U  /"\  uU /"___||_ " _|
 
   <div class="social-links-container" style="margin-top: 10rem; display: flex; justify-content: center; gap: 1rem;">
   <a href="http://instagram.com/keal0hi/" target="_blank" style="color: #e6ff8c; text-decoration: none;">
-    <img src="/insta.png" alt="Instagram" />
+    <img src="instagram.png" alt="Instagram" />
   </a>
   <a href="https://www.linkedin.com/in/kealohi-wean-5842b7138/" target="_blank" style="color: #e6ff8c; text-decoration: none;">
-    <img src="/linkedin.png" alt="LinkedIn" />
+    <img src="linked.png" alt="LinkedIn" />
   </a>
 </div>
 
