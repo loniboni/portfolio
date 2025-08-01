@@ -7,7 +7,6 @@
   <style>
     html, body {
       margin: 0;
-      padding: 0;
       width: 100%;
       height: 100%;
       overflow-x: hidden; /* Prevent horizontal scrolling */
@@ -16,7 +15,6 @@
       background-color: #1b1b1b; /* Unified background color across all pages */
       color: #d9d9c2;
       font-family: monospace;
-      padding: 2%; /* Adjust padding proportionally */
       text-align: center;
     }
     .ascii-title {
@@ -35,8 +33,20 @@
        /* Increased buffer between subtitle and grid */
     }
     
-   
-
+    .centered-container {
+      position: relative;
+      margin: 0 auto;
+      width: 80%;
+      height: 70%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: transparent;
+      background-size: contain; /* Ensure the image scales appropriately */
+      aspect-ratio: 6048 / 3525; /* Match the aspect ratio of the binder background image */
+      height: auto; /* Allow the height to adjust based on the width */
+      max-height: 80%; /* Ensure it scales proportionally within the page */
+      max-width: 90%; /* Adjust to fit nicely with similar margins */}
     nav {
         top: 5rem;
         right: 10rem;
@@ -47,8 +57,46 @@
         font-size: 4rem;
         color: #e6ff8c;
         text-decoration: none;
+    
+    
+    }
+        .h1 {
+          position: absolute;
+          left: 98.5%;
+          top: 50%;     
+          color: #e6ff8c;
+          font-size: 10rem;
+          font-family: monospace
+        }
+
+        .h2 {
+          position: absolute;
+          left: 0%;
+          top: 50%;         
+          color: #e6ff8c;
+          font-size: 10rem;
+          font-family: monospace
+        }
+
+        .sheet {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Prevent overflow if the image is larger */
+  }
+
+  .sheet img {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensure the image fits within the card */
+  }
+
+  .stack {
+    transform: scale(1); /* Default scale */
+    transform-origin: center; /* Ensure scaling happens from the center */
     }
   </style>
+  <link rel="stylesheet" href="Stacked-Card-Slider-Plugin-paperstack/paperstack.css" />
 </head>
 <body>
   <nav style="position: fixed; top: 5rem; right: 10rem; font-size: 1rem;">
@@ -72,9 +120,127 @@
 
   <div id="random-ascii"></div>
   <script src="randomImage.js"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="Stacked-Card-Slider-Plugin-paperstack/paperstack.js"></script>
 
   <div class="subtitle">Unfinished, Untitled, Random Abandoned</div>
 
-    </script>
-  </body>
+  <div class="centered-container">
+    <div class="h2">&lt;</div>
+    <div class="stack">
+      <div class="sheet">
+      <img src= "bits1.png" alt="bits 1"/>
+    </div>
+    <div class="sheet">
+      <img src= "bits2.png" alt="bits 2"/>
+    </div>
+    <div class="sheet">
+      <img src= "bits3.png" alt="bits 3"/>
+    </div>
+    <div class="sheet">
+      <img src= "bits4.png" alt="bits 4"/>
+    </div>
+    <div class="sheet">
+      <img src= "bits5.png" alt="bits 5"/>
+    </div>
+  <div class="sheet">
+        <img src= "bits6.png" alt="bits 6"/>
+      </div>
+      <div class="sheet">
+        <img src= "bits7.png" alt="bits 7"/>
+      </div>
+      <div class="sheet">
+        <img src= "bits8.png" alt="bits 8"/>
+      </div>
+      <div class="sheet">
+        <img src= "bits9.png" alt="bits 9"/>
+      </div>
+      <div class="sheet">
+        <img src= "bits10.png" alt="bits 10"/>
+      </div>
+        <div class="sheet">
+          <img src= "bits11.png" alt="bits 11"/>
+        </div>
+        <div class="sheet">
+          <img src= "bits12.png" alt="bits 12"/>
+        </div>
+        <div class="sheet">
+          <img src= "bits13.png" alt="bits 13"/>
+        </div>
+        <div class="sheet">
+          <img src= "bits14.png" alt="bits 14"/>
+        </div>
+        <div class="sheet">
+          <img src= "bits15.png" alt="bits 15"/>
+        </div>
+        <div class="sheet">
+          <img src= "bits16.png" alt="bits 16"/>
+        </div>
+        <div class="sheet">
+          <img src= "bits17.png" alt="bits 17"/>
+        </div>
+        <div class="sheet">
+          <img src= "bits18.png" alt="bits 18"/>
+        </div>
+        <div class="sheet">
+          <img src= "bits19.png" alt="bits 19"/>
+        </div>
+        <div class="sheet">
+          <img src= "bits20.png" alt="bits 20"/>
+        </div>
+        <div class="sheet">
+          <img src= "bits21.png" alt="bits 21"/>
+        </div>
+        <div class="sheet">
+          <img src= "bits22.png" alt="bits 22"/>
+        </div>
+        <div class="sheet">
+          <img src= "bits23.png" alt="bits 23"/>
+        </div>
+        <div class="sheet">
+          <img src= "bits24.png" alt="bits 24"/>
+        </div>
+        <div class="sheet">
+          <img src= "bits25.png" alt="bits 25"/>
+        </div>
+    </div>
+    <div class="h1">&gt;</div>
+  </div>
+
+  <script>
+    $(document).ready(function() {
+        var stack = $('.stack').paperstack({});
+
+        $('.h1').click(stack.next);
+        $('.h2').click(stack.previous);
+    });
+</script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+  </script>
+  <script>
+    document.querySelectorAll('.sheet img').forEach((img) => {
+      img.onload = function () {
+        const aspectRatio = img.naturalWidth / img.naturalHeight;
+        const sheet = img.parentElement;
+        sheet.style.width = `${img.naturalWidth}px`;
+        sheet.style.height = `${img.naturalHeight}px`;
+        sheet.style.aspectRatio = aspectRatio;
+      };
+    });
+  </script>
+</body>
 </html>

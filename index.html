@@ -8,15 +8,17 @@
 <style>
     html {
         font-size: 18px; /* Base font size for consistent scaling */
-    }
+        }
+    
     html, body {
+      margin: 0;
+      width: 100%;
       overflow-x: hidden; /* Prevent horizontal scrolling */
     }
     body {
       background-color: #1b1b1b; /* Unified background color across all pages */
       color: #d9d9c2;
       font-family: monospace;
-      padding: 40px;
       text-align: center;
     }
     .ascii-title {
@@ -35,7 +37,7 @@
       justify-content: center; /* Centers all rows */
       max-width: 1000px; /* Sets a maximum width for the grid container */
       margin: 0 auto;
-      margin-top: 500px; /* Centers the grid container on the page */
+      margin-top: 300px; /* Centers the grid container on the page */
     }
     .gallery-item {
       position: relative;
@@ -72,7 +74,7 @@
       justify-content: center; /* Centered the text */
       text-align: center; /* Ensured all text is centered */
       color: #e6ff8c;
-      font-size: 0.9rem; /* Slightly reduced font size */
+      font-size: 3rem; /* Slightly reduced font size */
       font-weight: bold;
       opacity: 0;
       transition: opacity 0.3s ease;
@@ -118,11 +120,12 @@
     #lightbox-caption {
       margin-top: 1rem;
       color: #e6ff8c;
-      font-size: 1.2rem;
+      font-size: 3rem;
     }
     #prev, #next {
       position: absolute;
       top: 50%;
+      font-size: 3rem;
       transform: translateY(-50%);
       background: rgba(0, 0, 0, 0.7);
       color: #e6ff8c;
@@ -138,12 +141,6 @@
     }
   </style>
 
-<!-- Add Lightbox CSS -->
-<link href="lightbox.min.css" rel="stylesheet">
-
-<!-- Add Lightbox JS -->
-<script src="lightbox.min.js"></script>
-
 <!-- Add randomImage.js script -->
 <script src="randomImage.js"></script>
 </head>
@@ -154,8 +151,7 @@
     <a href="contact.html" style="margin-left: 3rem; color: #e6ff8c; text-decoration: none;">Contact</a>
   </nav>
 <pre class="ascii-title">
-                                                                      
-     ***** *    **   ***                             *                
+      ***** *    **   ***                             *                
   ******  *  *****    ***                          **                 
  **   *  *     *****   ***                         **                 
 *    *  **     * **      **                        **                 
@@ -170,59 +166,55 @@
       ***      ***      *    ******     ***        **  *** * **** *   
        ******** ********      ****       ***       **   *** * ****    
          ****     ****                              **   ***          
-                                                                      
-                                                                      
-                                                                      
-                                                                      
-                                                                      
+                                                                 
  </pre>
 <div class="gallery">
-<div class="gallery-item" style="--rotate: 2deg;" onclick="openLightbox('Lifelong Desire.jpg', 'Lifelong Desire//Gluttony', 'June 2025, Graphite/Colored Pencil on Sketch Paper, 9”x12”<br><em>Thumper knows what’s tasty, that’s a fact I’ve known all my life.<br>(Desire, Hunger, Gluttony, Fetishization, Carnality, Nostalgia)</em>')">
-<img alt="Lifelong Desire//Gluttony" src="Lifelong Desire.jpg"/>
+<div class="gallery-item" style="--rotate: 2deg;" onclick="openLightbox(this.querySelector('img'))">
+<img alt="Lifelong Desire//Gluttony" src="Lifelong Desire.jpg" data-caption="June 2025, Graphite/Colored Pencil on Sketch Paper, 9”x12”<br>Thumper knows what’s tasty, that’s a fact I’ve known all my life.<br>(Desire, Hunger, Gluttony, Fetishization, Carnality, Nostalgia)" />
 <div class="overlay">Lifelong Desire//Gluttony</div>
 </div>
-<div class="gallery-item" style="--rotate: 3deg;" onclick="openLightbox('Mark of the beast.jpg', 'Mark of the Beast', 'Description for Mark of the Beast')">
-<img alt="Mark of the Beast" src="Mark of the beast.jpg"/>
+<div class="gallery-item" style="--rotate: 3deg;" onclick="openLightbox(this.querySelector('img'))">
+<img alt="Mark of the Beast" src="Mark of the beast.jpg" data-caption="March 2025, Oil pencil/ink/graphite on Mixed Media, 14”x17”<br><em>Depicts from bottom middle, counter-clockwise: Mr. Beast, Joe Rogan, Jeff Bezos, Mark Zuckerberg, Logan Paul, Andrew Tate, Elon Musk<br>The harbingers of the end of the world, the beast with seven heads - referencing the style of the Skibidi Toilet web series (surveillance, conflict, conformity, Resistance)</em>" />
 <div class="overlay">Mark of the Beast</div>
 </div>
-<div class="gallery-item" style="--rotate: -2deg;" onclick="openLightbox('Schemers.JPG', 'God’s Favorite Little Schemers', 'Description for God’s Favorite Little Schemers')">
-<img alt="God’s Favorite Little Schemers" src="Schemers.JPG"/>
-<div class="overlay">God’s Favorite Little Schemers</div>
+<div class="gallery-item" style="--rotate: -2deg;" onclick="openLightbox(this.querySelector('img'))">
+<img alt="God’s Favorite Little Schemers" src="Schemers.JPG" data-caption="April 2024, Graphite/ink on Mixed Media, 7”x10”<br><em>What having a best friend feels like :]</em>" />
+<div class="overlay">Schemers</div>
 </div>
-<div class="gallery-item" style="--rotate: 1deg;" onclick="openLightbox('equivalent exchange.jpg', 'Equivalent Exchange', 'Description for Equivalent Exchange')">
-<img alt="Equivalent Exchange" src="equivalent exchange.jpg"/>
+<div class="gallery-item" style="--rotate: 1deg;" onclick="openLightbox(this.querySelector('img'))">
+<img alt="Equivalent Exchange" src="equivalent exchange.jpg" data-caption="February 2024, Graphite on Mixed Media, 9”x12”<br><em>I’ll give what I get and I’ll get what I give.<br>(Desire, Gluttony, Grief, Nostalgia - They spread like a rash. Quiet, calm, Communication, ease… where are they?)</em>" />
 <div class="overlay">Equivalent Exchange</div>
 </div>
-<div class="gallery-item" style="--rotate: -4deg; position: relative; top: -25px;" onclick="openLightbox('aint-that-just-the-way.jpg', 'Ain’t That Just the Way', 'Description for Ain’t That Just the Way')">
-<img alt="Ain’t That Just the Way" src="aint-that-just-the-way.jpg"/>
+<div class="gallery-item" style="--rotate: -4deg; position: relative; top: -25px;" onclick="openLightbox(this.querySelector('img'))">
+<img alt="Ain’t That Just the Way" src="aint-that-just-the-way.jpg" data-caption="January 2024, Ballpoint Pen on Mixed Media, 14”x17”<br><em>It may still be bleeding, but life goes on.<br>(Grief, Recovery, Regression, Gutted like a fish)</em>" />
 <div class="overlay">Ain’t That Just the Way</div>
 </div>
-<div class="gallery-item" style="--rotate: 5deg; position: relative; top: -50px;" onclick="openLightbox('yeowch!.jpg', 'Yeowch!', 'Description for Yeowch!')">
-<img alt="Yeowch!" src="yeowch!.jpg"/>
+<div class="gallery-item" style="--rotate: 5deg; position: relative; top: -50px;" onclick="openLightbox(this.querySelector('img'))">
+<img alt="Yeowch!" src="yeowch!.jpg" data-caption="January 2024, Graphite/Ink on Mixed Media, 14”x17”<br><em>Had you been looking where you were going…<br>(Change, Fear, Extremely Stoppable Force meets Very Painful Object)</em>" />
 <div class="overlay">Yeowch!</div>
 </div>
-<div class="gallery-item" style="--rotate: -3deg; position: relative; top: -50px;" onclick="openLightbox('bow wow.jpg', 'Bow Wow', 'Description for Bow Wow')">
-<img alt="Bow Wow" src="bow wow.jpg"/>
+<div class="gallery-item" style="--rotate: -3deg; position: relative; top: -50px;" onclick="openLightbox(this.querySelector('img'))">
+<img alt="Bow Wow" src="bow wow.jpg" data-caption="September 2023, Graphite/Ink on Mixed Media, 7”x10”<br>Don’t you worry, little pup, they’re watching over you in the quiet night. Look at the stars." />
 <div class="overlay">Bow Wow</div>
 </div>
-<div class="gallery-item" style="--rotate: 2deg;" onclick="openLightbox('smothered.jpg', 'Smothered', 'Description for Smothered')">
-<img alt="Smothered" src="smothered.jpg"/>
+<div class="gallery-item" style="--rotate: 2deg;" onclick="openLightbox(this.querySelector('img'))">
+<img alt="Smothered" src="smothered.jpg" data-caption="August 2023, Graphite/Ink on Mixed Media, 5.5”x8.5”<br><em>Do you want it? Or is it killing you?<br>(Desire, Desperation, Obsession)</em>" />
 <div class="overlay">Smothered</div>
 </div>
-<div class="gallery-item" style="--rotate: -1deg; position: relative; top: -80px;" onclick="openLightbox('call of the ocean.jpg', 'Call of the Ocean', 'Description for Call of the Ocean')">
-<img alt="Call of the Ocean" src="call of the ocean.jpg"/>
+<div class="gallery-item" style="--rotate: -1deg; position: relative; top: -80px;" onclick="openLightbox(this.querySelector('img'))">
+<img alt="Call of the Ocean" src="call of the ocean.jpg" data-caption="August 2023, Graphite on Mixed media, 5.5”x8.5”<br><em>Can’t you hear it? Or is it just me?<br>(Return to the Earth, Return to the old gods, Return to yourself)</em>" />
 <div class="overlay">Call of the Ocean</div>
 </div>
-<div class="gallery-item" style="--rotate: 4deg; position: relative; top: -130px;" onclick="openLightbox('pissing contest.jpg', 'Pissing Contest', 'Description for Pissing Contest')">
-<img alt="Pissing Contest" src="pissing contest.jpg"/>
+<div class="gallery-item" style="--rotate: 4deg; position: relative; top: -130px;" onclick="openLightbox(this.querySelector('img'))">
+<img alt="Pissing Contest" src="pissing contest.jpg" data-caption="July 2023, Pastel/Colored Pencil/Glitter Mod Podge, 9”x12”<br><em>Will you accept his challenge? ;]<br>(It’s nature’s way, do you have the balls? Do you know your natural state? Have you yet seen what you’re meant to be?)</em>" />
 <div class="overlay">Pissing Contest</div>
 </div>
-<div class="gallery-item" style="--rotate: -5deg; position: relative; top: -50px;" onclick="openLightbox('parched.jpg', 'Parched', 'Description for Parched')">
-<img alt="Parched" src="parched.jpg"/>
+<div class="gallery-item" style="--rotate: -5deg; position: relative; top: -50px;" onclick="openLightbox(this.querySelector('img'))">
+<img alt="Parched" src="parched.jpg" data-caption="May 2023, Graphite/Colored Pencil/Ink on Mixed Media, 5.5”x8.5”<br><em>When you’ve waited so long for a sip, what’s a little longer? What could go wrong?<br>(Desire, Longing, Limerance, Desperation)</em>" />
 <div class="overlay">Parched</div>
 </div>
-<div class="gallery-item" style="--rotate: 3deg; position: relative; top: -50px;" onclick="openLightbox('big boys cry too.jpg', 'Big Boys Cry Too', 'Description for Big Boys Cry Too')">
-<img alt="Big Boys Cry Too" src="big boys cry too.jpg"/>
+<div class="gallery-item" style="--rotate: 3deg; position: relative; top: -50px;" onclick="openLightbox(this.querySelector('img'))">
+<img alt="Big Boys Cry Too" src="big boys cry too.jpg" data-caption="May 2023, Graphite/Ink on Mixed Media, 5.5”x8.5”<br><em>It’s dark out there. I hope he makes it where he’s going.<br>(Identity, Gender, Grief, Hope, Change, and Transition)</em>" />
 <div class="overlay">Big Boys Cry Too</div>
 </div>
 <div class="gallery-item" style="--rotate: 2deg; position: relative; top: -90px;">
@@ -231,8 +223,11 @@
 <div class="overlay">Works in Progress</div>
 </a>
 </div>
-<div class="gallery-item" style="--rotate: -2deg; position: relative; top: -170px;" onclick="openLightbox('exponential growth.png', 'Exponential Growth', 'Description for Exponential Growth')">
-<img alt="Exponential Growth" src="exponential growth.png"/>
+<div class="gallery-item" style="--rotate: -2deg; position: relative; top: -170px;" onclick="openLightbox(this.querySelector('img'))">
+<img alt="Exponential Growth" src="exponential growth.png" data-caption="January 2023, Digital Drawing in Procreate<br><em>Sometimes, you have to tie the tooth to the door to grow something new.</em>"/>"
+(Control, Autonomy, Identity, Physicality, Transgenderism)
+
+/>
 <div class="overlay">Exponential Growth</div>
 </div>
 <div class="gallery-item" style="--rotate: -3deg; position: relative; top: -50px;">
@@ -249,7 +244,7 @@
 </div>
 <div class="gallery-item" style="--rotate: 3deg; position: relative; top: -730px; left: 1010px;">
 <a href="bits.html">
-<img alt="Bits and Bobs" src="bits11.JPG" data-caption="Bits and Bobs">
+<img alt="Bits and Bobs" src="bits11.png" data-caption="Bits and Bobs">
 <div class="overlay">Bits and Bobs</div>
 </a>
 </div>
@@ -260,31 +255,53 @@
     // Restore lightbox functionality
     let currentIndex = 0;
     const galleryItems = document.querySelectorAll('.gallery-item img');
-    galleryItems.forEach((item, index) => {
-      item.dataset.caption = item.alt; // Use the alt attribute as the caption
-    });
 
-    function openLightbox(src, title, caption) {
+    function openLightbox(imageElement) {
       const box = document.getElementById('lightbox');
       const img = document.getElementById('lightbox-img');
       const captionElement = document.getElementById('lightbox-caption');
+
+      // Extract attributes directly from the image element
+      const src = imageElement.src;
+      const title = imageElement.alt;
+      const caption = imageElement.getAttribute('data-caption'); // Explicitly read data-caption
+
+      console.log('Opening lightbox with:', { src, title, caption }); // Debugging log
+      console.log('Image element passed to openLightbox:', imageElement); // Debugging log
+      console.log('data-caption attribute:', imageElement.getAttribute('data-caption')); // Debugging log
+
       img.src = src;
       captionElement.innerHTML = `<strong>${title}</strong><br>${caption}`;
       box.style.display = 'flex';
-      currentIndex = Array.from(galleryItems).findIndex(item => item.src.includes(src));
+
+      // Normalize and decode src to compare filenames only (case-insensitive)
+      const normalizedSrc = decodeURIComponent(src.split('/').pop().toLowerCase());
+      currentIndex = Array.from(galleryItems).findIndex(item => decodeURIComponent(item.src.split('/').pop().toLowerCase()) === normalizedSrc);
+      console.log('Current index set to:', currentIndex); // Debugging log
     }
     function closeLightbox() {
       document.getElementById('lightbox').style.display = 'none';
     }
     function showPrev() {
-      currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+      do {
+        currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+      } while (isExcluded(galleryItems[currentIndex]));
       const prevItem = galleryItems[currentIndex];
-      openLightbox(prevItem.src, prevItem.alt, prevItem.dataset.caption);
+      openLightbox(prevItem);
     }
+
     function showNext() {
-      currentIndex = (currentIndex + 1) % galleryItems.length;
+      do {
+        currentIndex = (currentIndex + 1) % galleryItems.length;
+      } while (isExcluded(galleryItems[currentIndex]));
       const nextItem = galleryItems[currentIndex];
-      openLightbox(nextItem.src, nextItem.alt, nextItem.dataset.caption);
+      openLightbox(nextItem);
+    }
+
+    function isExcluded(item) {
+      const excludedLinks = ['works-in-progress.html', 'works-on-skin.html', 'tattoo-flash.html', 'bits.html'];
+      const link = item.closest('a');
+      return link && excludedLinks.includes(link.getAttribute('href'));
     }
 
     window.addEventListener('DOMContentLoaded', () => {
@@ -340,7 +357,7 @@
 <!-- Add Lightbox modal structure -->
 <div id="lightbox" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.9); align-items: center; justify-content: center; flex-direction: column; z-index: 10;">
   <img id="lightbox-img" style="max-width: 90%; max-height: 80vh;" />
-  <span id="lightbox-caption" style="margin-top: 1rem; color: #e6ff8c; font-size: 1.2rem;"></span>
+  <span id="lightbox-caption" style="margin-top: 1rem; color: #e6ff8c; font-size: 3rem;"></span>
   <button id="prev" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); background: rgba(0, 0, 0, 0.7); color: #e6ff8c; border: none; padding: 10px; cursor: pointer;">&#10094;</button>
   <button id="next" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); background: rgba(0, 0, 0, 0.7); color: #e6ff8c; border: none; padding: 10px; cursor: pointer;">&#10095;</button>
 </div>

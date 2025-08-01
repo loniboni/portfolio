@@ -28,7 +28,7 @@
       imageRow.style.display = "flex";
       imageRow.style.justifyContent = "space-between";
       imageRow.style.alignItems = "center";
-      imageRow.style.margin = "100px 0 200px 0"; // Add spacing below the row
+      imageRow.style.margin = "100px 0 75px 0"; // Add spacing below the row
       imageRow.style.overflow = "hidden";
       imageRow.style.width = "calc(100% + 200px)"; // Extend slightly beyond the viewport
       imageRow.style.position = "relative";

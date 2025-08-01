@@ -8,14 +8,16 @@
     html {
         font-size: 18px; /* Base font size for consistent scaling */
     }
-
-    body {
+    html, body {
       margin: 0;
-      padding: 0;
-      font-family: monospace;
-      background-color: #1b1b1b; /* Reverted background color */
-      color: #d9d9c2;
+      width: 100%;
       overflow-x: hidden; /* Prevent horizontal scrolling */
+    }
+    body {
+      background-color: #1b1b1b; /* Unified background color across all pages */
+      color: #d9d9c2;
+      font-family: monospace;
+      text-align: center;
     }
     nav {
       position: fixed;

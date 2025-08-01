@@ -1,3 +1,6 @@
 .DS_Store
 test-page.html
 node_modules/
+.idea
+*.min.*
+/bundle.js
