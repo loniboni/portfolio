@@ -226,6 +226,39 @@
         }
     }
 
+    /* Adjust navigation menu and subtitle for smaller screens */
+    @media (max-width: 1170px) {
+        nav a {
+            font-size: clamp(0.8rem, 1.2vw, 1.5rem); /* Scale down navigation link size */
+        }
+
+        .subtitle {
+            font-size: clamp(1rem, 2vw, 2.5rem); /* Scale down subtitle font size */
+        }
+
+        .subtitle img {
+            max-width: 80%; /* Scale down image size in subtitle */
+            height: auto; /* Maintain aspect ratio */
+        }
+    }
+
+    /* Ensure even margins for all elements on smaller screens */
+    @media (max-width: 1170px) {
+        body {
+            padding: 0 1rem; /* Add even padding to both sides */
+        }
+
+        form {
+            margin: 0 auto; /* Center the form */
+            max-width: 90%; /* Ensure form fits within the viewport */
+        }
+
+        .ascii-title, .subtitle, .social-links-container {
+            margin: 0 auto; /* Center all elements */
+            max-width: 90%; /* Ensure even margins */
+        }
+    }
+
     /* General scaling for all devices */
     body {
         max-width: 100vw; /* Prevent horizontal overflow */
