@@ -9,7 +9,8 @@ renderer.outputColorSpace = THREE.SRGBColorSpace;
 
 renderer.setSize(container.clientWidth, container.clientHeight);
 renderer.setClearColor(0x000000, 0); // Set background to transparent
-renderer.setPixelRatio(window.devicePixelRatio);
+// Ensure high quality rendering on mobile devices
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)); // Cap at 2x for performance while maintaining quality
 
 container.appendChild(renderer.domElement);
 

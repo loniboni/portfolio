@@ -49,21 +49,30 @@
     }
 
     @media (max-width: 768px) {
+        html {
+            font-size: clamp(10px, 2vw, 16px); /* Smaller base font for mobile */
+        }
+        
         nav {
             font-size: 3rem; /* Scale down font size for tablets */
             gap: 1.5rem; /* Adjust spacing for smaller screens */
         }
 
         nav a {
+            font-size: 4rem; /* Specific nav override to match contact.html */
             margin-left: 0.5rem;
             margin-top: 0.2rem; /* Reduce margin for smaller screens */
         }
     }
 
     @media (max-width: 480px) {
+        html {
+            font-size: clamp(8px, 3vw, 14px); /* Even smaller base font for mobile */
+        }
+        
         nav {
             font-size: 2.5rem; /* Scale down font size for mobile */
-            gap: .5rem; /* Adjust spacing for mobile */
+            gap: 1rem; /* Increased from .5rem to match contact.html spacing */
         }
 
         nav a {
@@ -483,6 +492,8 @@
     <a href="contact.html" style="color: #e6ff8c; text-decoration: none;">Contact</a>
   </nav>
 <pre class="ascii-title">
+  <br>
+ <br>
       ***** *    **   ***                             *                
   ******  *  *****    ***                          **                 
  **   *  *     *****   ***                         **                 

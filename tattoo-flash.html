@@ -13,7 +13,7 @@
       overflow-x: hidden; /* Prevent horizontal scrolling */
     }
     html {
-        font-size: 18px; /* Base font size for consistent scaling */
+        font-size: clamp(12px, 1vw, 18px); /* Updated to match our established base scaling */
     }
     body {
       background-color: #1b1b1b; /* Unified background color across all pages */
@@ -21,6 +21,62 @@
       font-family: monospace;
       text-align: center;
     }
+    
+    /* Updated nav to match contact.html formula */
+    nav {
+      position: fixed;
+      top: 1rem; /* Consistent top margin */
+      right: 2rem; /* Position on the top-right corner */
+      display: flex;
+      gap: 2rem; /* Add spacing between menu items */
+      font-size: 4rem; /* Default font size for desktop */
+      z-index: 100;
+    }
+    nav a {
+      margin: 0; /* Remove extra margins */
+      text-decoration: none;
+      color: #e6ff8c;
+      margin-left: 1rem; /* Set a smaller default margin */
+    }
+    
+    /* Mobile nav scaling - exact copy from contact.html */
+    @media (max-width: 768px) {
+      html {
+        font-size: clamp(10px, 2vw, 16px); /* Smaller base font for mobile */
+      }
+      
+      nav {
+        font-size: 3rem; /* Scale down font size for tablets */
+        gap: 1.5rem; /* Adjust spacing for smaller screens */
+      }
+      nav a {
+        font-size: 4rem; /* Specific nav override to match contact.html */
+        margin-left: 0.5rem;
+        margin-top: 0.2rem; /* Reduce margin for smaller screens */
+      }
+    }
+    
+    @media (max-width: 480px) {
+      html {
+        font-size: clamp(8px, 3vw, 14px); /* Even smaller base font for mobile */
+      }
+      
+      nav {
+        font-size: 2.5rem; /* Scale down font size for mobile */
+        gap: 1rem; /* Adjust spacing for mobile */
+      }
+      nav a {
+        margin-left: 0.25rem; /* Further reduce margin for very small screens */
+      }
+    }
+    
+    /* Additional nav scaling for better proportions */
+    @media (max-width: 1170px) {
+      nav a {
+        font-size: clamp(1.5rem, 2.5vw, 4rem) !important; /* Scale down navigation link size */
+      }
+    }
+    
     .ascii-title {
       white-space: pre-wrap;
       font-size: 3rem; /* Increased font size for main ASCII title */
@@ -29,9 +85,62 @@
       margin-top: 4rem; /* Added margin above the ASCII title */
       text-align: center;
     }
-    nav a {
-        font-size: 4rem; /* Adjusted font size for menu links */
+    
+    /* Mobile ASCII title scaling - complete set to match other pages */
+    @media (max-width: 480px) {
+      .ascii-title {
+        font-size: 0.8rem;
+        line-height: 1.1;
+        margin-top: 2rem;
+        margin-bottom: 0.5rem;
+      }
     }
+    
+    /* Adjust ASCII title for widths below 2240px */
+    @media (max-width: 2240px) {
+      .ascii-title {
+        font-size: 1.8rem; /* Slightly smaller for better proportions */
+        line-height: 1.5; 
+        word-break: break-word; 
+      }
+    }
+
+    /* Adjust layout for iPad Pro 11-inch (2048px width) */
+    @media (max-width: 2048px) {
+      .ascii-title {
+        font-size: 1.4rem; /* More proportional scaling */
+        line-height: 1.4; 
+      }
+    }
+    
+    @media (max-width: 1170px) {
+      .ascii-title {
+        font-size: 1rem; /* Smaller but still legible */
+        line-height: 1.3;
+      }
+    }
+    
+    @media (max-width: 375px) {
+      .ascii-title {
+        font-size: 0.6rem; /* Very small for narrow screens */
+        line-height: 1.0;
+        margin-top: 1.5rem;
+        margin-bottom: 0.3rem;
+      }
+    }
+
+    @media (max-width: 320px) {
+      .ascii-title {
+        font-size: 0.5rem; /* Tiny for very narrow screens */
+        line-height: 1.0;
+        margin-top: 1rem;
+        margin-bottom: 0.2rem;
+      }
+    }
+    
+    /* Remove CSS Custom Properties - starting fresh */
+    
+    /* Clean responsive flipbook system */
     .centered-container {
       position: relative;
       margin: 0 auto;
@@ -41,36 +150,36 @@
       justify-content: center;
       align-items: center;
       background: url('binder background.png') no-repeat center center;
-      background-size: contain; /* Ensure the image scales appropriately */
-      aspect-ratio: 6048 / 3525; /* Match the aspect ratio of the binder background image */
-      height: auto; /* Allow the height to adjust based on the width */
-      max-height: 80%; /* Ensure it scales proportionally within the page */
-      max-width: 90%; /* Adjust to fit nicely with similar margins */
+      background-size: contain;
+      aspect-ratio: 6048 / 3525;
+      height: auto;
+      max-height: 80%;
+      max-width: 90%;
     }
-  .flipbook-container {
-    width: 6048px; /* Combined width of two pages */
-    height: 3525px; /* Height of a single page */
-    margin: 0 auto; /* Center the container horizontally */
-    position: relative; /* Ensure child elements are positioned relative to this container */
-    overflow: hidden; /* Prevent any overflow */
-}
+    
+    .flipbook-container {
+      width: 100%;
+      height: 100%;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
 
-.flipbook-container .book {
-    display: flex;
-    margin: auto;
-    width: 300px;
-    pointer-events: none;
-    transform-style: preserve-3d;
-    transition: translate 1s;
-    translate: 0 0;
-    aspect-ratio: 3024 / 3525;
-    position: absolute;
-    top: 45%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Center the book within the container */
-    transform: scale(9.45); /* Scale the book to double its size */
-    transform-origin: left center; /* Ensure scaling happens from the center */
-}
+    .flipbook-container .book {
+      display: flex;
+      margin: auto;
+      width: 40vw; /* Use viewport units for responsive scaling */
+      pointer-events: none;
+      transform-style: preserve-3d;
+      transition: translate 1s;
+      translate: 0 0;
+      aspect-ratio: 3024 / 3525;
+      position: absolute;
+      top: 0%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(calc(80vw / 300)); /* Dynamic scale based on viewport */
+      transform-origin: left center;
+    }
 
 .flipbook-container .page {
     --thickness: 5;
@@ -116,10 +225,10 @@
   </style>
 </head>
 <body>
-<nav style="position: fixed; top: 5rem; right: 10rem; font-size: 1rem;">
-    <a href="about.html" style="margin-left: 3rem; color: #e6ff8c; text-decoration: none;">About</a>
-    <a href="index.html" style="margin-left: 3rem; color: #e6ff8c; text-decoration: none;">Works</a>
-    <a href="contact.html" style="margin-left: 3rem; color: #e6ff8c; text-decoration: none;">Contact</a>
+<nav>
+    <a href="about.html">About</a>
+    <a href="index.html">Works</a>
+    <a href="contact.html">Contact</a>
   </nav>
 
 

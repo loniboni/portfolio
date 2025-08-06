@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Works On Skin</title>
   <style>
+    html {
+      font-size: clamp(12px, 1vw, 18px); /* Adjust font size based on viewport width */
+    }
+    
     html, body {
       margin: 0;
       width: 100%;
@@ -16,6 +20,61 @@
       font-family: monospace;
       text-align: center;
     }
+    
+    /* Nav menu styling - exact copy from index.html for consistency */
+    nav {
+      position: fixed;
+      top: 1rem; /* Consistent top margin */
+      right: 2rem; /* Position on the top-right corner */
+      display: flex;
+      gap: 2rem; /* Add spacing between menu items */
+      font-size: 4rem; /* Default font size for desktop */
+    }
+    nav a {
+      margin: 0; /* Remove extra margins */
+      text-decoration: none;
+      color: #e6ff8c;
+      margin-left: 1rem; /* Set a smaller default margin */
+    }
+    
+    /* Mobile nav menu scaling - exact copy from contact.html */
+    @media (max-width: 768px) {
+      html {
+        font-size: clamp(10px, 2vw, 16px); /* Smaller base font for mobile */
+      }
+      
+      nav {
+        font-size: 3rem; /* Scale down font size for tablets */
+        gap: 1.5rem; /* Adjust spacing for smaller screens */
+      }
+      nav a {
+        font-size: 4rem; /* Specific nav override to match contact.html */
+        margin-left: 0.5rem;
+        margin-top: 0.2rem; /* Reduce margin for smaller screens */
+      }
+    }
+    
+    @media (max-width: 480px) {
+      html {
+        font-size: clamp(8px, 3vw, 14px); /* Even smaller base font for mobile */
+      }
+      
+      nav {
+        font-size: 2.5rem; /* Scale down font size for mobile */
+        gap: 1rem; /* Increased from .5rem to match contact.html spacing */
+      }
+      nav a {
+        margin-left: 0.25rem; /* Further reduce margin for very small screens */
+      }
+    }
+    
+    /* Additional nav scaling for better proportions - exact copy from index.html */
+    @media (max-width: 1170px) {
+      nav a {
+        font-size: clamp(1.5rem, 2.5vw, 4rem) !important; /* Scale down navigation link size */
+      }
+    }
+    
     .ascii-title {
       white-space: pre-wrap;
       font-size: 3rem; /* Increased font size for main ASCII title */
@@ -24,13 +83,64 @@
       margin-top: 4rem; /* Added margin above the ASCII title */
       text-align: center;
     }
+    
+    /* Mobile ASCII title scaling */
+    @media (max-width: 480px) {
+      .ascii-title {
+        font-size: 0.8rem;
+        line-height: 1.1;
+        margin-top: 2rem;
+        margin-bottom: 0.5rem;
+      }
+    }
+    
+    @media (max-width: 1170px) {
+      .ascii-title {
+        font-size: 1.2rem;
+        line-height: 1.3;
+      }
+    }
+    
+    @media (max-width: 375px) {
+      .ascii-title {
+        font-size: 0.7rem;
+        line-height: 1.0;
+        margin-top: 1.5rem;
+        margin-bottom: 0.3rem;
+      }
+    }
+    
     .subtitle {
-      font-size:60px;
+      font-size: 60px;
       color: #a4d4ae;
       margin-bottom: 6rem;
       margin-top: .5rem;
-       /* Increased buffer between subtitle and grid */
     }
+    
+    /* Mobile subtitle scaling */
+    @media (max-width: 480px) {
+      .subtitle {
+        font-size: 20px;
+        margin-bottom: 2rem;
+        margin-top: 0.3rem;
+      }
+    }
+    
+    @media (max-width: 1170px) {
+      .subtitle {
+        font-size: clamp(25px, 4vw, 60px);
+        margin-bottom: 3rem;
+      }
+    }
+    
+    @media (max-width: 375px) {
+      .subtitle {
+        font-size: 16px;
+        margin-bottom: 1.5rem;
+        margin-top: 0.2rem;
+      }
+    }
+    
     #threejs-container {
       width: 90%; /* Reduced left and right margins */
       height: 120vh; /* Increased height to allow the model to be larger */
@@ -38,8 +148,21 @@
       max-width: 5000px; /* Slightly increased max width */
       background-color: transparent; /* Transparent background */
     }
-    nav a {
-        font-size: 4rem; /* Adjusted font size for menu links */
+    
+    /* Mobile container scaling */
+    @media (max-width: 768px) {
+      #threejs-container {
+        width: 95%;
+        height: 80vh;
+        max-width: 100%;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      #threejs-container {
+        width: 98%;
+        height: 60vh;
+      }
     }
 
   </style>
@@ -54,10 +177,10 @@
   </script>
 </head>
 <body>
-  <nav style="position: fixed; top: 5rem; right: 10rem; font-size: 1rem;">
-    <a href="about.html" style="margin-left: 3rem; color: #e6ff8c; text-decoration: none;">About</a>
-    <a href="index.html" style="margin-left: 3rem; color: #e6ff8c; text-decoration: none;">Works</a>
-    <a href="contact.html" style="margin-left: 3rem; color: #e6ff8c; text-decoration: none;">Contact</a>
+  <nav>
+    <a href="about.html">About</a>
+    <a href="index.html">Works</a>
+    <a href="contact.html">Contact</a>
   </nav>
 
 <div class="ascii-title">
