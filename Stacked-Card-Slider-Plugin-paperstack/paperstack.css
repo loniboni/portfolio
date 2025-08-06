@@ -1,22 +1,22 @@
 .stack {
   position: absolute; /* Allow precise positioning within the container */
-  top: 25%; /* Center vertically */
+  top: 10%; /* Center vertically */
   left: 27%; /* Center horizontally */
-  transform: translate(-50%, -50%); /* Adjust for the element's own dimensions */
-  width: 400px;
-  margin: 30px auto;
-  transform: scale(.75); /* Default scale */
+  transform: translate(-50%, -50%) scale(calc(var(--container-width, 80vw) / 1000)); /* Combine translate and scale in one rule */
   transform-origin: center; /* Ensure scaling happens from the center */
+  width: 50%; /* Use percentage of container instead of fixed pixels */
+  margin: 0; /* Remove fixed margins */
 }
 
 .stack > .sheet {
   position: absolute;
   transition: all 300ms ease-in-out;
   display: block;
-  padding: 20px;
+  padding: 2%; /* Use percentage padding instead of fixed pixels */
   background: transparent;
   width: 100%;
-  height: 300px;
+  height: auto; /* Let height be proportional */
+  aspect-ratio: 1 / 1.2; /* Maintain consistent aspect ratio */
   left: 0;
   overflow: hidden;
 }

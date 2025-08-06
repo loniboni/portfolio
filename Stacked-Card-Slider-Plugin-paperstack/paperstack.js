@@ -75,19 +75,23 @@
         };
 
         this._arrangeSheets = (source) => {
+            // Predefined rotation angles for messy paper pile effect - more dramatic
+            const rotationAngles = [-8, 5, -12, 3, -6, 9, -4, 11, -7, 6];
+            
             for (let i = 0; i < this.sheets.length; i++) {
                 let sheet = $(this.sheets[this.sheetOrder[i]]); // Use sheetOrder to determine the correct sheet
 
                 // Update z-index based on position in the stack
                 sheet.css('z-index', this.sheets.length - i);
 
-                // Reset transform for all sheets
-                sheet.css('transform', 'rotate(0deg)');
-
-                // Apply staggered rotation for visual effect
-                if (i !== 0) {
-                    const rotation = source === 'next' ? 5 : -5;
-                    sheet.css('transform', `rotate(${rotation * i}deg)`);
+                // Apply small varied rotations for messy paper pile effect
+                if (i === 0) {
+                    // Top sheet - no rotation
+                    sheet.css('transform', 'rotate(0deg)');
+                } else {
+                    // Background sheets get small varied rotations
+                    const rotation = rotationAngles[i % rotationAngles.length];
+                    sheet.css('transform', `rotate(${rotation}deg)`);
                 }
             }
 
