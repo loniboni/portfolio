@@ -127,7 +127,25 @@
     align-items: center;
     margin: 4rem auto;
     max-width: 90%;
-    aspect-ratio: 16 / 9; /* Maintain a fixed aspect ratio */
+    min-height: 60vh; /* Use min-height instead of fixed aspect ratio */
+    overflow: visible; /* Prevent double scroll */
+  }
+
+  /* Mobile-specific container adjustments */
+  @media (max-width: 768px) {
+    .image-container {
+      aspect-ratio: 16 / 9; /* Restore aspect ratio for mobile to maintain overlay positioning */
+      min-height: auto; /* Let aspect ratio control height on mobile */
+      margin: 2rem auto;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .image-container {
+      aspect-ratio: 16 / 9; /* Keep consistent aspect ratio for overlay positioning */
+      margin: 1.5rem auto;
+      max-width: 95%;
+    }
   }
 
   .image-container img {
@@ -169,6 +187,41 @@
     left: 56.8%;
     width: 10%;
     height: auto;
+  }
+
+  /* Mobile-specific overlay positioning to account for iPhone Safari differences */
+  @media (max-width: 768px) {
+    .overlay .boobs {
+      top: 30.6%;
+      left: 14.25%;
+    }
+    
+    .overlay .killdozer {
+      top: 20%;
+      left: 43.8%;
+    }
+    
+    .overlay .egg {
+      top: 39.7%;
+      left: 56.8%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .overlay .boobs {
+      top: 30.6%;
+      left: 14.25%;
+    }
+    
+    .overlay .killdozer {
+      top: 20%;
+      left: 43.8%;
+    }
+    
+    .overlay .egg {
+      top: 39.7%;
+      left: 56.8%;
+    }
   }
 
   /* Add hover effect for overlay images */

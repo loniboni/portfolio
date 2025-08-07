@@ -121,29 +121,33 @@
       position: relative;
       margin: 0 auto;
       width: 100%;
-      height: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
       background: transparent;
       background-size: contain;
-      aspect-ratio: 6048 / 3525;
-      height: auto;
-      max-height: 80%;
+      min-height: 80vh; /* Use min-height instead of aspect ratio for desktop */
       max-width: 90%;
       --container-width: 80vw; /* CSS custom property for container-relative scaling */
+      overflow: visible; /* Ensure no inner scrollbar */
     }
     
     /* Update container width variable for different screen sizes */
     @media (max-width: 768px) {
       .centered-container {
         --container-width: 85vw;
+        aspect-ratio: 1 / 1.2; /* Change to portrait-friendly aspect ratio */
+        width: 95%;
+        overflow: visible; /* Ensure no inner scrollbar on mobile */
       }
     }
     
     @media (max-width: 480px) {
       .centered-container {
         --container-width: 90vw;
+        aspect-ratio: 1 / 1.4; /* Even more portrait-friendly */
+        width: 98%;
+        overflow: visible; /* Ensure no inner scrollbar on small mobile */
       }
     }
     

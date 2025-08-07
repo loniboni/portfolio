@@ -348,16 +348,47 @@
         justify-content: center;
         opacity: 0;
         transition: opacity 0.3s ease;
-        font-size: 1.2rem;
+        font-size: 3rem; /* Increased from 1.2rem for better readability */
         font-weight: bold;
         text-align: center;
         padding: 1rem;
         box-sizing: border-box;
-        border-radius: 4px;
+        transform: rotate(var(--rotate, 0deg)); /* Make overlay match parent rotation */
     }
     
     .gallery-item:hover .overlay {
         opacity: 1;
+    }
+    
+    /* Responsive overlay text scaling */
+    @media (max-width: 1600px) {
+        .gallery-item .overlay {
+            font-size: 2.5rem; /* Scale down proportionally */
+        }
+    }
+    
+    @media (max-width: 1200px) {
+        .gallery-item .overlay {
+            font-size: 2rem; /* Further scale down */
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .gallery-item .overlay {
+            font-size: 1.5rem; /* Mobile size - larger than original 1.2rem */
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .gallery-item .overlay {
+            font-size: 1.2rem; /* Small mobile size */
+        }
+    }
+    
+    @media (max-width: 375px) {
+        .gallery-item .overlay {
+            font-size: 1rem; /* Very small screens */
+        }
     }
     
     /* Create playful overlapping effect with pseudo-random positioning */
@@ -417,16 +448,28 @@
     #lightbox-caption {
       margin-top: 1rem;
       color: #e6ff8c;
-      font-size: 1.5rem;
+      font-size: 3rem; /* Increased from 1.5rem for better desktop readability */
       text-align: center;
       max-width: 90%;
       padding: 0 1rem;
     }
     
     /* Responsive lightbox text sizing */
+    @media (max-width: 1600px) {
+        #lightbox-caption {
+            font-size: 2.5rem; /* Scale down proportionally */
+        }
+    }
+    
+    @media (max-width: 1200px) {
+        #lightbox-caption {
+            font-size: 2rem; /* Further scale down */
+        }
+    }
+    
     @media (max-width: 768px) {
         #lightbox-caption {
-            font-size: 1rem;
+            font-size: 1rem; /* Keep existing mobile size */
             padding: 0 0.5rem;
         }
         
@@ -437,7 +480,7 @@
     
     @media (max-width: 480px) {
         #lightbox-caption {
-            font-size: 0.8rem;
+            font-size: 0.8rem; /* Keep existing small mobile size */
             margin-top: 0.5rem;
             padding: 0 0.5rem;
         }
@@ -450,35 +493,42 @@
     #prev, #next {
       position: absolute;
       top: 50%;
-      font-size: 2rem;
+      font-size: 4rem; /* Increased from 2rem for better desktop visibility */
       transform: translateY(-50%);
       background: rgba(0, 0, 0, 0.7);
       color: #e6ff8c;
       border: none;
-      padding: 10px;
+      padding: 20px; /* Increased from 10px for larger click area */
       cursor: pointer;
     }
     
     /* Responsive navigation buttons */
+    @media (max-width: 1200px) {
+        #prev, #next {
+            font-size: 3rem; /* Scale down for medium screens */
+            padding: 15px;
+        }
+    }
+    
     @media (max-width: 768px) {
         #prev, #next {
-            font-size: 1.5rem;
+            font-size: 1.5rem; /* Keep existing mobile size */
             padding: 8px;
         }
     }
     
     @media (max-width: 480px) {
         #prev, #next {
-            font-size: 1.2rem;
+            font-size: 1.2rem; /* Keep existing small mobile size */
             padding: 6px;
         }
     }
     
     #prev {
-      left: 10px;
+      left: 50px; /* Moved closer to center from 10px */
     }
     #next {
-      right: 10px;
+      right: 50px; /* Moved closer to center from 10px */
     }
   </style>
 

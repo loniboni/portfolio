@@ -1,11 +1,28 @@
 .stack {
   position: absolute; /* Allow precise positioning within the container */
   top: 10%; /* Center vertically */
-  left: 27%; /* Center horizontally */
+  left: 25%; /* Center horizontally */
   transform: translate(-50%, -50%) scale(calc(var(--container-width, 80vw) / 1000)); /* Combine translate and scale in one rule */
   transform-origin: center; /* Ensure scaling happens from the center */
   width: 50%; /* Use percentage of container instead of fixed pixels */
   margin: 0; /* Remove fixed margins */
+}
+
+/* Mobile-specific stack positioning */
+@media (max-width: 768px) {
+  .stack {
+    top: 10%;
+    left: 25%;
+    width: 60%; /* Slightly larger for mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .stack {
+    top: 10%;
+    left: 25%;
+    width: 50%; /* Even larger for small mobile */
+  }
 }
 
 .stack > .sheet {
