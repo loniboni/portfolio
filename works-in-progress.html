@@ -24,7 +24,7 @@
   
   /* Updated nav to match contact.html formula */
   nav {
-    position: fixed;
+    position: absolute;
     top: 1rem; /* Consistent top margin */
     right: 2rem; /* Position on the top-right corner */
     display: flex;
@@ -96,75 +96,58 @@
     margin-top: .5rem;
   }
   
-  /* Mobile subtitle scaling */
-  @media (max-width: 480px) {
+  /* Responsive subtitle scaling - standardized to match bits.html */
+  @media (max-width: 1170px) {
     .subtitle {
-      font-size: 20px;
-      margin-bottom: 2rem;
-      margin-top: 0.3rem;
+      font-size: clamp(2rem, 4vw, 60px);
+      margin-bottom: 4rem;
     }
   }
   
-  @media (max-width: 1170px) {
+  @media (max-width: 768px) {
     .subtitle {
-      font-size: clamp(25px, 4vw, 60px);
+      font-size: clamp(1.5rem, 3.5vw, 3rem);
       margin-bottom: 3rem;
     }
   }
   
-  @media (max-width: 375px) {
+  @media (max-width: 480px) {
     .subtitle {
-      font-size: 16px;
-      margin-bottom: 1.5rem;
-      margin-top: 0.2rem;
+      font-size: clamp(1rem, 3vw, 2rem);
+      margin-bottom: 2rem;
     }
   }
   
   .image-container {
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 4rem auto;
+    display: inline-block; /* Change to inline-block so it sizes to content */
+    margin: 0rem auto;
     max-width: 90%;
-    height: 50vh; /* Use viewport height instead of aspect ratio */
+    /* Remove arbitrary aspect-ratio - let it size to the actual background image */
     overflow: visible; /* Keep this to prevent double scroll */
   }
 
-  /* Mobile-specific height adjustments */
-  @media (max-width: 768px) {
-    .image-container {
-      height: 40vh; /* Shorter on mobile to fix positioning */
-    }
-  }
-
-  @media (max-width: 480px) {
-    .image-container {
-      height: 35vh; /* Even shorter for small mobile */
-      margin: 2rem auto;
-    }
-  }
-
   .image-container img {
-    width: 85%;
-    height: auto;
-    object-fit: cover;
+    width: 100%; /* Use full width of container instead of 85% */
+    height: auto; /* Maintain natural aspect ratio */
+    object-fit: contain; /* Change from cover to contain to preserve proportions */
     display: block;
   }
 
   .overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+    position: absolute;
+    top: 0%;
+    left: -8.38%;
+    width: 117%;
     height: 100%;
-    pointer-events: auto; /* Enable interaction with child elements */
-    z-index: 10; /* Ensure overlay is above the main image */
+    pointer-events: auto;
+    z-index: 10;
   }
 
   .overlay .boobs {
     position: absolute;
-    top: 30.6%;
+    top: 30.6%; /* Remove calc() - simple percentage positioning */
     left: 14.25%;
     width: 32.5%;
     height: auto;
@@ -172,7 +155,7 @@
 
   .overlay .killdozer {
     position: absolute;
-    top: 20%;
+    top: 20%; /* Remove calc() - simple percentage positioning */
     left: 43.8%;
     width: 11%;
     height: auto;
@@ -180,45 +163,10 @@
 
   .overlay .egg {
     position: absolute;
-    top: 39.7%;
+    top: 39.7%; /* Remove calc() - simple percentage positioning */
     left: 56.8%;
     width: 10%;
     height: auto;
-  }
-
-  /* Mobile-specific overlay positioning to account for iPhone Safari differences */
-  @media (max-width: 768px) {
-    .overlay .boobs {
-      top: 30.6%;
-      left: 14.25%;
-    }
-    
-    .overlay .killdozer {
-      top: 20%;
-      left: 43.8%;
-    }
-    
-    .overlay .egg {
-      top: 39.7%;
-      left: 56.8%;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .overlay .boobs {
-      top: 30.6%;
-      left: 14.25%;
-    }
-    
-    .overlay .killdozer {
-      top: 20%;
-      left: 43.8%;
-    }
-    
-    .overlay .egg {
-      top: 39.7%;
-      left: 56.8%;
-    }
   }
 
   /* Add hover effect for overlay images */

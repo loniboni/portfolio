@@ -24,7 +24,7 @@
     
     /* Updated nav to match contact.html formula */
     nav {
-      position: fixed;
+      position: absolute;
       top: 1rem; /* Consistent top margin */
       right: 2rem; /* Position on the top-right corner */
       display: flex;
@@ -151,63 +151,43 @@
       }
     }
     
+    
+    /* Navigation container that scales with centered-container - exact same approach as works-in-progress */
+    .nav-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+    
     .h1 {
       position: absolute;
-      left: 98.5%;
-      top: 50%;     
+      left: 90%; /* Simple percentage positioning within nav-container */
+      top: 70%; /* Simple percentage positioning within nav-container */
       color: #e6ff8c;
       font-size: 10rem;
       font-family: monospace;
       cursor: pointer;
       user-select: none;
+      pointer-events: auto;
+      z-index: 10;
     }
 
     .h2 {
       position: absolute;
-      left: 0%;
-      top: 50%;         
+      left: 10%; /* Simple percentage positioning within nav-container */
+      top: 70%; /* Simple percentage positioning within nav-container */
       color: #e6ff8c;
       font-size: 10rem;
       font-family: monospace;
       cursor: pointer;
       user-select: none;
+      pointer-events: auto;
+      z-index: 10;
     }
     
-    /* Responsive navigation arrows */
-    @media (max-width: 1170px) {
-      .h1, .h2 {
-        font-size: clamp(4rem, 8vw, 10rem);
-      }
-    }
-    
-    @media (max-width: 768px) {
-      .h1, .h2 {
-        font-size: clamp(3rem, 6vw, 6rem);
-      }
-      
-      .h1 {
-        left: 95%;
-      }
-      
-      .h2 {
-        left: 5%;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      .h1, .h2 {
-        font-size: clamp(2rem, 5vw, 4rem);
-      }
-      
-      .h1 {
-        left: 90%;
-      }
-      
-      .h2 {
-        left: 10%;
-      }
-    }
-
     .sheet {
       display: flex;
       justify-content: center;
@@ -252,7 +232,10 @@
   <div class="subtitle">Unfinished, Untitled, Random Abandoned</div>
 
   <div class="centered-container">
-    <div class="h2">&lt;</div>
+    <div class="nav-container">
+      <div class="h2">&lt;</div>
+      <div class="h1">&gt;</div>
+    </div>
     <div class="stack">
       <div class="sheet">
       <img src= "bits1.png" alt="bits 1"/>
@@ -330,7 +313,6 @@
           <img src= "bits25.png" alt="bits 25"/>
         </div>
     </div>
-    <div class="h1">&gt;</div>
   </div>
 
   <script>

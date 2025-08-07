@@ -34,7 +34,7 @@
     }
 
     nav {
-      position: fixed;
+      position: absolute;
       top: 1rem; /* Consistent top margin */
       right: 2rem; /* Position on the top-right corner */
       display: flex;
@@ -81,12 +81,14 @@
     }
 
     .ascii-title {
-      white-space: pre-wrap;
-      font-size: 2rem; /* Increased font size for main ASCII title */
-      color: #aaffcc;
-      margin-bottom: 1rem; /* Adjusted margin to match index.html */
-      margin-top: 4rem; /* Added margin above the ASCII title */
       text-align: center;
+      color: #aaffcc;
+      font-size: clamp(0.5rem, 1.5vw, 3rem); /* One simple responsive rule instead of multiple breakpoints */
+      white-space: pre-wrap;
+      margin-top: 4rem;
+      margin-bottom: 1rem;
+      line-height: 1.2; /* Consistent line height */
+      word-break: break-word; /* Prevent overflow */
     }
     .gallery-container {
         width: 100%; 
@@ -199,7 +201,7 @@
         
         .gallery {
             justify-content: center !important;
-            transform: scale(0.4);
+            transform: scale(0.37);
             transform-origin: center top !important;
             margin: 0 auto;
             margin-left: -30% !important;
@@ -244,61 +246,6 @@
             transform-origin: center top !important;
             margin: 0 auto;
             margin-left: -35% !important;
-        }
-    }
-
-    /* Adjust ASCII title for smaller screens */
-     @media (max-width: 480px) {
-        .ascii-title {
-            font-size: 0.7rem; /* Make smaller and less prominent on mobile */
-            line-height: 1.1; 
-            word-break: break-word;
-            margin-top: 2rem; /* Reduce top margin for better proportions */
-            margin-bottom: 0.5rem; /* Reduce bottom margin */
-        }
-    }
-
-    /* Adjust ASCII title for widths below 2240px */
-    @media (max-width: 2240px) {
-        .ascii-title {
-            font-size: 1.8rem; /* Slightly smaller for better proportions */
-            line-height: 1.5; 
-            word-break: break-word; 
-        }
-    }
-
-    /* Adjust layout for iPad Pro 11-inch (2048px width) */
-    @media (max-width: 2048px) {
-        .ascii-title {
-            font-size: 1.4rem; /* More proportional scaling */
-            line-height: 1.4; 
-        }
-    }
-
-    /* Adjust layout for iPhone 13 (1170px width) */
-    @media (max-width: 1170px) {
-        .ascii-title {
-            font-size: 1rem; /* Smaller but still legible */
-            line-height: 1.3; 
-        }
-    }
-
-    /* Additional breakpoint for very small mobile screens */
-    @media (max-width: 375px) {
-        .ascii-title {
-            font-size: 0.6rem; /* Very small for narrow screens */
-            line-height: 1.0;
-            margin-top: 1.5rem;
-            margin-bottom: 0.3rem;
-        }
-    }
-
-    @media (max-width: 320px) {
-        .ascii-title {
-            font-size: 0.5rem; /* Tiny for very narrow screens */
-            line-height: 1.0;
-            margin-top: 1rem;
-            margin-bottom: 0.2rem;
         }
     }
 
@@ -635,7 +582,7 @@
 <div class="overlay">Collected Tattoo Flash</div>
 </a>
 </div>
-<div class="gallery-item" style="--rotate: 3deg; position: relative; top: -730px; left: 1010px;">
+<div class="gallery-item" style="--rotate: 3deg; position: relative; top: -730px; left: 800px;">
 <a href="bits.html">
 <img alt="Bits and Bobs" src="bits11.png" data-caption="Bits and Bobs">
 <div class="overlay">Bits and Bobs</div>
