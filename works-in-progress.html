@@ -127,8 +127,22 @@
     align-items: center;
     margin: 4rem auto;
     max-width: 90%;
-    aspect-ratio: 16 / 9; /* Back to original aspect ratio for all screens */
+    height: 50vh; /* Use viewport height instead of aspect ratio */
     overflow: visible; /* Keep this to prevent double scroll */
+  }
+
+  /* Mobile-specific height adjustments */
+  @media (max-width: 768px) {
+    .image-container {
+      height: 40vh; /* Shorter on mobile to fix positioning */
+    }
+  }
+
+  @media (max-width: 480px) {
+    .image-container {
+      height: 35vh; /* Even shorter for small mobile */
+      margin: 2rem auto;
+    }
   }
 
   .image-container img {
