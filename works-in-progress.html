@@ -127,25 +127,8 @@
     align-items: center;
     margin: 4rem auto;
     max-width: 90%;
-    min-height: 60vh; /* Use min-height instead of fixed aspect ratio */
-    overflow: visible; /* Prevent double scroll */
-  }
-
-  /* Mobile-specific container adjustments */
-  @media (max-width: 768px) {
-    .image-container {
-      aspect-ratio: 16 / 9; /* Restore aspect ratio for mobile to maintain overlay positioning */
-      min-height: auto; /* Let aspect ratio control height on mobile */
-      margin: 2rem auto;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .image-container {
-      aspect-ratio: 16 / 9; /* Keep consistent aspect ratio for overlay positioning */
-      margin: 1.5rem auto;
-      max-width: 95%;
-    }
+    aspect-ratio: 16 / 9; /* Back to original aspect ratio for all screens */
+    overflow: visible; /* Keep this to prevent double scroll */
   }
 
   .image-container img {
