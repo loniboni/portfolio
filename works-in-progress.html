@@ -8,29 +8,34 @@
 <style>
   html {
     font-size: clamp(12px, 1vw, 18px); /* Updated to match our established base scaling */
+    height: 100%;
+    max-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 
-  html, body {
-      margin: 0;
-      width: 100%;
-      overflow-x: hidden; /* Prevent horizontal scrolling */
-    }
-    body {
-      background-color: #1b1b1b; /* Unified background color across all pages */
-      color: #d9d9c2;
-      font-family: monospace;
-      text-align: center;
+  body {
+    background-color: #1b1b1b; /* Unified background color across all pages */
+    color: #d9d9c2;
+    font-family: monospace;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    max-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
   
   /* Updated nav to match contact.html formula */
   nav {
-    position: absolute;
-    top: 1rem; /* Consistent top margin */
-    right: 2rem; /* Position on the top-right corner */
-    display: flex;
-    gap: 2rem; /* Add spacing between menu items */
-    font-size: 4rem; /* Default font size for desktop */
-    z-index: 100;
+  position: fixed;
+  top: 1rem;
+  right: 2rem;
+  display: flex;
+  gap: 2rem;
+  font-size: 4rem;
+  z-index: 1000;
   }
   nav a {
     margin: 0; /* Remove extra margins */
@@ -226,6 +231,7 @@ z-index: 10;
     align-items: center;
     justify-content: center;
     z-index: 1000;
+    overflow: hidden !important;
   }
 
   #carousel img {
