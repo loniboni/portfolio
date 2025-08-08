@@ -91,7 +91,7 @@
       word-break: break-word; /* Prevent overflow */
     }
     .gallery-container {
-        width: 100%; 
+        width: 80%; 
         max-width: 4000px; /* Desktop max-width */
         margin: 0 auto; 
         padding: 6rem 1rem; 
@@ -108,7 +108,7 @@
         justify-content: center; 
         width: 100%; 
         height: auto; 
-        padding: 4rem;
+        padding: 2rem;
         /* Transform origin for scaling */
         transform-origin: center top;
     }
@@ -116,49 +116,49 @@
     /* True proportional scaling - scale entire gallery as one unit */
     @media (max-width: 4000px) {
         .gallery-container {
-            transform: scale(0.9);
+            transform: scale(0.69);
             padding: 5rem 1rem; /* Slightly reduced padding */
         }
     }
     
     @media (max-width: 3500px) {
         .gallery-container {
-            transform: scale(0.8);
+            transform: scale(0.61);
             padding: 4.5rem 1rem;
         }
     }
     
     @media (max-width: 3000px) {
         .gallery-container {
-            transform: scale(0.7);
+            transform: scale(0.54);
             padding: 4rem 1rem;
         }
     }
     
     @media (max-width: 2500px) {
         .gallery-container {
-            transform: scale(0.6);
+            transform: scale(0.46);
             padding: 3.5rem 1rem;
         }
     }
     
     @media (max-width: 2000px) {
         .gallery-container {
-            transform: scale(0.5);
+            transform: scale(0.38);
             padding: 3rem 1rem;
         }
     }
     
     @media (max-width: 1600px) {
         .gallery-container {
-            transform: scale(0.4);
+            transform: scale(0.31);
             padding: 2.5rem 1rem;
         }
     }
     
     @media (max-width: 1200px) {
         .gallery-container {
-            transform: scale(0.3);
+            transform: scale(0.23);
             padding: 2rem 1rem;
             max-width: 3200px; /* Reduce container width so scaled content fits */
             margin: 0 auto; /* Center the container */
@@ -295,7 +295,7 @@
         justify-content: center;
         opacity: 0;
         transition: opacity 0.3s ease;
-        font-size: clamp(4.5rem, 6vw, 5rem); /* Proportional scaling for all screens */
+        font-size: clamp(3rem, 3vw, 4rem); /* Proportional scaling for all screens */
         font-weight: bold;
         text-align: center;
         padding: 1rem;
