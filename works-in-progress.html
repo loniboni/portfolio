@@ -291,11 +291,11 @@ z-index: 10;
 
   <!-- Updated image container with overlays -->
   <div class="image-container">
-    <img src="studio static.png" alt="Studio Static">
+  <img src="studio static.webp" alt="Studio Static" loading="lazy">
     <div class="overlay">
-      <img src="boobs overlay.png" alt="Boobs Overlay" class="boobs">
-      <img src="killdozer overlay.png" alt="Killdozer Overlay" class="killdozer">
-      <img src="egg overlay.png" alt="Egg Overlay" class="egg">
+  <img src="boobs overlay.webp" alt="Boobs Overlay" class="boobs" loading="lazy">
+  <img src="killdozer overlay.webp" alt="Killdozer Overlay" class="killdozer" loading="lazy">
+  <img src="egg overlay.webp" alt="Egg Overlay" class="egg" loading="lazy">
     </div>
   </div>
 
@@ -303,7 +303,7 @@ z-index: 10;
   <div id="carousel">
     <span id="carousel-close">&times;</span>
     <span class="carousel-arrow left">&#10094;</span>
-    <img id="carousel-img" src="" alt="Carousel Image">
+  <img id="carousel-img" src="" alt="Carousel Image" loading="lazy">
     <span class="carousel-arrow right">&#10095;</span>
   </div>
 
@@ -313,13 +313,13 @@ z-index: 10;
     const carouselImg = document.getElementById('carousel-img');
     const images = {
       boobs: [
-        'process 1.jpg', 'process 2.jpg', 'process 3.jpg', 'process 4.jpg', 'process 5.jpg', 'process 6.jpg', 'process 7.jpg'
+        'process 1.webp', 'process 2.webp', 'process 3.webp', 'process 4.webp', 'process 5.webp', 'process 6.webp', 'process 7.webp'
       ],
       killdozer: [
-        'Killdozer Progress 1.jpg', 'Killdozer Progress 2.jpg', 'Killdozer Progress 3.jpg', 'Killdozer Progress 4.jpg', 'Killdozer Progress 5.jpg', 'Killdozer Progress 6.jpg'
+        'Killdozer Progress 1.webp', 'Killdozer Progress 2.webp', 'Killdozer Progress 3.webp', 'Killdozer Progress 4.webp', 'Killdozer Progress 5.webp', 'Killdozer Progress 6.webp'
       ],
       egg: [
-        'progress 1.jpg', 'progress 2.jpg', 'progress 3.jpg', 'progress 6.jpg', 'progress 7.jpg'
+        'progress 1.webp', 'progress 2.webp', 'progress 3.webp', 'progress 6.webp', 'progress 7.webp'
       ]
     };
 

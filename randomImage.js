@@ -5,7 +5,7 @@
 
   // List of image file names
   const images = [
-    "alien.png", "bettyboop.png", "bunny.png", "calvin.png", "catdoor.png", "centaur.png", "cliff.png", "cow.png", "dragon.png", "dragon2.png", "foghorn.png", "garfield.png", "gary.png", "horse.png", "lizard.png", "mouse.png", "odie.png", "pegasus.png", "renstimpy.png", "spaceman.png"
+    "alien.webp", "bettyboop.webp", "bunny.webp", "calvin.webp", "catdoor.webp", "centaur.webp", "cliff.webp", "cow.webp", "dragon.webp", "dragon2.webp", "foghorn.webp", "garfield.webp", "gary.webp", "horse.webp", "lizard.webp", "mouse.webp", "odie.webp", "pegasus.webp", "renstimpy.webp", "spaceman.webp"
   ];
 
   // Function to create a row of images below ASCII headers

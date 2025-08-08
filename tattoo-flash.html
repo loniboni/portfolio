@@ -87,7 +87,36 @@
       line-height: 1.2; /* Consistent line height */
       word-break: break-word; /* Prevent overflow */
     }
-    
+    .subtitle {
+    text-align: center;
+    color: #ccffcc;
+    font-size: 60px;
+    margin-bottom: 6rem;
+    margin-top: .5rem;
+  }
+  
+  /* Responsive subtitle scaling - standardized to match bits.html */
+  @media (max-width: 1170px) {
+    .subtitle {
+      font-size: clamp(2rem, 4vw, 60px);
+      margin-bottom: 4rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .subtitle {
+      font-size: clamp(1.5rem, 3.5vw, 3rem);
+      margin-bottom: 3rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .subtitle {
+      font-size: clamp(1rem, 3vw, 2rem);
+      margin-bottom: 2rem;
+    }
+  }
+  
     /* Remove CSS Custom Properties - starting fresh */
     
     /* Clean responsive flipbook system */
@@ -99,7 +128,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: url('binder background.png') no-repeat center center;
+  background: url('binder background.webp') no-repeat center center;
       background-size: contain;
       aspect-ratio: 6048 / 3525;
       height: auto;
@@ -172,22 +201,6 @@
     translate: -100% 0;
     rotate: 0 1 0 180deg;
 }
-
-    /* Flipbook caption styles */
-    .flipbook-caption {
-        width: 100%;
-        margin: 2rem auto 0 auto;
-        text-align: center;
-        color: #e6ff8c;
-        font-size: clamp(.2rem, 6vw, 1rem);
-        font-family: inherit;
-        line-height: 1.3;
-        max-width: 80ch;
-        background: none;
-        padding: 0.5em 0;
-        box-sizing: border-box;
-        z-index: 2;
-    }
   </style>
 </head>
 <body>
@@ -209,124 +222,128 @@
 dMP     dMMMMMP dMP dMP  VMMMP" dMP dMP        dMMMMP"  VMMMP"  VMMMP" dMP dMP     
                                                                                    
 </div>
+  <div class="subtitle">✩₊˚.⋆☾⋆⁺₊✧Flip me!⤷ ゛ ˎˊ˗</div>
+
   <div class="centered-container">
     <div class="flipbook-container">
       <body>
         <div class="book">
             <div class="page">
                 <div class="front">
-                    <img src="binder imgs/binder front cover.png" alt="Img 1">
+                    <img src="binder imgs/binder front cover.webp" alt="Img 1" loading="lazy">
                 </div>
                 <div class="back">
-                    <img src="binder imgs/binder 1.png" alt="Img 2">
+                    <img src="binder imgs/binder 1.webp" alt="Img 2" loading="lazy">
                 </div>
             </div>
     
             <div class="page">
                 <div class="front">
-                    <img src="binder imgs/binder 2.png" alt="Img 3">
+                    <img src="binder imgs/binder 2.webp" alt="Img 3" loading="lazy">
                 </div>
                 <div class="back">
-                    <img src="binder imgs/binder 3.png" alt="Img 4">
+                    <img src="binder imgs/binder 3.webp" alt="Img 4" loading="lazy">
                 </div>
             </div>
     
             <div class="page">
                 <div class="front">
-                    <img src="binder imgs/binder 4.png" alt="Img 5">
+                    <img src="binder imgs/binder 4.webp" alt="Img 5" loading="lazy">
                 </div>
                 <div class="back">
-                    <img src="binder imgs/binder 5.png" alt="Img 6">
+                    <img src="binder imgs/binder 5.webp" alt="Img 6" loading="lazy">
                 </div>
             </div>
     
             <div class="page">
                 <div class="front">
-                    <img src="binder imgs/binder 6.png" alt="Img 7">
+                    <img src="binder imgs/binder 6.webp" alt="Img 7" loading="lazy">
                 </div>
                 <div class="back">
-                    <img src="binder imgs/binder 7.png" alt="Img 8">
+                    <img src="binder imgs/binder 7.webp" alt="Img 8" loading="lazy">
                 </div>
             </div>
     
             <div class="page">
                 <div class="front">
-                    <img src="binder imgs/binder 8.png" alt="Img 9">
+                    <img src="binder imgs/binder 8.webp" alt="Img 9" loading="lazy">
                 </div>
                 <div class="back">
-                    <img src="binder imgs/binder 9.png" alt="Img 10">
+                    <img src="binder imgs/binder 9.webp" alt="Img 10" loading="lazy">
                 </div>
             </div>
     
             <div class="page">
                 <div class="front">
-                    <img src="binder imgs/binder 10.png" alt="Img 11">
+                    <img src="binder imgs/binder 10.webp" alt="Img 11" loading="lazy">
                 </div>
                 <div class="back">
-                    <img src="binder imgs/binder 11.png" alt="Img 12">
+                    <img src="binder imgs/binder 11.webp" alt="Img 12" loading="lazy">
                 </div>
             </div>
     
             <div class="page">
                 <div class="front">
-                    <img src="binder imgs/binder 12.png" alt="Img 13">
+                    <img src="binder imgs/binder 12.webp" alt="Img 13" loading="lazy">
                 </div>
                 <div class="back">
-                    <img src="binder imgs/binder 13.png" alt="Img 14">
+                    <img src="binder imgs/binder 13.webp" alt="Img 14" loading="lazy">
                 </div>
             </div>
     
             <div class="page">
                 <div class="front">
-                    <img src="binder imgs/binder 14.png" alt="Img 15">
+                    <img src="binder imgs/binder 14.webp" alt="Img 15" loading="lazy">
                 </div>
                 <div class="back">
-                    <img src="binder imgs/binder 15.png" alt="Img 16">
+                    <img src="binder imgs/binder 15.webp" alt="Img 16" loading="lazy">
                 </div>
             </div>
     
             <div class="page">
                 <div class="front">
-                    <img src="binder imgs/binder 16.png" alt="Img 17">
+                    <img src="binder imgs/binder 16.webp" alt="Img 17" loading="lazy">
                 </div>
                 <div class="back">
-                    <img src="binder imgs/binder 17.png" alt="Img 18">
+                    <img src="binder imgs/binder 17.webp" alt="Img 18" loading="lazy">
                 </div>
             </div>
     
             <div class="page">
                 <div class="front">
-                    <img src="binder imgs/binder 18.png" alt="Img 19">
+                    <img src="binder imgs/binder 18.webp" alt="Img 19" loading="lazy">
                 </div>
                 <div class="back">
-                    <img src="binder imgs/binder 19.png" alt="Img 20">
+                    <img src="binder imgs/binder 19.webp" alt="Img 20" loading="lazy">
                 </div>
             </div>
     
             <div class="page">
                 <div class="front">
-                    <img src="binder imgs/binder 20.png" alt="Img 21">
+                    <img src="binder imgs/binder 20.webp" alt="Img 21" loading="lazy">
                 </div>
                 <div class="back">
-                    <img src="binder imgs/binder 21.png" alt="Img 22">
+                    <img src="binder imgs/binder 21.webp" alt="Img 22">
                 </div>
             </div>
     
             <div class="page">
                 <div class="front">
-                    <img src="binder imgs/binder 22.png" alt="Img 23">
+                    <img src="binder imgs/binder 22.webp" alt="Img 23">
                 </div>
                 <div class="back">
-                    <img src="binder imgs/binder 23.png" alt="Img 24">
+                    <img src="binder imgs/binder 23.webp" alt="Img 24">
                 </div>
             </div>
     
             <div class="page">
                 <div class="front">
-                    <img src="binder imgs/binder 24.png" alt="Img 25">
+                    <img src="binder imgs/binder 24.webp" alt="Img 25">
                 </div>
                 <div class="back">
-                    <img src="binder imgs/binder back cover.png" alt="Img 26">
+                    <img src="binder imgs/binder back cover.webp" alt="Img 26">
+
+                    
                 </div>
             </div>
     
@@ -334,8 +351,7 @@ dMP     dMMMMMP dMP dMP  VMMMP" dMP dMP        dMMMMP"  VMMMP"  VMMMP" dMP dMP
             </div>
         </div>
     </div>
-    <div class="flipbook-caption">  
-. ݁₊ ⊹ . ݁ ⟡ ݁ . ⊹ ₊ ݁.Flip me˚₊ · »-♡→ </div>
+    
 </div>
     </div>
   <script src="randomImage.js"></script>
@@ -343,19 +359,19 @@ dMP     dMMMMMP dMP dMP  VMMMP" dMP dMP        dMMMMP"  VMMMP"  VMMMP" dMP dMP
   <script>
         document.addEventListener('DOMContentLoaded', () => {
             const imagePaths = [
-                { front: 'binder imgs/binder front cover.png', back: 'binder imgs/binder 1.png' },
-                { front: 'binder imgs/binder 2.png', back: 'binder imgs/binder 3.png' },
-                { front: 'binder imgs/binder 4.png', back: 'binder imgs/binder 5.png' },
-                { front: 'binder imgs/binder 6.png', back: 'binder imgs/binder 7.png' },
-                { front: 'binder imgs/binder 8.png', back: 'binder imgs/binder 9.png' },
-                { front: 'binder imgs/binder 10.png', back: 'binder imgs/binder 11.png' },
-                { front: 'binder imgs/binder 12.png', back: 'binder imgs/binder 13.png' },
-                { front: 'binder imgs/binder 14.png', back: 'binder imgs/binder 15.png' },
-                { front: 'binder imgs/binder 16.png', back: 'binder imgs/binder 17.png' },
-                { front: 'binder imgs/binder 18.png', back: 'binder imgs/binder 19.png' },
-                { front: 'binder imgs/binder 20.png', back: 'binder imgs/binder 21.png' },
-                { front: 'binder imgs/binder 22.png', back: 'binder imgs/binder 23.png' },
-                { front: 'binder imgs/binder 24.png', back: 'binder imgs/binder back cover.png' }
+                { front: 'binder imgs/binder front cover.webp', back: 'binder imgs/binder 1.webp' },
+                { front: 'binder imgs/binder 2.webp', back: 'binder imgs/binder 3.webp' },
+                { front: 'binder imgs/binder 4.webp', back: 'binder imgs/binder 5.webp' },
+                { front: 'binder imgs/binder 6.webp', back: 'binder imgs/binder 7.webp' },
+                { front: 'binder imgs/binder 8.webp', back: 'binder imgs/binder 9.webp' },
+                { front: 'binder imgs/binder 10.webp', back: 'binder imgs/binder 11.webp' },
+                { front: 'binder imgs/binder 12.webp', back: 'binder imgs/binder 13.webp' },
+                { front: 'binder imgs/binder 14.webp', back: 'binder imgs/binder 15.webp' },
+                { front: 'binder imgs/binder 16.webp', back: 'binder imgs/binder 17.webp' },
+                { front: 'binder imgs/binder 18.webp', back: 'binder imgs/binder 19.webp' },
+                { front: 'binder imgs/binder 20.webp', back: 'binder imgs/binder 21.webp' },
+                { front: 'binder imgs/binder 22.webp', back: 'binder imgs/binder 23.webp' },
+                { front: 'binder imgs/binder 24.webp', back: 'binder imgs/binder back cover.webp' }
             ];
 
             initializeFlipbook('centered-container', imagePaths);
