@@ -135,14 +135,13 @@
   }
 
   .overlay {
-    position: absolute;
-    position: absolute;
-    top: 0%;
-    left: -8.38%;
-    width: 117%;
-    height: 100%;
-    pointer-events: auto;
-    z-index: 10;
+position: absolute;
+top: -0.7%;
+left: -8.35%;
+width: 116.9%;
+height: 102%;
+pointer-events: auto;
+z-index: 10;
   }
 
   .overlay .boobs {
@@ -178,6 +177,12 @@
   .overlay img:hover {
     filter: brightness(1.2); /* Slightly lighter on hover */
   }
+
+    .overlay img.touch-hover,
+    .overlay img:hover {
+      filter: brightness(1.2) drop-shadow(0 0 10px #e6ff8c);
+      transition: filter 0.3s;
+    }
 
   /* Styles for the lightroom modal */
   #lightroom {
@@ -351,6 +356,18 @@
         } else if (img.classList.contains('egg')) {
           openCarousel('egg');
         }
+      });
+
+      // Touch hover effect for overlays on mobile
+      document.querySelectorAll('.overlay img').forEach(img => {
+        img.addEventListener('touchstart', function() {
+          img.classList.add('touch-hover');
+        });
+        ['touchend', 'touchcancel', 'touchleave'].forEach(event => {
+          img.addEventListener(event, function() {
+            img.classList.remove('touch-hover');
+          });
+        });
       });
     });
 

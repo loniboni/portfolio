@@ -295,7 +295,7 @@
         justify-content: center;
         opacity: 0;
         transition: opacity 0.3s ease;
-        font-size: 3rem; /* Increased from 1.2rem for better readability */
+        font-size: clamp(4.5rem, 6vw, 5rem); /* Proportional scaling for all screens */
         font-weight: bold;
         text-align: center;
         padding: 1rem;
@@ -306,37 +306,21 @@
     .gallery-item:hover .overlay {
         opacity: 1;
     }
-    
-    /* Responsive overlay text scaling */
-    @media (max-width: 1600px) {
-        .gallery-item .overlay {
-            font-size: 2.5rem; /* Scale down proportionally */
+
+        .gallery-item.touch-hover .overlay,
+        .gallery-item:hover .overlay {
+            opacity: 1;
+            pointer-events: auto;
+            transition: opacity 0.3s;
         }
-    }
-    
-    @media (max-width: 1200px) {
+
         .gallery-item .overlay {
-            font-size: 2rem; /* Further scale down */
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
         }
-    }
     
-    @media (max-width: 768px) {
-        .gallery-item .overlay {
-            font-size: 1.5rem; /* Mobile size - larger than original 1.2rem */
-        }
-    }
-    
-    @media (max-width: 480px) {
-        .gallery-item .overlay {
-            font-size: 1.2rem; /* Small mobile size */
-        }
-    }
-    
-    @media (max-width: 375px) {
-        .gallery-item .overlay {
-            font-size: 1rem; /* Very small screens */
-        }
-    }
+    /* Responsive overlay text scaling removed in favor of clamp() */
     
     /* Create playful overlapping effect with pseudo-random positioning */
     .gallery-item:nth-child(2n) {
@@ -576,13 +560,13 @@
 <div class="overlay">Works on Skin</div>
 </a>
 </div>
-<div class="gallery-item" style="--rotate: 1deg; position: relative; top: -830px;">
+<div class="gallery-item" style="--rotate: 1deg; position: relative; top: -775px;">
 <a href="tattoo-flash.html">
 <img alt="Collected Tattoo Flash" src="a17f3d97-768f-4133-b19d-54cf72a95207_rw_1920.jpeg" data-caption="Collected Tattoo Flash">
 <div class="overlay">Collected Tattoo Flash</div>
 </a>
 </div>
-<div class="gallery-item" style="--rotate: 3deg; position: relative; top: -730px; left: 800px;">
+<div class="gallery-item" style="--rotate: 3deg; position: relative; top: -900px; left: 900px;">
 <a href="bits.html">
 <img alt="Bits and Bobs" src="bits11.png" data-caption="Bits and Bobs">
 <div class="overlay">Bits and Bobs</div>
@@ -687,6 +671,21 @@
         }
       });
     });
+</script>
+
+<!-- Touch hover effect for mobile -->
+<script>
+    document.querySelectorAll('.gallery-item').forEach(item => {
+        item.addEventListener('touchstart', function() {
+            item.classList.add('touch-hover');
+        });
+        ['touchend', 'touchcancel', 'touchleave'].forEach(event => {
+            item.addEventListener(event, function() {
+                item.classList.remove('touch-hover');
+            });
+        });
+    });
+</script>
 </script>
 
 <!-- Add Lightbox modal structure -->

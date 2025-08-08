@@ -1,34 +1,17 @@
+
 .stack {
-  position: absolute; /* Allow precise positioning within the container */
-  top: 10%; /* Center vertically */
-  left: 25%; /* Center horizontally */
-  transform: translate(-50%, -50%) scale(calc(var(--container-width, 80vw) / 1000)); /* Combine translate and scale in one rule */
-  transform-origin: center; /* Ensure scaling happens from the center */
-  width: 50%; /* Use percentage of container instead of fixed pixels */
-  margin: 0; /* Remove fixed margins */
-}
-
-/* Mobile-specific stack positioning */
-@media (max-width: 768px) {
-  .stack {
-    top: 10%;
-    left: 25%;
-    width: 60%; /* Slightly larger for mobile */
-  }
-}
-
-@media (max-width: 480px) {
-  .stack {
-    top: 10%;
-    left: 25%;
-    width: 50%; /* Even larger for small mobile */
-  }
+  position: relative;
+  width: 60%;
+  height: auto;
+  margin-left: 22%
 }
 
 .stack > .sheet {
   position: absolute;
   transition: all 300ms ease-in-out;
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 2%; /* Use percentage padding instead of fixed pixels */
   background: transparent;
   width: 100%;
@@ -36,4 +19,9 @@
   aspect-ratio: 1 / 1.2; /* Maintain consistent aspect ratio */
   left: 0;
   overflow: hidden;
+}
+.stack > .sheet img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
