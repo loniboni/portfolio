@@ -6,8 +6,15 @@
 <title>Works</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <style>
-    html {
-      font-size: clamp(12px, 1vw, 18px); /* Adjust font size based on viewport width */
+        html {
+            font-size: clamp(12px, 1vw, 18px); /* Adjust font size based on viewport width */
+        }
+
+        /* Force desktop font-size to 18px for consistent sizing */
+        @media (min-width: 1201px) {
+            html {
+                font-size: 18px !important;
+            }
     }
 
     html, body {
