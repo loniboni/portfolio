@@ -24,13 +24,13 @@
     
     /* Updated nav to match contact.html formula */
     nav {
-  position: fixed;
-  top: 1rem;
-  right: 2rem;
-  display: flex;
-  gap: 2rem;
-  font-size: 4rem;
-  z-index: 1000;
+      position: fixed;
+      top: 1rem;
+      right: 2rem;
+      display: flex;
+      gap: 1rem;
+      font-size: clamp(1rem, 2vw, 2rem);
+      z-index: 1000;
     }
     nav a {
       margin: 0; /* Remove extra margins */
@@ -39,83 +39,47 @@
       margin-left: 1rem; /* Set a smaller default margin */
     }
     
-    /* Mobile nav scaling - exact copy from contact.html */
     @media (max-width: 768px) {
       html {
-        font-size: clamp(10px, 2vw, 16px); /* Smaller base font for mobile */
+        font-size: clamp(10px, 2vw, 16px);
       }
-      
       nav {
-        font-size: 3rem; /* Scale down font size for tablets */
-        gap: 1.5rem; /* Adjust spacing for smaller screens */
+        gap: 1.5rem;
       }
       nav a {
-        font-size: 4rem; /* Specific nav override to match contact.html */
         margin-left: 0.5rem;
-        margin-top: 0.2rem; /* Reduce margin for smaller screens */
+        margin-top: 0.2rem;
       }
     }
-    
     @media (max-width: 480px) {
       html {
-        font-size: clamp(8px, 3vw, 14px); /* Even smaller base font for mobile */
+        font-size: clamp(8px, 3vw, 14px);
       }
-      
       nav {
-        font-size: 2.5rem; /* Scale down font size for mobile */
-        gap: 1rem; /* Adjust spacing for mobile */
+        gap: 1rem;
       }
       nav a {
-        margin-left: 0.25rem; /* Further reduce margin for very small screens */
-      }
-    }
-    
-    /* Additional nav scaling for better proportions */
-    @media (max-width: 1170px) {
-      nav a {
-        font-size: clamp(1.5rem, 2.5vw, 4rem) !important; /* Scale down navigation link size */
+        margin-left: 0.25rem;
       }
     }
     
     .ascii-title {
       text-align: center;
       color: #aaffcc;
-      font-size: clamp(0.5rem, 1.5vw, 3rem); /* One simple responsive rule instead of multiple breakpoints */
+      font-size: clamp(0.5rem, 1vw, 3rem);
       white-space: pre-wrap;
       margin-top: 4rem;
       margin-bottom: 1rem;
-      line-height: 1.2; /* Consistent line height */
-      word-break: break-word; /* Prevent overflow */
+      line-height: 1.2;
+      word-break: break-word;
     }
     .subtitle {
-    text-align: center;
-    color: #ccffcc;
-    font-size: 60px;
-    margin-bottom: 6rem;
-    margin-top: .5rem;
-  }
-  
-  /* Responsive subtitle scaling - standardized to match bits.html */
-  @media (max-width: 1170px) {
-    .subtitle {
-      font-size: clamp(2rem, 4vw, 60px);
-      margin-bottom: 4rem;
+      text-align: center;
+      color: #ccffcc;
+      font-size: clamp(1rem, 2vw, 2rem);
+      margin-bottom: 6rem;
+      margin-top: .5rem;
     }
-  }
-  
-  @media (max-width: 768px) {
-    .subtitle {
-      font-size: clamp(1.5rem, 3.5vw, 3rem);
-      margin-bottom: 3rem;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .subtitle {
-      font-size: clamp(1rem, 3vw, 2rem);
-      margin-bottom: 2rem;
-    }
-  }
   
     /* Remove CSS Custom Properties - starting fresh */
     

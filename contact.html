@@ -41,13 +41,13 @@
       text-align: center;
     }
     nav {
-  position: fixed;
-  top: 1rem;
-  right: 2rem;
-  display: flex;
-  gap: 2rem;
-  font-size: 4rem;
-  z-index: 1000;
+      position: fixed;
+      top: 1rem;
+      right: 2rem;
+      display: flex;
+      gap: 1rem;
+      font-size: clamp(1rem, 2vw, 2rem);
+      z-index: 1000;
     }
     nav a {
         margin: 0; /* Remove extra margins */
@@ -57,43 +57,38 @@
     }
 
     @media (max-width: 768px) {
-        nav {
-            font-size: 3rem; /* Scale down font size for tablets */
-            gap: 1.5rem; /* Adjust spacing for smaller screens */
-        }
-
-        nav a {
-            margin-left: 0.5rem;
-            margin-top: 0.2rem; /* Reduce margin for smaller screens */
-        }
+      nav {
+        gap: 1.5rem;
+      }
+      nav a {
+        margin-left: 0.5rem;
+        margin-top: 0.2rem;
+      }
     }
-
     @media (max-width: 480px) {
-        nav {
-            font-size: 2.5rem; /* Scale down font size for mobile */
-            gap: 1rem; /* Adjust spacing for mobile */
-        }
-
-        nav a {
-            margin-left: 0.25rem; /* Further reduce margin for very small screens */
-        }
+      nav {
+        gap: 1rem;
+      }
+      nav a {
+        margin-left: 0.25rem;
+      }
     }
 
     .ascii-title {
       white-space: pre-wrap;
-      font-size: 3rem; /* Increased font size for main ASCII title */
+      font-size: clamp(0.5rem, 1vw, 3rem);
       color: #aaffcc;
-      margin-bottom: 1rem; /* Adjusted margin to match index.html */
-      margin-top: 4rem; /* Added margin above the ASCII title */
+      margin-bottom: 1rem;
+      margin-top: 4rem;
       text-align: center;
     }
     .subtitle {
-    text-align: center;
-    color: #ccffcc;
-    font-size: 60px;
-    margin-bottom: 6rem;
-    margin-top: .5rem;
-  }
+      text-align: center;
+      color: #ccffcc;
+      font-size: clamp(1rem, 2vw, 2rem);
+      margin-bottom: 6rem;
+      margin-top: .5rem;
+    }
     form {
       width: 200rem; /* Default width for desktop */
       margin: auto;
