@@ -39,7 +39,7 @@
             right: 2rem;
             display: flex;
             gap: 2rem;
-            font-size: 4rem;
+            font-size: clamp(1.2rem, 2vw, 2.5rem);
             z-index: 1000;
         }
     nav a {
@@ -55,7 +55,6 @@
         }
         
         nav {
-            font-size: 3rem; /* Scale down font size for tablets */
             gap: 1.5rem; /* Adjust spacing for smaller screens */
         }
 
@@ -72,7 +71,6 @@
         }
         
         nav {
-            font-size: 2.5rem; /* Scale down font size for mobile */
             gap: 1rem; /* Increased from .5rem to match contact.html spacing */
         }
 
@@ -84,7 +82,7 @@
     .ascii-title {
       text-align: center;
       color: #aaffcc;
-      font-size: clamp(0.5rem, 1.5vw, 3rem); /* One simple responsive rule instead of multiple breakpoints */
+      font-size: clamp(0.5rem, 1vw, 3rem); /* One simple responsive rule instead of multiple breakpoints */
       white-space: pre-wrap;
       margin-top: 4rem;
       margin-bottom: 1rem;
