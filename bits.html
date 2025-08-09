@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Preload the first image for faster initial render -->
+  <link rel="preload" as="image" href="desktop-bits1.webp" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bits</title>
@@ -87,21 +89,18 @@
     /* Responsive subtitle scaling */
     @media (max-width: 1170px) {
       .subtitle {
-        font-size: clamp(2rem, 4vw, 60px);
         margin-bottom: 4rem;
       }
     }
     
     @media (max-width: 768px) {
       .subtitle {
-        font-size: clamp(1.5rem, 3.5vw, 3rem);
         margin-bottom: 3rem;
       }
     }
     
     @media (max-width: 480px) {
       .subtitle {
-        font-size: clamp(1rem, 3vw, 2rem);
         margin-bottom: 2rem;
       }
     }
@@ -120,6 +119,13 @@
   box-shadow: 0 2px 12px 0 #1b1b1b;
   border-radius: 1.5rem;
   padding-bottom: 1.5rem;
+}
+
+@media (max-width: 600px) {
+  .centered-container {
+    box-shadow: none;
+    border-radius: 0.5rem;
+  }
     }
     
     /* Update container width variable for different screen sizes */
@@ -186,10 +192,10 @@
   </div>
 
   <div id="random-ascii"></div>
-  <script src="randomImage.js"></script>
+  <script src="randomImage.js" defer></script>
     
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="Stacked-Card-Slider-Plugin-paperstack/paperstack.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+  <script src="Stacked-Card-Slider-Plugin-paperstack/paperstack.js" defer></script>
 
   <div class="subtitle">Unfinished, Untitled, Random Abandoned</div>
 
@@ -197,7 +203,7 @@
     <div class="h2">&lt;</div>
     <div class="stack">
       <div class="sheet">
-  <img src="desktop/desktop-bits1.webp" alt="bits 1" loading="lazy"
+  <img src="desktop-bits1.webp" alt="bits 1" loading="lazy"
     srcset="desktop-bits1.webp 1600w, mobile-bits1.webp 600w"
     sizes="(max-width: 600px) 90vw, 1600px"
   />
@@ -359,7 +365,7 @@
     });
 </script>
 
-<script type="text/javascript">
+<script type="text/javascript" defer>
 
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-36251023-1']);
