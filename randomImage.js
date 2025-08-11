@@ -37,17 +37,30 @@
       // Shuffle the images array to randomize the order
       const shuffledImages = images.sort(() => Math.random() - 0.5);
 
-      // Add images to the row in the randomized order
+      // Add responsive <picture> elements to the row in the randomized order
       for (let i = 0; i < 15; i++) {
-        const imgElement = document.createElement("img");
-        const randomIndex = i % shuffledImages.length; // Cycle through shuffled images
-        imgElement.src = shuffledImages[randomIndex]; // Select a random image
-        imgElement.alt = "Random Image";
-        imgElement.style.maxWidth = "10vw"; // Scale width relative to viewport
-        imgElement.style.height = "auto"; // Maintain aspect ratio
-        imgElement.style.margin = "0 1vw"; // Add spacing between images
-        imgElement.classList.add("filtered-image"); // Add a class to dynamically generated images
-        imageRow.appendChild(imgElement);
+        const randomIndex = i % shuffledImages.length;
+        const baseName = shuffledImages[randomIndex].replace(/\.webp$/, "");
+
+        const picture = document.createElement("picture");
+
+        const source = document.createElement("source");
+        source.media = "(max-width: 600px)";
+        source.srcset = `mobile-${baseName}.webp`;
+        picture.appendChild(source);
+
+        const img = document.createElement("img");
+        img.src = `desktop-${baseName}.webp`;
+        img.alt = "Random Image";
+        img.width = 400; // Set a default width for layout stability (adjust as needed)
+        img.height = 400; // Set a default height for layout stability (adjust as needed)
+        img.style.maxWidth = "10vw";
+        img.style.height = "auto";
+        img.style.margin = "0 1vw";
+        img.classList.add("filtered-image");
+        picture.appendChild(img);
+
+        imageRow.appendChild(picture);
       }
 
       // Insert the image row below the ASCII title
