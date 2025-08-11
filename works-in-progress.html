@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Works in progress and behind-the-scenes art by Kealohi Wean. Explore sketches, overlays, and process images." />
   <title>Works in Progress</title>
   
 <style>
@@ -82,7 +83,7 @@
   .subtitle {
     text-align: center;
     color: #ccffcc;
-    font-size: clamp(1rem, 2vw, 2rem);
+    font-size: clamp(.5rem, 2vw, 1rem);
     margin-bottom: 6rem;
     margin-top: .5rem;
   }
@@ -261,12 +262,24 @@ z-index: 10;
 
   <!-- Updated image container with overlays -->
   <div class="image-container">
-  <img src="studio static.webp" alt="Studio Static" loading="lazy">
-    <div class="overlay">
-  <img src="boobs overlay.webp" alt="Boobs Overlay" class="boobs" loading="lazy">
-  <img src="killdozer overlay.webp" alt="Killdozer Overlay" class="killdozer" loading="lazy">
-  <img src="egg overlay.webp" alt="Egg Overlay" class="egg" loading="lazy">
-    </div>
+  <picture>
+    <source media="(max-width: 600px)" srcset="mobile-studio-static.webp">
+    <img src="desktop-studio-static.webp" alt="Studio Static" loading="lazy" width="1600" height="1200">
+  </picture>
+  <div class="overlay">
+    <picture>
+      <source media="(max-width: 600px)" srcset="mobile-boobs-overlay.webp">
+      <img src="desktop-boobs-overlay.webp" alt="Boobs Overlay" class="boobs" loading="lazy" width="520" height="400">
+    </picture>
+    <picture>
+      <source media="(max-width: 600px)" srcset="mobile-killdozer-overlay.webp">
+      <img src="desktop-killdozer-overlay.webp" alt="Killdozer Overlay" class="killdozer" loading="lazy" width="176" height="200">
+    </picture>
+    <picture>
+      <source media="(max-width: 600px)" srcset="mobile-egg-overlay.webp">
+      <img src="desktop-egg-overlay.webp" alt="Egg Overlay" class="egg" loading="lazy" width="160" height="120">
+    </picture>
+  </div>
   </div>
 
   <!-- Add carousel modal structure -->
