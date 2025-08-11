@@ -445,31 +445,9 @@
       right: 50px; /* Moved closer to center from 10px */
     }
 
-    /* Responsive scaling for random images */
-    .filtered-image {
-        max-width: 10vw;
-        height: auto;
-        margin: 0 1vw;
-        transition: max-width 0.2s;
-    }
-    @media (max-width: 768px) {
-        .filtered-image {
-            max-width: 30vw;
-            min-width: 80px;
-        }
-    }
-    @media (max-width: 480px) {
-        .filtered-image {
-            max-width: 45vw;
-            min-width: 90px;
-        }
-    }
-  
-    /* End random image scaling */
     </style>
 
-<!-- Add randomImage.js script -->
-<script src="randomImage.js"></script>
+
 </head>
 <body>
   <nav>
@@ -624,7 +602,8 @@
 </div>
 </div>
 </div>
-
+<!-- Add randomImage.js script -->
+<script src="randomImage.js"></script>
 <!-- Add custom Lightbox functionality -->
 <script>
     // Restore lightbox functionality
