@@ -84,7 +84,7 @@
     text-align: center;
     color: #ccffcc;
     font-size: clamp(.5rem, 2vw, 1rem);
-    margin-bottom: 6rem;
+    margin-bottom: 1rem;
     margin-top: .5rem;
   }
   
@@ -284,16 +284,16 @@ z-index: 10;
 
   <!-- Add carousel modal structure -->
   <div id="carousel">
-    <span id="carousel-close">&times;</span>
-    <span class="carousel-arrow left">&#10094;</span>
-  <img id="carousel-img" src="" alt="Carousel Image" loading="lazy">
-    <span class="carousel-arrow right">&#10095;</span>
+  <span id="carousel-close">&times;</span>
+  <span class="carousel-arrow left">&#10094;</span>
+  <span id="carousel-picture-wrapper"></span>
+  <span class="carousel-arrow right">&#10095;</span>
   </div>
 
   <script>
     // JavaScript for carousel functionality
-    const carousel = document.getElementById('carousel');
-    const carouselImg = document.getElementById('carousel-img');
+  const carousel = document.getElementById('carousel');
+  const carouselPictureWrapper = document.getElementById('carousel-picture-wrapper');
     const images = {
       boobs: [
         'wip1.webp', 'wip2.webp', 'process 1.webp', 'process 2.webp', 'process 3.webp', 'process 4.webp', 'process 5.webp', 'process 6.webp', 'process 7.webp'
@@ -309,10 +309,30 @@ z-index: 10;
     let currentImages = [];
     let currentIndex = 0;
 
+    function getBaseName(filename) {
+      // Remove extension and replace spaces with dashes for consistency
+      return filename.replace(/\.[^/.]+$/, '').replace(/ /g, '-');
+    }
+
+    function getPictureHTML(filename) {
+      const base = getBaseName(filename);
+      // Default to 1600x1200 for desktop, 600x450 for mobile (adjust if you have different sizes)
+      return `
+        <picture>
+          <source media="(max-width: 600px)" srcset="mobile-${base}.webp">
+          <img src="desktop-${base}.webp" alt="Carousel Image" loading="lazy" width="1600" height="1200">
+        </picture>
+      `;
+    }
+
+    function renderCarouselImage() {
+      carouselPictureWrapper.innerHTML = getPictureHTML(currentImages[currentIndex]);
+    }
+
     function openCarousel(imageSet) {
       currentImages = images[imageSet];
       currentIndex = 0;
-      carouselImg.src = currentImages[currentIndex];
+      renderCarouselImage();
       carousel.style.display = 'flex';
     }
 
@@ -322,12 +342,12 @@ z-index: 10;
 
     function showNextImage() {
       currentIndex = (currentIndex + 1) % currentImages.length;
-      carouselImg.src = currentImages[currentIndex];
+      renderCarouselImage();
     }
 
     function showPrevImage() {
       currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
-      carouselImg.src = currentImages[currentIndex];
+      renderCarouselImage();
     }
 
     document.querySelectorAll('.overlay img').forEach(img => {
