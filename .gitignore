@@ -1,4 +1,5 @@
 .DS_Store
+._*
 test-page.html
 node_modules/
 .idea
