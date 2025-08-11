@@ -38,7 +38,30 @@
       color: #e6ff8c;
       margin-left: 1rem; /* Set a smaller default margin */
     }
-
+    
+    @media (max-width: 768px) {
+      html {
+        font-size: clamp(10px, 2vw, 16px);
+      }
+      nav {
+        gap: 1.5rem;
+      }
+      nav a {
+        margin-left: 0.5rem;
+        margin-top: 0.2rem;
+      }
+    }
+    @media (max-width: 480px) {
+      html {
+        font-size: clamp(8px, 3vw, 14px);
+      }
+      nav {
+        gap: 1rem;
+      }
+      nav a {
+        margin-left: 0.25rem;
+      }
+    }
     
     .ascii-title {
     white-space: pre-wrap;

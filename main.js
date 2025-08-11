@@ -72,14 +72,6 @@ function fitCameraToModel(camera, model, controls) {
   }
 }
 
-console.log('Initial Camera Position:', camera.position);
-
-function logCameraPosition() {
-  console.log(`Camera Position: x=${camera.position.x}, y=${camera.position.y}, z=${camera.position.z}`);
-}
-
-// Call the function to log the camera position
-logCameraPosition();
 
 function resizeRendererToContainer(renderer, container) {
   const canvas = renderer.domElement;
@@ -106,7 +98,6 @@ function animate() {
     camera.updateProjectionMatrix();
   }
 
-  logCameraPosition(); // Log the camera position during each frame
 
   renderer.setScissorTest(false);
   controls.update();
