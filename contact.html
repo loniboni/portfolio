@@ -86,7 +86,7 @@
       text-align: center;
       color: #ccffcc;
       font-size: clamp(.5rem, 2vw, 1rem);
-      margin-bottom: 6rem;
+      margin-bottom: 2rem;
       margin-top: .5rem;
     }
     form {
@@ -161,137 +161,64 @@
 
       }
 
-    /* Adjust layout for smaller screens */
-    @media (max-width: 768px) {
-        html {
-            font-size: clamp(10px, 2vw, 16px); /* Increase font size for smaller screens */
-        }
 
-        nav a {
-            font-size: 4rem; /* Adjust navigation link size */
-        }
-
-        .ascii-title {
-            font-size: 1.5rem; /* Adjust ASCII title size */
-        }
-
-        button {
-            font-size: 1.2rem; /* Adjust button size */
-        }
-
-        form {
-            width: 100rem; /* Adjust width for tablets */
-        }
+  /* Adjust layout for smaller screens (keep only non-ascii-title/subtitle rules) */
+  @media (max-width: 768px) {
+    html {
+      font-size: clamp(10px, 2vw, 16px);
     }
-
-    @media (max-width: 480px) {
-        html {
-            font-size: clamp(8px, 3vw, 14px); /* Further increase font size for very small screens */
-        }
-
-        .ascii-title {
-            font-size: 1.2rem; /* Further adjust ASCII title size */
-        }
-
-        button {
-            font-size: 1rem; /* Further adjust button size */
-        }
-
-        form {
-            width: 30rem; /* Adjust width for mobile */
-        }
+    nav a {
+      font-size: 4rem;
     }
-
-    /* Adjust ASCII title for smaller screens */
-    @media (max-width: 480px) {
-        .ascii-title {
-            font-size: 1rem; /* Reduce font size for better fit */
-            line-height: 1.2; /* Adjust line spacing to prevent overlap */
-            word-break: break-word; /* Ensure long lines break properly */
-        }
+    button {
+      font-size: 1.2rem;
     }
-
-    /* Adjust ASCII title for widths below 2240px */
-    @media (max-width: 2240px) {
-        .ascii-title {
-            font-size: 2rem; /* Reduce font size to prevent squishing */
-            line-height: 1.5; /* Increase line spacing for better readability */
-            word-break: break-word; /* Ensure long lines break properly */
-        }
+    form {
+      width: 100rem;
     }
-
-    /* Adjust layout for iPad Pro 11-inch (2048px width) */
-    @media (max-width: 2048px) {
-        .ascii-title {
-            font-size: clamp(1.5rem, 2vw, 2.5rem); /* Scale font size dynamically */
-            line-height: 1.4; /* Adjust line spacing */
-        }
-
-        form {
-            max-width: 90%; /* Ensure form fits within the viewport */
-        }
-
-        input, textarea {
-            font-size: clamp(1rem, 1.5vw, 1.5rem); /* Scale input font size */
-        }
-
-        button {
-            font-size: clamp(1rem, 1.5vw, 1.5rem); /* Scale button font size */
-        }
+  }
+  @media (max-width: 480px) {
+    html {
+      font-size: clamp(8px, 3vw, 14px);
     }
-
-    /* Adjust layout for iPhone 13 (1170px width) */
-    @media (max-width: 1170px) {
-        .ascii-title {
-            font-size: clamp(.5rem, 2vw, 2rem); /* Scale font size dynamically */
-            line-height: 1.3; /* Adjust line spacing */
-        }
-
-        form {
-            max-width: 95%; /* Ensure form fits within the viewport */
-        }
-
-        input, textarea {
-            font-size: clamp(0.8rem, 1.5vw, 1.2rem); /* Scale input font size */
-        }
-
-        button {
-            font-size: clamp(0.8rem, 1.5vw, 1.2rem); /* Scale button font size */
-        }
+    button {
+      font-size: 1rem;
     }
-
-    /* Adjust navigation menu and subtitle for smaller screens */
-    @media (max-width: 1170px) {
-        nav a {
-            font-size: clamp(1.5rem, 2.5vw, 4rem); /* Scale down navigation link size */
-        }
-
-        .subtitle {
-            font-size: clamp(1rem, 2vw, 2.5rem); /* Scale down subtitle font size */
-        }
-
-        .subtitle img {
-            max-width: 80%; /* Scale down image size in subtitle */
-            height: auto; /* Maintain aspect ratio */
-        }
+    form {
+      width: 30rem;
     }
-
-    /* Ensure even margins for all elements on smaller screens */
-    @media (max-width: 1170px) {
-        body {
-            padding: 0 1rem; /* Add even padding to both sides */
-        }
-
-        form {
-            margin: 0 auto; /* Center the form */
-            max-width: 90%; /* Ensure form fits within the viewport */
-        }
-
-        .ascii-title, .subtitle, .social-links-container {
-            margin: 0 auto; /* Center all elements */
-            max-width: 90%; /* Ensure even margins */
-        }
+  }
+  @media (max-width: 2048px) {
+    form {
+      max-width: 90%;
     }
+    input, textarea {
+      font-size: clamp(1rem, 1.5vw, 1.5rem);
+    }
+    button {
+      font-size: clamp(1rem, 1.5vw, 1.5rem);
+    }
+  }
+  @media (max-width: 1170px) {
+    nav a {
+      font-size: clamp(1.5rem, 2.5vw, 4rem);
+    }
+    .subtitle img {
+      max-width: 80%;
+      height: auto;
+    }
+    body {
+      padding: 0 1rem;
+    }
+    form {
+      margin: 0 auto;
+      max-width: 90%;
+    }
+    .ascii-title, .subtitle, .social-links-container {
+      margin: 0 auto;
+      max-width: 90%;
+    }
+  }
 
     /* General scaling for all devices */
     body {
@@ -318,7 +245,10 @@ U /"___|   \/"_ \/ | \ |"|   |_ " _|U  /"\  uU /"___||_ " _|
   </div>
   <div class="subtitle">
   Reach out, I love to talk! Only bite if the project calls for it.<br> ... <br>
-    <img src="computerlove.webp" alt="Computer Love" style="width: 900px; height: auto;" loading="lazy"/>
+    <picture>
+      <source media="(max-width: 600px)" srcset="mobile-computerlove.webp">
+      <img src="desktop-computerlove.webp" alt="Computer Love" width="900" height="675" loading="lazy" style="width: 900px; height: auto;" />
+    </picture>
   </div>
 
   <form id="contactForm" onsubmit="handleSubmit(event)">
