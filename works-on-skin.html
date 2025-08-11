@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Works On Skin</title>
+    <title>Works On Skin</title>
+    <meta name="description" content="Works on skin by Kealohi Wean. Explore tattoo art, in-progress pieces, and creative process on skin." />
   <style>
     html {
       font-size: clamp(12px, 1vw, 18px); /* Adjust font size based on viewport width */
@@ -37,72 +38,26 @@
       color: #e6ff8c;
       margin-left: 1rem; /* Set a smaller default margin */
     }
-    
-    @media (max-width: 768px) {
-      html {
-        font-size: clamp(10px, 2vw, 16px);
-      }
-      nav {
-        gap: 1.5rem;
-      }
-      nav a {
-        margin-left: 0.5rem;
-        margin-top: 0.2rem;
-      }
-    }
-    @media (max-width: 480px) {
-      html {
-        font-size: clamp(8px, 3vw, 14px);
-      }
-      nav {
-        gap: 1rem;
-      }
-      nav a {
-        margin-left: 0.25rem;
-      }
-    }
+
     
     .ascii-title {
-      white-space: pre-wrap;
-      font-size: clamp(0.5rem, 1vw, 3rem);
-      color: #aaffcc;
-      margin-bottom: 1rem;
-      margin-top: 4rem;
-      text-align: center;
+    white-space: pre-wrap;
+    font-size: clamp(12px, 1vw, 3rem); /* Ensure minimum 12px for accessibility */
+    color: #aaffcc;
+    margin-bottom: 1rem;
+    margin-top: 4rem;
+    text-align: center;
     }
     
   /* No extra ascii-title scaling needed, clamp handles all */
     
-    .subtitle {
-      font-size: clamp(1rem, 2vw, 2rem);
-      color: #a4d4ae;
-      margin-bottom: 6rem;
-      margin-top: .5rem;
-    }
-    
-    /* Mobile subtitle scaling */
-    @media (max-width: 480px) {
-      .subtitle {
-        font-size: 20px;
-        margin-bottom: 2rem;
-        margin-top: 0.3rem;
-      }
-    }
-    
-    @media (max-width: 1170px) {
-      .subtitle {
-        font-size: clamp(25px, 4vw, 60px);
-        margin-bottom: 3rem;
-      }
-    }
-    
-    @media (max-width: 375px) {
-      .subtitle {
-        font-size: 16px;
-        margin-bottom: 1.5rem;
-        margin-top: 0.2rem;
-      }
-    }
+  .subtitle {
+    text-align: center;
+    color: #ccffcc;
+    font-size: clamp(.5rem, 2vw, 1rem);
+    margin-bottom: 1rem;
+    margin-top: .5rem;
+  }
     
     #threejs-container {
       width: 90%; /* Reduced left and right margins */

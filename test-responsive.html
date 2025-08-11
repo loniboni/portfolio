@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Image Test</title>
+  <style>
+    body {
+      font-family: monospace;
+      padding: 20px;
+      background: #1b1b1b;
+      color: white;
+    }
+    .test-container {
+      width: 80vw;
+      max-width: 800px;
+      margin: 20px auto;
+      border: 2px solid #e6ff8c;
+      padding: 10px;
+    }
+    .test-container img {
+      width: 100%;
+      height: auto;
+    }
+    .info {
+      margin: 10px 0;
+      padding: 10px;
+      background: #333;
+      border-radius: 5px;
+    }
+    @media (max-width: 768px) {
+      .test-container {
+        width: 85vw;
+      }
+    }
+    @media (max-width: 480px) {
+      .test-container {
+        width: 80vw;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Responsive Image Test</h1>
+  
+  <div class="info">
+    <strong>Window width:</strong> <span id="windowWidth"></span>px<br>
+    <strong>Container width:</strong> <span id="containerWidth"></span>px<br>
+    <strong>Device pixel ratio:</strong> <span id="dpr"></span>
+  </div>
+
+  <div class="test-container" id="container">
+    <h3>Test 1: Very aggressive breakpoints</h3>
+    <img 
+      src="mobileq45-bits1.webp" 
+      alt="Test image 1"
+      srcset="mobileq45-bits1.webp 300w, mobile-bits1.webp 600w, desktop-bits1.webp 1200w"
+      sizes="(max-width: 480px) 300px, (max-width: 768px) 600px, 800px"
+      id="testImg1"
+    />
+    <p>Current src: <span id="currentSrc1"></span></p>
+  </div>
+
+  <div class="test-container">
+    <h3>Test 2: Mobile-first approach</h3>
+    <img 
+      src="mobileq45-bits2.webp" 
+      alt="Test image 2"
+      srcset="mobileq45-bits2.webp 400w, mobile-bits2.webp 600w"
+      sizes="(max-width: 600px) 400px, 600px"
+      id="testImg2"
+    />
+    <p>Current src: <span id="currentSrc2"></span></p>
+  </div>
+
+  <div class="test-container">
+    <h3>Test 3: Desktop only (for comparison)</h3>
+    <img 
+      src="desktop-bits3.webp" 
+      alt="Test image 3"
+      id="testImg3"
+    />
+    <p>Current src: <span id="currentSrc3"></span></p>
+  </div>
+
+  <script>
+    function updateInfo() {
+      document.getElementById('windowWidth').textContent = window.innerWidth;
+      document.getElementById('containerWidth').textContent = document.getElementById('container').offsetWidth;
+      document.getElementById('dpr').textContent = window.devicePixelRatio || 1;
+      
+      // Update current src for each image
+      const img1 = document.getElementById('testImg1');
+      const img2 = document.getElementById('testImg2');
+      const img3 = document.getElementById('testImg3');
+      
+      document.getElementById('currentSrc1').textContent = img1.currentSrc || img1.src;
+      document.getElementById('currentSrc2').textContent = img2.currentSrc || img2.src;
+      document.getElementById('currentSrc3').textContent = img3.currentSrc || img3.src;
+    }
+
+    // Update info on load and resize
+    window.addEventListener('load', updateInfo);
+    window.addEventListener('resize', updateInfo);
+    
+    // Update after images load
+    document.querySelectorAll('img').forEach(img => {
+      img.addEventListener('load', updateInfo);
+    });
+  </script>
+</body>
+</html>
