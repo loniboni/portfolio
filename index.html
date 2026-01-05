@@ -379,7 +379,7 @@
         #lightbox-caption {
             margin-top: 1rem;
             color: #e6ff8c;
-            font-size: clamp(0.8rem, 2vw, 1rem); /* Responsive scaling for all screens */
+            font-size: clamp(0.8rem, 2vw, 3rem); /* Responsive scaling for all screens */
             text-align: center;
             max-width: 90%;
             padding: 0 1rem;
@@ -472,6 +472,13 @@
 <!-- Random image row -->
 <div class="gallery-container">
 <div class="gallery">
+<div class="gallery-item" style="--rotate: 0deg;" onclick="openLightbox(this.querySelector('img'))">
+    <picture>
+        <source media="(max-width: 600px)" srcset="mobile-gooner.webp">
+        <img alt="The Kids Are Alright" src="desktop-gooner.webp" loading="lazy" data-caption="November 2025, Digital Drawing in Procreate <br> Won't someone think of the children? <br> (Manosphere, loneliness, societal decline, manipulation, desire, envy, obsession)" width="1600" height="1200" />
+    </picture>
+    <div class="overlay">The Kids Are Alright</div>
+</div>
 <div class="gallery-item" style="--rotate: 2deg;" onclick="openLightbox(this.querySelector('img'))">
 <picture>
         <source media="(max-width: 600px)" srcset="mobile-Lifelong-Desire.webp">
