@@ -357,6 +357,20 @@
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Add depth */
         transition: transform 0.3s ease;
     }
+
+    /* Inner wrapper for visual-only translations so grid row heights stay consistent */
+    .gallery-inner {
+        display: block;
+        transition: transform 0.25s ease;
+        will-change: transform;
+    }
+
+    /* Shift the visual content of items after the first row upward (adjust variable as needed) */
+    :root { --bottom-shift: -200px; }
+    .gallery-item:nth-child(n+5) .gallery-inner { transform: translateY(var(--bottom-shift)); }
+    /* Targeted stacking helpers for two specific items */
+    .gallery-item.z-below { z-index: 0; }
+    .gallery-item.z-above { z-index: 20; }
     
     /* Add custom Lightbox styles */
     #lightbox {
@@ -555,7 +569,7 @@
 </picture>
 <div class="overlay">Parched</div>
 </div>
-<div class="gallery-item" style="--rotate: 3deg; position: relative; top: -50px;" onclick="openLightbox(this.querySelector('img'))">
+<div class="gallery-item z-above" style="--rotate: 3deg; position: relative; top: -50px;" onclick="openLightbox(this.querySelector('img'))">
 <picture>
         <source media="(max-width: 600px)" srcset="mobile-big-boys-cry-too.webp">
             <img alt="Big Boys Cry Too" src="desktop-big-boys-cry-too.webp" loading="lazy" data-caption="May 2023, Graphite/Ink on Mixed Media, 5.5”x8.5”<br><em>It’s dark out there. I hope he makes it where he’s going.<br>(Identity, Gender, Grief, Hope, Change, and Transition)</em>" width="1600" height="1200" />
@@ -587,7 +601,7 @@
     <div class="overlay">Works on Skin</div>
 </a>
 </div>
-<div class="gallery-item" style="--rotate: 1deg; position: relative; top: -775px;">
+<div class="gallery-item z-below" style="--rotate: 1deg; position: relative; top: -775px;">
 <a href="tattoo-flash.html">
     <picture>
         <source media="(max-width: 600px)" srcset="mobile-a17f3d97-768f-4133-b19d-54cf72a95207_rw_1920.webp">
@@ -705,6 +719,22 @@
         }
       });
     });
+</script>
+
+<script>
+// Wrap each gallery-item's contents in a .gallery-inner so we can shift visuals
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.gallery-item').forEach(item => {
+        if (item.querySelector('.gallery-inner')) return; // already wrapped
+        const inner = document.createElement('div');
+        inner.className = 'gallery-inner';
+        // Move all existing child nodes into the inner wrapper
+        while (item.firstChild) {
+            inner.appendChild(item.firstChild);
+        }
+        item.appendChild(inner);
+    });
+});
 </script>
 
 <!-- Touch hover effect for mobile -->
