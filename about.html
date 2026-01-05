@@ -107,6 +107,16 @@
     .sub-text ul li a:hover {
       text-decoration: underline;
     }
+
+    /* About page link color */
+    .content-container a,
+    .about-text a,
+    .about-left a,
+    .sub-text a,
+    .friends-container a {
+      color: #e6ff8c;
+      text-decoration: underline;
+    }
     
     /* Responsive friend links container */
     .friends-container {
@@ -116,16 +126,49 @@
       gap: clamp(0.3rem, 0.1rem + 0.5vw, 1rem); /* Proportional gap scaling */
     }
     
-    /* Responsive content container */
+    /* Responsive content container: two-column layout (left small, right main) */
     .content-container {
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
-      margin: 0 auto; 
-      max-width: clamp(400px, 40vw + 300px, 2000px); /* Scale container width too */
+      display: flex;
+      gap: clamp(1rem, 1.5vw, 2.5rem);
+      align-items: flex-start;
+      justify-content: center;
+      margin: 0 auto;
+      max-width: clamp(600px, 80vw, 2000px);
       position: relative;
-      transform: scale(1); /* Remove problematic scaling for now */
+      transform: scale(1);
       transform-origin: center top;
+      padding: 1rem; /* ensure horizontal padding on small screens */
+      box-sizing: border-box;
+      overflow-wrap: anywhere; /* allow long words to break */
+    }
+
+    /* Left, smaller column for metadata/short text */
+    .about-left {
+      flex: 0 0 28%;
+      min-width: 0; /* allow shrinking on narrow viewports */
+      max-width: 320px;
+      text-align: left;
+      color: #cfe8c6;
+        /* ensure very small minimum on tiny screens while scaling up on larger viewports */
+        font-size: clamp(5px, calc(5px + 0.5vw), 18px);
+      line-height: 1.4;
+      padding-right: 0.5rem;
+      overflow-wrap: anywhere;
+    }
+
+    /* Make the existing about-text fill the remaining space */
+    .about-text {
+      flex: 1 1 65%;
+      min-width: 0; /* allow shrinking inside a flex container */
+      max-width: none; /* allow the right column to expand */
+      margin: 0; /* remove auto-centering so columns align */
+      padding: 0 1rem;
+      font-size: clamp(0.9rem, 0.2rem + 1.4vw, 2.8rem);
+      line-height: 1.5;
+      text-align: left;
+      color: #a4d4ae;
+      margin-top: 0;
+      overflow-wrap: anywhere;
     }
     
     /* Set minimum font size for very small screens */
@@ -134,6 +177,8 @@
         font-size: .9rem; /* Fixed minimum size instead of complex calc */
       }
     }
+
+    /* Keep columns side-by-side on all screen sizes (no stacking) */
   </style>
 </head>
 <body>
@@ -153,6 +198,12 @@ _|"""""|_|"""""|_|"""""|_|"""""| {======|_|"""""|_|"""""|_|"""""|_|"""""|
 </div>
 
   <div class="content-container">
+    <div class="about-left">
+    </p>
+      <p style="margin:0;">Bragging Corner<br><br><a href="https://www.purgatorycomicspress.com/" target="_blank" rel="noopener noreferrer">Purgatory Comics Press</a><br>Feature in PCP Volume 2 (Coming soon)<br>Table Seller - Prints<br><br><a href="https://www.unboundart.xyz/nemo" target="_blank" rel="noopener noreferrer">"Unbound Art: First Impressions" Online Work Showcase</a><br><br><a href="https://www.booooooom.com/submissions/drawings-2023-2025/" target="_blank" rel="noopener noreferrer">"BOOOOOOOM Online Work Showcase</a><br><br><a href="https://www.magcloud.com/browse/issue/3182903?__r=8691646" target="_blank" rel="noopener noreferrer">“Kreatif Magazine 2025”</a><br>Pages 10-11<br> Work Featured: "Ain't That Just The Way", "Yeowch!", "Lifelong Desire"<br><br>“Dirt, Blood, and Rebirth"<br>Mar 28, 2025, The Grove, Bushwick<br>Pieces Shown: “Equivalent exchange”, “Parched”<br><br><a href="https://brooklyneagle.com/articles/2025/02/12/portals-of-love-debuts-at-brooklyn-art-cave/" target="_blank" rel="noopener noreferrer">“Portals of Love”</a><br>Feb 7, 2025, Brooklyn Art Cave<br>Pieces Shown: “Yeowch!”, “Ain’t that just the way”, “Equivalent exchange”, “(For boys)”, “Smothered”, “Bow wow” (SOLD), “Parched”, “Big boys cry too” <br><br> 
+    </p>
+</p>
+    </div>
     <div class="about-text" id="aboutText">
       Big feelings, Nostalgia, Hyperfixations… Cartoons movies and Online Culture - Sex and drugs and gender and politics. A sense of humor, a tongue in the cheek, a lip dragged between the teeth. Horny, weird, standing on a soapbox in the corner of each drawing screaming at the viewer to both give in and get up. Hedonism and Communalism are not two opposing forces. Desire is good, actually, served with blood, sweat, and tears. Can you desire a better world as much as you desire love and attention?
 
@@ -163,14 +214,14 @@ _|"""""|_|"""""|_|"""""|_|"""""| {======|_|"""""|_|"""""|_|"""""|_|"""""|
       <div class="sub-text" id="friends">
         I’m a friend lover, here are my friends:
         <div class="friends-container">
-          <a href="https://rpeale.tumblr.com" target="_blank" style="color: #a4d4ae; text-decoration: underline;">Ren,</a>
-          <a href="https://www.instagram.com/horse.corset/" target="_blank" style="color: #a4d4ae; text-decoration: underline;">Mal,</a>
-          <a href="https://andrewlackland.wixsite.com/website?fbclid=PAZXh0bgNhZW0CMTEAAaceGthowcVEzjo9CzxE_e23IhDzQcLY9wsePfmE4aA82RAzjns-YmDMJMCMRA_aem_BpGvreWHaj7zO8qij1Gcbg" target="_blank" style="color: #a4d4ae; text-decoration: underline;">Andy,</a>
-          <a href="https://www.instagram.com/sloinhole/" target="_blank" style="color: #a4d4ae; text-decoration: underline;">Gus,</a>
-          <a href="https://janebuffo.com/?fbclid=PAZXh0bgNhZW0CMTEAAadGaK78DHZlR-8f8VqXYTh3JZkZt-YCvtzKNrSXDXDrLWHHBtlT145Sqcp0uw_aem_BFPpZ1vZgw00wdvEd3B33Q" target="_blank" style="color: #a4d4ae; text-decoration: underline;">Jane,</a>
-          <a href="https://www.purgatorycomicspress.com" target="_blank" style="color: #a4d4ae; text-decoration: underline;">Purgatory Press,</a>
-          <a href="https://www.instagram.com/octagonthecomic/" target="_blank" style="color: #a4d4ae; text-decoration: underline;">Clay,</a>
-          <a href="https://www.kaylamadesomething.com/?fbclid=PAZXh0bgNhZW0CMTEAAaf3LAjlCHNFPERuopwx84t4jIwcaffkx_NOaeXp6YO7100I82EkSnPr_zGV6Q_aem_DR_BftwgA_bXY_iDafl8oQ" target="_blank" style="color: #a4d4ae; text-decoration: underline;">Kayla</a>
+          <a href="https://rpeale.tumblr.com" target="_blank" style="text-decoration: underline;">Ren,</a>
+          <a href="https://www.instagram.com/horse.corset/" target="_blank" style="text-decoration: underline;">Mal,</a>
+          <a href="https://andrewlackland.wixsite.com/website?fbclid=PAZXh0bgNhZW0CMTEAAaceGthowcVEzjo9CzxE_e23IhDzQcLY9wsePfmE4aA82RAzjns-YmDMJMCMRA_aem_BpGvreWHaj7zO8qij1Gcbg" target="_blank" style="text-decoration: underline;">Andy,</a>
+          <a href="https://www.instagram.com/sloinhole/" target="_blank" style="text-decoration: underline;">Gus,</a>
+          <a href="https://janebuffo.com/?fbclid=PAZXh0bgNhZW0CMTEAAadGaK78DHZlR-8f8VqXYTh3JZkZt-YCvtzKNrSXDXDrLWHHBtlT145Sqcp0uw_aem_BFPpZ1vZgw00wdvEd3B33Q" target="_blank" style="text-decoration: underline;">Jane,</a>
+          <a href="https://www.purgatorycomicspress.com" target="_blank" style="text-decoration: underline;">Purgatory Press,</a>
+          <a href="https://www.instagram.com/octagonthecomic/" target="_blank" style="text-decoration: underline;">Clay,</a>
+          <a href="https://www.kaylamadesomething.com/?fbclid=PAZXh0bgNhZW0CMTEAAaf3LAjlCHNFPERuopwx84t4jIwcaffkx_NOaeXp6YO7100I82EkSnPr_zGV6Q_aem_DR_BftwgA_bXY_iDafl8oQ" target="_blank" style="text-decoration: underline;">Kayla</a>
         </div>
       </div>
     </div>
