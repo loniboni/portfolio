@@ -1,0 +1,50 @@
+/* Unified site navigation styles (match about.html sizing) */
+nav {
+  position: fixed;
+  top: 1rem;
+  right: 2rem;
+  display: flex;
+  gap: 1rem;
+  font-size: clamp(1rem, 2vw, 2rem);
+  z-index: 1000;
+}
+
+nav a {
+  margin: 0;
+  text-decoration: none;
+  color: #e6ff8c;
+  margin-left: 1rem;
+}
+
+@media (max-width: 1170px) {
+  nav a {
+    font-size: clamp(1.5rem, 2.5vw, 4rem);
+  }
+}
+
+@media (max-width: 768px) {
+  nav {
+    gap: 1.5rem;
+  }
+  nav a {
+    margin-left: 0.5rem;
+    margin-top: 0.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  nav {
+    gap: 1rem;
+  }
+  nav a {
+    margin-left: 0.25rem;
+  }
+}
+
+/* Ensure modal/lightbox overlays sit above the fixed nav */
+#lightbox,
+#lightroom,
+#carousel,
+.paperstack-modal {
+  z-index: 2000 !important;
+}
